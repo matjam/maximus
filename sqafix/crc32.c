@@ -13,7 +13,7 @@
  * Original code taken from:
  * 
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
- * $Id: crc32.c,v 4.1 1996/12/17 17:19:41 mj Exp $
+ * $Id: crc32.c,v 1.1 2003/08/15 08:35:45 rfj Exp $
  *
  * Compute 32 bit CRC value
  *

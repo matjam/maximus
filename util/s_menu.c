@@ -201,7 +201,9 @@ TryAgain:
     {
       getword(line,temp,ctl_delim,2);
       /*Add_Filename(temp);*/
-      
+#ifdef UNIX
+      fixPathMove(temp);
+#endif
       menu.headfile=InsertMenuHeap(temp);
 
       x=3;
@@ -319,8 +321,12 @@ TryAgain:
       while ((s=strtok(NULL, ctl_delim)) != NULL)
       {
         Add_Specific_Path(s, temp, strings+prm.menupath);
+#ifndef UNIX
         strcat(temp, ".MNU");
-        
+#else
+        strcat(temp, ".mnu");
+#endif	        
+
         lcopy(firstname, temp);
       }
     }

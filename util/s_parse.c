@@ -135,7 +135,8 @@ int Parse_Ctlfile(char *ctlname)
 
   linenum=1;
 
-  strcpy(ctl_name, fancy_str(ctlname));
+  strcpy(ctl_name, fancy_fn(ctlname));
+  fixPathMove(ctl_name);
 
   printf("\nParsing `%s':",ctl_name);
 

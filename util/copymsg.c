@@ -93,6 +93,7 @@ int copymsg(FILE *outfile, char *fname)
     struct _omsg *msg;
     FILE *inf;
 
+    fixPathMove(fname); 
     inf = fopen(fname, "rb");
     if(!inf)
         return FALSE;

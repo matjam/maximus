@@ -275,8 +275,11 @@ int Parse_Session(FILE *ctlfile)
         if (x==1 && do_prm)           /* USES statement */
         {                             /* Allow mecca or mex vm */
           int n=(*s2==':')?1:0;
+#ifndef UNIX
           static char * ext[] = { ".BBS", ".VM" };
-
+#else
+          static char * ext[] = { ".bbs", ".vm" };
+#endif
           if (! fexist(s2+n))
           {
             strcat(s2,ext[n]);

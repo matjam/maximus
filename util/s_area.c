@@ -156,7 +156,7 @@ void AddMsgArea(BFILE bDat, BFILE bNdx, BFILE bIdx, PMAH pmah, SLIST *sl)
 
     if (Bread(bDat, &a, sizeof a) != sizeof a)
     {
-      printf("Error reading existing file area from offset %ld (area %s)\n",
+      printf("Error reading existing file area from offset %" INT32_FORMAT " (area %s)\n",
              pa2Found->offset, name);
       exit(1);
     }

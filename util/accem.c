@@ -138,22 +138,26 @@ int _stdc main(int argc,char *argv[])
     }
   }
 
-  strupr(inname);
-  
+  /* strupr(inname); */
+  fancy_fn(inname);
+
   if (! strchr(outname,'.'))
     strcat(outname, (p[1]=='R') ? ".mer" : ".mec");
 
-  strupr(outname);
+  /* strupr(outname); */
+  fancy_fn(outname);
     
   iqsort((char *)verbs, verb_table_size, sizeof(verbs[0]), trcmp);
   Init_Table();
 
+  fixPathMove(inname);
   if ((bbsfile=fopen(inname,"rb"))==NULL)
   {
     printf("Error opening `%s' for read!\n",argv[1]);
     exit(1);
   }
   
+  fixPathMove(outname);
   if ((mecfile=fopen(outname,"wb"))==NULL)
   {
     printf("Error opening `%s' for write!\n",argv[2]);

@@ -274,6 +274,8 @@ int Parse_System(FILE *ctlfile)
           prm.multitasker=MULTITASKER_PCMOS;
         else if (eqstri(p, "os/2"))
           prm.multitasker=MULTITASKER_OS2;
+        else if (eqstri(p, "UNIX"))
+          prm.multitasker=MULTITASKER_UNIX;
         else Unknown_Ctl(linenum, p);
       }
       else if (eqstri(p, "mcp")) /* MCP stuff */

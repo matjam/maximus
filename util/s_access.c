@@ -46,6 +46,8 @@ static char rcs_id[]="$Id: S_ACCESS.C 1.5 1995/08/21 13:41:45 sjd Exp $";
 #define ACSHEAPLEN  2048
 #define ACSNO       32
 
+void Add_Access(struct _clsrec * cls);
+
 static char *acsheap;
 static int acsofs;
 static int clalloc;

@@ -83,8 +83,11 @@ int Parse_Language(FILE *ctlfile)
           /* Now open the language file, to find out how big the largest     *
            * heap is.                                                        */
 
+#ifndef UNIX
           sprintf(temp,"%s%s.LTF",strings+prm.lang_path,p);
-
+#else
+          sprintf(temp,"%s%s.ltf",strings+prm.lang_path,p);
+#endif
           if ((lf=shopen(temp,O_RDONLY | O_BINARY))==-1)
           {
             printf("\nFatal error opening language file `%s'!\n",temp);

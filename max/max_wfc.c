@@ -65,14 +65,26 @@ void Wait_For_Caller(void)
 
   Update_Status(wfc_waiting);
 
-  while ((rsp=Get_Modem_Response()) != NULL)
+#if (COMMAPI_VER > 1)
+  if (ComIsAModem(hcModem))
   {
-    if (Process_Modem_Response(rsp))
-      break;
-/* hack hack */
-    if (hcModem && !local && hcModem->fDCD)
-      goto letsgo;
+#endif
+    while ((rsp=Get_Modem_Response()) != NULL)
+    {
+      if (Process_Modem_Response(rsp))
+	break;
+    }
+#if (COMMAPI_VER > 1)
   }
+  else
+  {
+    while(!ComIsOnline(hcModem))
+      usleep(250000);
+
+    ComTxWait(hcModem, 1000);
+    goto letsgo;
+  }
+#endif /* COMMAPI_VER > 1 */
 
   if (kexit || do_next_event)
   {

@@ -201,8 +201,8 @@ static char rcs_id[]="$Id: fos_os2.c 1.16 1996/11/11 17:11:25 sjd Exp $";
       if (steady_baud)
         bod=steady_baud;
 
-#ifdef UNIX
-if (!hcModem->saddr_p)
+#if (COMMAPI_VER > 1)
+if (ComIsAModem(hcModem))
 {
 #endif
       for (pb=bodcvt; pb->baudrate; pb++)
@@ -218,7 +218,7 @@ if (!hcModem->saddr_p)
 
       if (!pb->bodmask)
         b=19200L;
-#ifdef UNIX
+#if (COMMAPI_VER > 1)
 } else b=38400L;
 #endif
 

@@ -32,6 +32,12 @@ static char rcs_id[]="$Id: MAX_OUT.C 1.6 1995/06/22 17:59:05 sjd Exp $";
 #include "prog.h"
 #include "mm.h"
 
+#if defined(NT) || defined(UNIX)
+# include "ntcomm.h"
+#else
+# define COMMAPI_VER 0
+#endif
+
 int last_cc=-1;
 char strng[20];
 static char *szOutString = NULL;
@@ -133,8 +139,17 @@ void Puts(char *s)
 
 void Mdm_puts(char *s)
 {
+#if (COMMAPI_VER > 1)
+  extern HCOMM hcModem;
+  BOOL lastState = ComBurstMode(hcModem, TRUE);
+#endif
+
   while (*s)
     Mdm_putc(*s++);
+
+#if (COMMAPI_VER > 1)
+  ComBurstMode(hcModem, lastState);
+#endif
 }
 
 

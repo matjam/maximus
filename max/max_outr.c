@@ -54,13 +54,25 @@ static int rip_wrap=1;
 
         ComPutc(hcModem, c);
     }
-    static void near CMDM_PPUTs(char *s)
-    {
-        if(local)
-            return;
-        while (*s)
-            ComPutc(hcModem, *s++);
-    }
+
+static void near CMDM_PPUTs(char *s)
+{
+  if (local)
+    return;
+  else
+  {
+#if (COMMAPI_VER > 1)
+    extern HCOMM hcModem;
+    BOOL lastState = ComBurstMode(hcModem, TRUE);
+
+    ComWrite(hcModem, s, strlen(s));
+    ComBurstMode(hcModem, lastState);
+#else
+  while (*s)
+    ComPutc(hcModem, *s++);
+#endif
+  }
+}
     #define CMDM_PPUTc(c) CMDM_PPUTcw(c)
 
 

@@ -384,7 +384,7 @@ int mdm_gets(char *string, int type, int c, int max, char *prompt)
 
     switch (ch)
     {
-      case '\x00':      /* IBM extended key code */
+      case K_ONEMORE:      /* IBM extended key code */
         while (! Mdm_keyp())
         {
           Check_For_Message(NULL, NULL);
@@ -396,6 +396,16 @@ int mdm_gets(char *string, int type, int c, int max, char *prompt)
           Mdm_getcw();
           Zoquo();
         }
+
+#if K_ONEMORE == K_ESC /* UNIX */
+	if (Mdm_kpeek() == K_ESC)
+	{
+	  ch=(unsigned char)Mdm_getcw();
+	  if (ch == K_ESC)
+	    goto realEscape;
+	}
+#endif
+
 #if defined(TEST_VER) && defined(OS_2)
         else if (loc_peek()==K_ALTB)
         {
@@ -482,7 +492,11 @@ int mdm_gets(char *string, int type, int c, int max, char *prompt)
           Mdmgets_Clear(type);
         break;
 
+#if K_ONEMORE == K_ESC /* UNIX */
+      realEscape:
+#else
       case K_ESC:      /* ESC */
+#endif
         if ((ch=Mdm_getcw())==K_ESC)
         {
           if (type & INPUT_MSGENTER)

@@ -194,6 +194,7 @@ typedef dword UMSGID;
 #define XMSG_TO_SIZE    36
 #define XMSG_SUBJ_SIZE  72
 
+#define XMSG_SIZE (94 + XMSG_FROM_SIZE + XMSG_TO_SIZE + XMSG_SUBJ_SIZE)
 
 /* Number of reply fields in XMSG.replies */
 

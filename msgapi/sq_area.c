@@ -277,7 +277,7 @@ static unsigned near _SquishSetBaseDefaults(HAREA ha)
   Sqd->foCur=NULL_FRAME;
   Sqd->foPrev=NULL_FRAME;
   ha->cur_msg=0;
-  ha->sz_xmsg=sizeof(XMSG);
+  ha->sz_xmsg=XMSG_SIZE;
   return TRUE;
 }
 

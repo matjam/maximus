@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: dbase.cc,v 1.2 2003/06/11 17:21:38 wesgarland Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #ifdef OS_2
   extern "C"

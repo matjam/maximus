@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: PALIST.CC 1.2 1993/12/18 06:01:01 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #include "palist.h"
 

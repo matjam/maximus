@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: MAX_ARGS.C 1.16 1995/09/28 11:23:17 sjd Exp $";
+static char rcs_id[]="$Id: max_args.c,v 1.3 2003/06/05 23:37:19 wesgarland Exp $";
 #pragma on(unreferenced)
 
 /*# name=Command-line argument processing code
@@ -198,6 +198,7 @@ byte getDynamicTaskNumber(int cleanup)
   {
     if (filename[0])
       unlink(filename);
+    return 0;
   }
 
   if (offsets && PRM(ipc_path))

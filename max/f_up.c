@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: F_UP.C 1.30 1995/09/28 13:31:08 sjd Exp $";
+static char rcs_id[]="$Id: f_up.c,v 1.2 2003/06/04 23:20:16 wesgarland Exp $";
 #pragma on(unreferenced)
 
 /*# name=File area routines: U)pload command and associated functions
@@ -109,6 +109,7 @@ void File_Upload(char *mname)
   }
 
   Printf(bytes_for_ul, commaize(b_free-(long)prm.k_free*1000L, temp));
+
 
   if (local)
   {

@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: fos_os2.c 1.16 1996/11/11 17:11:25 sjd Exp $";
+static char rcs_id[]="$Id: fos_os2.c,v 1.3 2003/06/06 01:18:58 wesgarland Exp $";
 #pragma on(unreferenced)
 
 /*# name=FOSSIL interface routines (OS/2)
@@ -267,9 +267,7 @@ if (ComIsAModem(hcModem))
         USHORT cbBytesRead;
       #endif
 
-      #if 1
-        ComRead(hcModem, offset, max_chars, &cbBytesRead);
-      #else
+      #if defined(UNIX)
         char *p=offset;
         char *e=p+max_chars;
         int ch;
@@ -280,8 +278,10 @@ if (ComIsAModem(hcModem))
           else break;
 
         cbBytesRead=p-offset;
-      #endif
 
+      #else
+        ComRead(hcModem, offset, max_chars, &cbBytesRead);
+      #endif
       return (int)cbBytesRead;
     }
 

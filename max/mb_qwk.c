@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: MB_QWK.C 1.19 1995/07/23 07:58:38 sjd Exp $";
+static char rcs_id[]="$Id: mb_qwk.c,v 1.2 2003/06/04 23:46:22 wesgarland Exp $";
 #pragma on(unreferenced)
 
 /*# name=QWK creation code for the BROWSE command
@@ -1305,8 +1305,10 @@ static int near QWK_Compress_Mail(BROWSE *b)
 
     /* Add MaxPipe to the call */
 
+#ifndef UNIX
     sprintf(tmp, maxpipe_cmd, cmd);
     strcpy(cmd, tmp);
+#endif
 
     ret=Outside(NULL, NULL, OUTSIDE_RUN | OUTSIDE_NOFIX, cmd, FALSE,
                 CTL_NONE, 0, NULL);

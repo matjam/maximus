@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: max_xtrn.c,v 1.3 2003/06/13 04:53:30 wesgarland Exp $";
+static char rcs_id[]="$Id: max_xtrn.c,v 1.4 2003/06/18 02:04:20 wesgarland Exp $";
 #pragma on(unreferenced)
 
 #define MAX_LANG_max_chat
@@ -319,7 +319,7 @@ static char * near GetComspec(void)
   return comspec;
 }
 
-
+#ifndef UNIX
 int Outside(char *leaving,char *returning,int method,char *parm,
             int slogan,int ctltype,char restart_type,
             char *restart_name)
@@ -799,7 +799,18 @@ RetProc:
  
   return erl;
 }
+#else
 
+int Outside(char *leaving,char *returning,int method,char *parm,
+            int slogan,int ctltype,char restart_type,
+            char *restart_name)
+{
+    int erl;
+    erl = system(parm);
+    return erl;
+}
+
+#endif
 
 
 

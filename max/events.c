@@ -37,7 +37,12 @@ static char rcs_id[]="$Id: EVENTS.C 1.7 1995/06/22 17:57:18 sjd Exp $";
 static struct _event *elist;
 static unsigned num_event;
 
+#ifndef UNIX
 static char event_name[]="%sevents%02x%s";
+#else
+static char event_name[]="%setc/events%02x%s";
+#endif
+
 static union stamp_combo done_date;
 
 

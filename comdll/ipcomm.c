@@ -27,9 +27,12 @@
  *			  
  *  @author 	Wes Garland
  *  @date   	May 24 2003
- *  @version	$Id: ipcomm.c,v 1.12 2004/01/13 00:47:31 paltas Exp $
+ *  @version	$Id: ipcomm.c,v 1.13 2004/01/14 16:09:54 paltas Exp $
  *
  * $Log: ipcomm.c,v $
+ * Revision 1.13  2004/01/14 16:09:54  paltas
+ * Used a better way to switch between modem and ip..
+ *
  * Revision 1.12  2004/01/13 00:47:31  paltas
  * Fixed comm module you can both run modem and telnet.
  *
@@ -91,7 +94,7 @@
 
 #define TELNET
 
-static char rcs_id[]="$Id: ipcomm.c,v 1.12 2004/01/13 00:47:31 paltas Exp $";
+static char rcs_id[]="$Id: ipcomm.c,v 1.13 2004/01/14 16:09:54 paltas Exp $";
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -522,6 +525,9 @@ void setTelnetOption(HCOMM hc, telnet_command_t command, telnet_option_t option)
 
   switch(command)
   {
+  
+    case 0:
+    case 24:
     case cmd_WILL:
       enable = TRUE;
       optionMask = &(hc->telnetOptions);
@@ -566,6 +572,7 @@ void setTelnetOption(HCOMM hc, telnet_command_t command, telnet_option_t option)
  *
  *  @returns	Number of translated bytes read, or -1 on error.
  */
+ 
 static inline ssize_t telnet_read(HCOMM hc, unsigned char *buf, size_t count)
 {
   unsigned char	*iac, *ch, arg, arg2;
@@ -577,7 +584,7 @@ static inline ssize_t telnet_read(HCOMM hc, unsigned char *buf, size_t count)
     return -1;
 
   if (hc->telnetOptions & mopt_TRANSMIT_BINARY)
-    goto parse_iac;
+    goto parse_iac;    
 
   telnet_read_reread:
   if (bytesRead <= 0)
@@ -667,7 +674,6 @@ static inline ssize_t telnet_read(HCOMM hc, unsigned char *buf, size_t count)
     /* There was an embedded IAC. This means we need 
      * to locate the telnet data and "consume" it.
      */
-
     if (iac == (buf + bytesRead - 1))		/* IAC last char in buf? */
     {
       if (timeout_read(fd, &arg, 1, 5) != 1)
@@ -706,6 +712,8 @@ static inline ssize_t telnet_read(HCOMM hc, unsigned char *buf, size_t count)
 
     switch(arg)
     {
+      case 0:
+      case 24:
       case cmd_WILL:				/* These each have one additional argument. */
       case cmd_WONT: 
       case cmd_DO:
@@ -772,13 +780,14 @@ static inline ssize_t telnet_read(HCOMM hc, unsigned char *buf, size_t count)
 	break; /* continue loop */
       }
       default:
-	logit("!Found unknown IAC argument %c", arg);
+	logit("!Found unknown IAC argument %d", arg);
 	break; /* continue loop */
     } /* esac */
   } /* end for */
 
   return bytesRead;
 }
+
 #else
 # define telnet_read(a, b, c) read(unixfd(a),b,c)
 #endif
@@ -1132,7 +1141,7 @@ BOOL COMMAPI IpComRead(HCOMM hc, PVOID pvBuf, DWORD dwBytesToRead, PDWORD pdwByt
     }
   }
 
-  ComRead_getData:
+//  ComRead_getData:
   FD_ZERO(&rfds);
   FD_SET(unixfd(hc), &rfds);
 

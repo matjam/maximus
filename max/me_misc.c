@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: ME_MISC.C 1.10 1995/05/21 12:04:08 sjd Exp $";
+static char rcs_id[]="$Id: me_misc.c,v 1.1.1.1 2002/10/01 17:52:31 sdudley Exp $";
 #pragma on(unreferenced)
 
 /*# name=Message section: message entry routines (miscellaneous)
@@ -299,7 +299,7 @@ char * GenerateMessageKludges(XMSG *msg, PMAH pmah, char *ctrl_buf)
 
   /* Cap the kludge lines */
 
-  strcat(kludge, "\x01");
+  /* strcat(kludge, "\x01"); */ /* WHY?! -- Bo */
 
   return kludge;
 }

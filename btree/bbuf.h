@@ -17,7 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: BBUF.H 1.2 1993/12/17 16:19:42 sjd Exp $ */
+/* $Id: bbuf.h,v 1.1.1.1 2002/10/01 17:49:20 sdudley Exp $ */
 
 #include "btype.h"
 
@@ -67,7 +67,7 @@ public:
 
   // Return the number of blocks in the buffer
 
-  inline CPPEXPORT num_blocks() { return uiNumBlocks; }
+  inline int CPPEXPORT num_blocks() { return uiNumBlocks; }
   int CPPEXPORT get_lru(NNUM *pnn, void *pvBlock, unsigned *pfDelta);
 
   CPPEXPORT BLOCKBUF();

@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: MAX_MISC.C 1.40 1995/12/02 19:24:12 sjd Exp $";
+static char rcs_id[]="$Id: max_misc.c,v 1.2 2003/06/04 23:46:22 wesgarland Exp $";
 #pragma on(unreferenced)
 
 /*# name=Miscellaneous routines
@@ -42,6 +42,9 @@ static char rcs_id[]="$Id: MAX_MISC.C 1.40 1995/12/02 19:24:12 sjd Exp $";
 #include <fcntl.h>
 #include <string.h>
 #include <share.h>
+#ifdef UNIX
+# include <errno.h>
+#endif
 
 #ifdef OS_2
 #define INCL_DOS

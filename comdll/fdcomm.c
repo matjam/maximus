@@ -34,7 +34,7 @@
 # error UNIX only!
 #endif
 
-static char rcs_id[]="$Id: NTCOMM.C 1.3 1995/07/23 16:41:10 sjd Exp $";
+static char rcs_id[]="$Id: fdcomm.c,v 1.1 2003/06/04 22:38:49 wesgarland Exp $";
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,6 +44,7 @@ static char rcs_id[]="$Id: NTCOMM.C 1.3 1995/07/23 16:41:10 sjd Exp $";
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netinet/tcp.h>
+#include <errno.h>
 #include "prog.h"
 #include "ntcomm.h"
 

@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: mb_qwkup.c,v 1.5 2003/11/21 03:31:02 paltas Exp $";
+static char rcs_id[]="$Id: mb_qwkup.c,v 1.6 2003/11/23 13:14:05 paltas Exp $";
 #pragma on(unreferenced)
 
 /*# QWK uploads, for processing .REP packets
@@ -37,6 +37,7 @@ static char rcs_id[]="$Id: mb_qwkup.c,v 1.5 2003/11/21 03:31:02 paltas Exp $";
 #include <sys/stat.h>
 #include <share.h>
 #include <ctype.h>
+#include <unistd.h>
 #include "prog.h"
 #include "max_msg.h"
 #include "max_file.h"
@@ -85,6 +86,7 @@ void QWK_Upload(void)
     logit(mem_none);
   else
   {
+    memset(msg_name, 0, PATHLEN);
     strcat(msg_name, PRM(olr_name));
     strcat(msg_name, dot_msg);
 
@@ -326,9 +328,8 @@ static int near Decompress_REP(char *rep_name)
   }
 
   #ifdef UNIX
-  adaptcase(msg_name);  
+  adaptcase(msg_name);
   #endif
-
 
   if (ret != 0 || !fexist(msg_name))
   {

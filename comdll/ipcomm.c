@@ -27,9 +27,28 @@
  *			  
  *  @author 	Wes Garland
  *  @date   	May 24 2003
- *  @version	$Id: ipcomm.c,v 1.5 2003/06/13 04:24:43 wesgarland Exp $
+ *  @version	$Id: ipcomm.c,v 1.6 2003/06/29 20:49:00 wesgarland Exp $
  *
  * $Log: ipcomm.c,v $
+ * Revision 1.6  2003/06/29 20:49:00  wesgarland
+ * Changes made to allow pluggable communications module. Code in not currently
+ * pluggable, but "guts" will be identical to pluggable version of telnet
+ * and raw IP plugins.
+ *
+ * Changed representation of COMMHANDLE (and deprecated OSCOMMHANDLE) in wincomm
+ * code (pseudo Win32 communications API), to allow the potential for multiple
+ * comm handles, better support UNIX comm plug-ins, etc.
+ *
+ * Added functions to "Windows" communications API which are normally handled by
+ * the assignment operator -- those are possible under Win32 because the
+ * underlying representation by which all comm data is accessed (e.g. word
+ * length, parity, buffer sizes) is an integer (not unlike a UNIX file
+ * descriptor), but under UNIX a COMMHANDLE is an incomplete struct pointer.
+ * Using these routines instead of "inside" knowledge should allow new code
+ * written for UNIX to be backported to Windows (and maybe other OSes) easily.
+ *
+ * This check-in is "barely tested" and expected to have bugs.
+ *
  * Revision 1.5  2003/06/13 04:24:43  wesgarland
  * Corrected tv_usec delay in bound socket select to valid value (0.5s); now accepts 
  * calls under Solaris
@@ -51,7 +70,7 @@
 # error UNIX only!
 #endif
 
-static char rcs_id[]="$Id: ipcomm.c,v 1.5 2003/06/13 04:24:43 wesgarland Exp $";
+static char rcs_id[]="$Id: ipcomm.c,v 1.6 2003/06/29 20:49:00 wesgarland Exp $";
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -238,7 +257,8 @@ BOOL COMMAPI ComOpen(LPTSTR pszDevice, HCOMM *phc, DWORD dwRxBuf, DWORD dwTxBuf)
   struct servent 	*se;  
   short			portnum = 0;
   int			junk;
-  COMMHANDLE		h = CommHandle_fromFileHandle(h, -1);
+  COMMHANDLE		h = NULL;
+  h = CommHandle_fromFileHandle(h, -1);
 
   if (strncasecmp(pszDevice, "Com", 3) == 0)
     pszDevice += 3;

@@ -2,8 +2,11 @@
 # @author			Wes Garland
 # @date				May 13th, 2003
 #
-# $Id: Makefile,v 1.5 2003/06/12 03:26:43 wesgarland Exp $
+# $Id: Makefile,v 1.6 2003/06/29 20:38:51 wesgarland Exp $
 # $Log: Makefile,v $
+# Revision 1.6  2003/06/29 20:38:51  wesgarland
+# Cosmetic change
+#
 # Revision 1.5  2003/06/12 03:26:43  wesgarland
 # Corrected PREFIX-passing between master Makefile and copy_install_ree.sh
 #
@@ -16,9 +19,10 @@
 #
 
 SQUISH_LIB_DIRS = btree slib unix msgapi squish
+SQAFIX_LIB_DIRS = msgapi sqafix
 MAX_LIB_DIRS	= slib unix msgapi mex prot comdll 
-LIB_DIRS	= $(SQUISH_LIB_DIRS) $(MAX_LIB_DIRS)
-PROG_DIRS	= squish max mex util
+LIB_DIRS	= $(SQUISH_LIB_DIRS) $(SQAFIX_LIB_DIRS) $(MAX_LIB_DIRS)
+PROG_DIRS	= squish max mex util sqafix
 DIRS		= $(LIB_DIRS) $(PROG_DIRS)
 NO_DEPEND_RULE	:= TRUE
 
@@ -28,7 +32,7 @@ topmost:: header usage
 MAXIMUS=$(PREFIX)/etc/max.prm
 
 .PHONY: all depend clean install mkdirs squish max install_libs install_binaries \
-	usage topmost build config_install configure reconfig
+	usage topmost build config_install configure reconfig sqafix
 
 header::
 	@echo "Maximus-CBCS Master Makefile"
@@ -47,11 +51,13 @@ usage::
 	@echo "         binaries       $(BIN)"
 	@echo      
 	@echo "Targets:"
-	@echo "         build          build maximus and squish"
+	@echo "         build          build maximus, squish and SqaFix"
 	@echo "         config_install install configuration files"
 	@echo "         install        build and install everything"
 	@echo "         squish         build squish"
 	@echo "         squish_install build and install squish"
+	@echo "         sqafix         build SqaFix"
+	@echo "         sqafix_install build and install SqaFix"
 	@echo "         max            build maximus"
 	@echo "         max_install    build and install maximus"
 	@echo
@@ -60,7 +66,7 @@ mkdirs:
 	[ -d "$(LIB)" ] || mkdir -p "$(LIB)"
 	[ -d "$(BIN)" ] || mkdir -p "$(BIN)"
 
-all:	mkdirs clean squish_install max_install
+all:	mkdirs clean squish_install max_install sqafix_install
 
 clean:  
 	$(foreach DIR, $(DIRS) configuration-tests, cd $(DIR) && $(MAKE) -k $@; cd ..; )
@@ -78,6 +84,10 @@ squish_install: mkdirs
 	$(foreach DIR, $(SQUISH_LIB_DIRS), cd $(DIR) && $(MAKE) install_libs; cd ..; )
 	cd squish && $(MAKE) install
 
+sqafix_install: mkdirs
+	$(foreach DIR, $(SQAFIX_LIB_DIRS), cd $(DIR) && $(MAKE) install_libs; cd ..; )
+	cd sqafix && $(MAKE) install
+
 max_install: mkdirs
 	$(foreach DIR, $(MAX_LIB_DIRS), cd $(DIR) && $(MAKE) install_libs; cd ..; )
 	cd util && $(MAKE)
@@ -86,6 +96,10 @@ max_install: mkdirs
 squish:
 	$(foreach DIR, $(SQUISH_LIB_DIRS), cd $(DIR) && $(MAKE); cd ..; )
 	cd squish && $(MAKE)
+
+sqafix:
+	$(foreach DIR, $(SQAFIX_LIB_DIRS), cd $(DIR) && $(MAKE); cd ..; )
+	cd sqafix && $(MAKE)
 
 max:
 	$(foreach DIR, $(MAX_LIB_DIRS), cd $(DIR) && $(MAKE); cd ..; )
@@ -132,9 +146,9 @@ reconfig:
 	@sleep 2 # Quell Warnings in max
 	@cd $(PREFIX) && bin/silt etc/max -p
 
-install: mkdirs squish_install max_install config_install
+install: mkdirs squish_install sqafix_install max_install config_install
 
-build:	squish max
+build:	squish sqafix max
 	@echo "Build Complete; edit your control files and 'make install'"
 
 GPL gpl license::

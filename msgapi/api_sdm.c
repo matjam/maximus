@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: api_sdm.c,v 1.2 2003/06/05 22:54:50 wesgarland Exp $";
+static char rcs_id[]="$Id: api_sdm.c,v 1.3 2003/06/11 14:03:06 wesgarland Exp $";
 #pragma on(unreferenced)
 
 #define MSGAPI_HANDLERS
@@ -89,7 +89,11 @@ HAREA MSGAPI SdmOpenArea(byte OS2FAR *name, word mode, word type)
   (void)memset((byte *)mh->apidata, '\0', sizeof(struct _sdmdata));
   
   (void)strcpy(Mhd->base,name);
+  #ifndef UNIX
   (void)Add_Trailing(Mhd->base, '\\');
+  #else
+  (void)Add_Trailing(Mhd->base, '/');
+  #endif
   Mhd->hwm=(dword)-1L;
   
   mh->len=sizeof(*mh);

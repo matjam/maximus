@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: S_CONFIG.C 1.20 1994/06/05 14:11:11 sjd Exp $";
+static char rcs_id[]="$Id: s_config.c,v 1.2 2003/06/05 03:13:40 wesgarland Exp $";
 #pragma on(unreferenced)
 
 #include <stdio.h>
@@ -54,7 +54,7 @@ static void near InvalStatement(char *where)
 }
 
 
-#ifdef OS_2
+#ifdef OS2
 
 
 /* Add a DLL-oriented feature */

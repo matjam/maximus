@@ -114,7 +114,7 @@ int pop_fstk(void)
 
 int pull_character(void)
 {
-  int ch;
+  int ch = EOF;
 
   if (macro.fInMacro)
   {
@@ -323,7 +323,7 @@ static int near process_digit(int c)
   if (type==TYPE_DEC)
     yylval.constant.dwval=atol(scan);
   else
-    sscanf(scan, "%lx", &yylval.constant.dwval);
+    sscanf(scan, "%" UINT32_XFORMAT, &yylval.constant.dwval);
 
   /* If the number will fit in a single integer, return it
    * as a word (assuming that we did not explicitly ask otherwise).

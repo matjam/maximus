@@ -148,7 +148,7 @@ int BackPatchTXT(PATCH *pat, VMADDR to_where)
   
   for (p=pat; p; p=p->next)
     if (p->quad)
-      printf("Backpatch #%lx: jump to %lx\n", p->quad, to_where);
+      printf("Backpatch #%" UINT32_FORMAT ": jump to %" UINT32_XFORMAT "\n", p->quad, to_where);
 
   return 0;
 }

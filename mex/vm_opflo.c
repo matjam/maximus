@@ -61,7 +61,7 @@ int op_jmp(INST *inst, struct _args *arg)
   #ifdef DEBUGVM
   if (deb)
     if (vaIp != oldip)
-      printf("jump to cs%08lx. ", vaIp);
+      printf("jump to cs%08" UINT32_XFORMAT ". ", vaIp);
   #endif
   
   return 0;

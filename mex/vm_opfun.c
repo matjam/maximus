@@ -83,7 +83,7 @@ int op_funcret(INST *inst, struct _args *arg)
   
   #ifdef DEBUGVM
   if (deb)
-    printf("args=%ld, newIP = %08lx, newSP=%p", inst->arg1.litdword, vaIp, pbSp);
+    printf("args=%" UINT32_FORMAT ", newIP = %08" UINT32_XFORMAT ", newSP=%p", inst->arg1.litdword, vaIp, pbSp);
   #endif
   return 0;
 }
@@ -96,7 +96,7 @@ int op_startcall(INST *inst, struct _args *arg)
   
   #ifdef DEBUGVM
   if (deb)
-    printf("Start call.  IP=%08lx, SP=%p.  ", vaIp, pbSp);
+    printf("Start call.  IP=%08" UINT32_XFORMAT ", SP=%p.  ", vaIp, pbSp);
   #endif
 
   return 0;
@@ -162,7 +162,7 @@ int op_funcjump(INST *inst, struct _args *arg)
 
   #ifdef DEBUGVM
   if (deb)
-    printf("Calling function at %08lx. IP=%08lx, SP=%p",
+    printf("Calling function at %08" UINT32_XFORMAT ". IP=%08" UINT32_XFORMAT ", SP=%p",
            inst->res.jump_label, vaIp, pbSp);
   #endif
 

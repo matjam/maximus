@@ -29,7 +29,7 @@ static char rcs_id[]="$Id: VM_RUN.C 2.21 1995/07/23 10:36:11 sjd Exp $";
 #include <stdlib.h>
 #include <string.h>
 #include <setjmp.h>
-#include "prog.h"
+#include "mex.h"
 #include "vm.h"
 #include "dv.h"
 
@@ -654,7 +654,7 @@ static int near VmRun(char *pszArgs)
       #ifdef DEBUGVM
       if (deb)
       {
-        printf("cs%08lx: ", vaIp);
+        printf("cs%08" UINT32_XFORMAT ": ", vaIp);
         fflush(stdout);
       }
       #endif

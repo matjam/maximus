@@ -17,9 +17,21 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+/**
+ * @file	s_hole.c
+ * @author	Scott J. Dudley
+ * @version	$Id:$
+ *
+ * $Log:$
+ */
+
+#ifndef __GNUC__
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: S_HOLE.C 1.12 1994/06/05 14:10:57 sjd Exp $";
+#endif
+static __attribute__((unused)) char rcs_id[]="$Id: s_hole.c,v 1.2 2003/06/05 03:13:40 wesgarland Exp $";
+#ifndef __GNUC__
 #pragma on(unreferenced)
+#endif
 
 #define NOVARS
 /*#define DEBUG_HOLE*/
@@ -598,7 +610,7 @@ void GetFunkyPacketName(char *name, struct _sblist *from, struct _sblist *to, in
        return;
     }
     
-  (void)sprintf(name, "%08lx.%cut", get_unique_number(), flavour);
+  (void)sprintf(name, "%08lx.%cut", get_unique_number(), tolower((int)flavour));
 }
 
 
@@ -660,7 +672,7 @@ void HoleMoveOut(void)
     if (fexist(GetHpktName(hp->name)))
     {
       MakeOutboundName(SblistToNetaddr(&hp->to, &addr), newname);
-      (void)sprintf(newname+strlen(newname), "%cut", flavour);
+      (void)sprintf(newname+strlen(newname), "%cut", tolower((int)flavour));
 
       if (BusyFileExist(&addr))
       {

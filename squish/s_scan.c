@@ -17,9 +17,21 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+/**
+ * @file	s_scan.c
+ * @author	Scott J. Dudley
+ * @version	$Id:$
+ *
+ * $Log:$
+ */
+
+#ifndef __GNUC__
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: S_SCAN.C 1.24 1994/10/02 08:01:29 sjd Exp $";
+#endif
+static __attribute__((unused)) char rcs_id[]="$Id: s_scan.c,v 1.2 2003/06/05 03:13:40 wesgarland Exp $";
+#ifndef __GNUC__
 #pragma on(unreferenced)
+#endif
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -1978,7 +1990,7 @@ void Flush_Outbuf(void)
       else
       {
         (void)sprintf(pktname+strlen(pktname), "%cut",
-                      bl->flavour ? bl->flavour : 'O');
+                      tolower((int)(bl->flavour ? bl->flavour : 'O')));
       }
 
       BusyFileOpen(config, bl->zone, bl->net, bl->node, bl->point);

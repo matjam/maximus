@@ -167,10 +167,14 @@ void ChatMode(void)
 
         switch (ch)
         {
-          case 0:             /* Scan code... */
+          case K_ONEMORE:             /* Scan code... */
             c=pm_getch();
 
-            if ((c >= K_F1 && c <= K_F10) || (c >= K_SF1 && c <= K_AF10))
+#ifdef UNIX
+	    if (c == K_ESC)
+              goto realEscape;		/* turn esc-esc into esc */
+#endif	
+            if ((c >= K_F1 && c <= K_F10) || (c >= K_SF1 && c <= K_SF10))
             {
               Parse_FKey(c);
               col=current_col;
@@ -263,7 +267,12 @@ void ChatMode(void)
             ch=0;
             break;
 
+#ifdef UNIX
+realEscape:
+	  case -2:
+#else
           case K_ESC:                /* ESCape */
+#endif
             break_loop=TRUE;
             ch=0;
             break;

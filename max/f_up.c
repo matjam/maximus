@@ -79,7 +79,11 @@ void File_Upload(char *mname)
 
   if (! *FAS(fah, uppath) || !direxist(FAS(fah, uppath)))
   {
+#ifndef UNIX
     sprintf(temp, "%sNOUPLOAD.BBS", FAS(fah, downpath));
+#else
+    sprintf(temp, "%snoupload.bbs", FAS(fah, downpath));
+#endif
 
     if (fexist(temp))
       Display_File(0,NULL,temp);
@@ -868,6 +872,8 @@ static void near FBLog(void)
     sprintf(temp, "%srunfb.bat", original_path);
   #elif defined(OS_2)
     sprintf(temp, "%srunfb.cmd", original_path);
+  #elif defined(UNIX)
+    sprintf(temp, "%srunfb.sh", original_path);
   #else
     #error Unknown batch file extension!
   #endif

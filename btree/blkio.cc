@@ -166,10 +166,21 @@ NNUM CPPEXPORT BLKIO::high_node(void)
 
 int CPPEXPORT BLKIO::lock(NNUM nn)
 {
+#if defined(UNIX)
+  struct flock	lck;
+
+  lck.l_type	= F_WRLCK;			/* setting a write lock */
+  lck.l_whence	= SEEK_SET;			/* offset l_start from beginning of file */
+  lck.l_start	= (off_t)nn * (long)uiBlkSize;	
+  lck.l_len	= nn ? uiBlkSize : (off_t)0;	/* one record, or until the end of the file */
+  
+  return (fcntl(fd, F_SETLK, &lck) < 0) ? FALSE : TRUE;
+#else
   if (fShareLoaded)
     return ::lock(fd, nn * (long)uiBlkSize, 1)==0;
   else
     return TRUE;
+#endif
 }
 
 
@@ -177,9 +188,20 @@ int CPPEXPORT BLKIO::lock(NNUM nn)
 
 int CPPEXPORT BLKIO::unlock(NNUM nn)
 {
+#if defined(UNIX)
+  struct flock	lck;
+
+  lck.l_type	= F_UNLCK;			/* setting not locked */
+  lck.l_whence	= SEEK_SET;			/* offset l_start from beginning of file */
+  lck.l_start	= (off_t)nn * (long)uiBlkSize;	
+  lck.l_len	= nn ? uiBlkSize : (off_t)0;	/* one record, or until the end of the file */
+  
+  return (fcntl(fd, F_SETLK, &lck) < 0) ? FALSE : TRUE;
+#else
   if (fShareLoaded)
     return ::unlock(fd, nn * (long)uiBlkSize, 1)==0;
   else
     return TRUE;
+#endif
 }
 

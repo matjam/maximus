@@ -17,9 +17,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+#ifndef __GNUC__
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: s_misc.c,v 1.3 2003/06/13 03:29:08 wesgarland Exp $";
+static char rcs_id[]="$Id: s_misc.c,v 1.4 2003/07/27 02:15:47 rfj Exp $";
 #pragma on(unreferenced)
+#endif
 
 #define NOVARS
 #ifdef SWAP

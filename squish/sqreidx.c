@@ -17,9 +17,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+#ifndef __GNUC__
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: SQREIDX.C 1.6 1994/10/31 13:27:28 sjd Exp $";
+static char rcs_id[]="$Id: sqreidx.c,v 1.2 2003/06/05 03:13:40 wesgarland Exp $";
 #pragma on(unreferenced)
+#endif
 
 #define NO_MSGH_DEF
 

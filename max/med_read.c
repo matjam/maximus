@@ -25,6 +25,7 @@ static char rcs_id[]="$Id: MED_READ.C 1.6 1995/04/27 15:22:39 sjd Exp $";
 */
 
 
+#include <errno.h>
 #include "maxed.h"
 
 

@@ -20,9 +20,12 @@
 /**
  * @file	s_squash.c
  * @author	Scott J. Dudley
- * @version	$Id: s_squash.c,v 1.4 2003/07/26 00:03:58 rfj Exp $
+ * @version	$Id: s_squash.c,v 1.5 2003/09/03 13:51:33 paltas Exp $
  *
  * $Log: s_squash.c,v $
+ * Revision 1.5  2003/09/03 13:51:33  paltas
+ * /Linux instead of /UNIX on Linux machines
+ *
  * Revision 1.4  2003/07/26 00:03:58  rfj
  * Squish (and MSGAPI) updates as suggested by Bo Simonsen, including correcting
  * a \ to / for UNIX systems, changes concerning packet file name case, via line
@@ -43,7 +46,7 @@
 #if !defined(__GNUC__)
 #pragma off(unreferenced)
 #endif
-static char __attribute__((unused)) rcs_id[]="$Id: s_squash.c,v 1.4 2003/07/26 00:03:58 rfj Exp $";
+static char __attribute__((unused)) rcs_id[]="$Id: s_squash.c,v 1.5 2003/09/03 13:51:33 paltas Exp $";
 #if !defined(__GNUC__)
 #pragma on(unreferenced)
 #endif
@@ -565,7 +568,7 @@ void FloName( byte *out, NETADDR * n, byte flavour, word addmode)
       /* If we don't find anything useful, assume that we're using the      *
        * given flavour.                                                     */
 
-      *flavptr=flav;
+      *flavptr=tolower(flav);
 
 
       /* Copy the flo style of the found filename into the filename that    *

@@ -181,7 +181,11 @@ static int near Make_Attach_Directory(void)
   if (*PRM(attach_path)=='\0')
   {
     char temp[PATHLEN];
+#ifndef UNIX
     sprintf(temp, "%sNOUPLOAD.BBS", FAS(fah, downpath));
+#else
+    sprintf(temp, "%snoupload.bbs", FAS(fah, downpath));
+#endif
 
     if (fexist(temp))
       Display_File(DISPLAY_NONE,NULL,temp);

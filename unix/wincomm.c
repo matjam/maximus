@@ -1,12 +1,31 @@
 /**
  * @file 	wincomm.c	WinNT-style Comm functions for UNIX
- * @version	$Id:$
+ * @version	$Id: wincomm.c,v 1.3 2003/06/29 20:48:59 wesgarland Exp $
  * @author 	Wes Garland
  * @date	May 13 2003
  * @description	Fudge routines/hooks for the comm library and asyncnt.c.
  * 		Designed to replace WinNT functions of the same names.
  *  
- * $Log: $
+ * $Log: wincomm.c,v $
+ * Revision 1.3  2003/06/29 20:48:59  wesgarland
+ * Changes made to allow pluggable communications module. Code in not currently
+ * pluggable, but "guts" will be identical to pluggable version of telnet
+ * and raw IP plugins.
+ *
+ * Changed representation of COMMHANDLE (and deprecated OSCOMMHANDLE) in wincomm
+ * code (pseudo Win32 communications API), to allow the potential for multiple
+ * comm handles, better support UNIX comm plug-ins, etc.
+ *
+ * Added functions to "Windows" communications API which are normally handled by
+ * the assignment operator -- those are possible under Win32 because the
+ * underlying representation by which all comm data is accessed (e.g. word
+ * length, parity, buffer sizes) is an integer (not unlike a UNIX file
+ * descriptor), but under UNIX a COMMHANDLE is an incomplete struct pointer.
+ * Using these routines instead of "inside" knowledge should allow new code
+ * written for UNIX to be backported to Windows (and maybe other OSes) easily.
+ *
+ * This check-in is "barely tested" and expected to have bugs.
+ *
  */
 
 #include <stdio.h>
@@ -92,10 +111,10 @@ BOOL SetupComm(COMMHANDLE hFile, DWORD dwInQueue, DWORD dwOutQueue)
 {
   memset(hFile, 0, sizeof(*hFile));
 
-  if (hFile->txBufsize)
+  if (hFile->txBufSize)
     hFile->txBufSize 	= dwOutQueue;
   else
-    if (!hfFile->txBufSize)
+    if (!hFile->txBufSize)
       hFile->txBufSize	= 1024;
 
   if (hFile->rxBufSize)

@@ -380,6 +380,10 @@ static unsigned near Pack_Netmail_Msg(HAREA sq, dword *mn, struct _cfgarea *ar)
                 msg.attr |= MSGKILL;
             }
 
+            /* Bo: we also add via lines to messages which come from here */
+	    if (msg.attr & MSGLOCAL)
+	      AddViaLine(msgbuf, ctrl);
+
             front=msgbuf;
 
   #ifdef NEVER

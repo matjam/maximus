@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: MAX_OUTL.C 1.7 1995/05/27 07:27:11 sjd Exp $";
+static char rcs_id[]="$Id: max_outl.c,v 1.2 2003/06/04 23:46:22 wesgarland Exp $";
 #pragma on(unreferenced)
 
 /*# name=Local output and AVATAR translation routines
@@ -103,6 +103,7 @@ extern char strng[];
 
 void Lputc(int ch)
 {
+
   static char str2[25];
   static char state=-1;
   static char newattr;

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MEDINIT.C 1.5 1994/10/22 15:14:03 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #ifdef OS_2
 

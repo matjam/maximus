@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: f_con.c 1.8 2002/09/14 00:27:59 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id: f_con.c,v 1.2 2003/06/04 23:46:21 wesgarland Exp $ */
 
 /*# name=File area routines: C)ontents functions
 */

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: ANSI2BBS.C 1.2 1994/09/17 14:30:51 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=ANSI2BBS and ANSI2MEC, ANSI to .BBS/MEC conversion utilities
 */

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: F_XFER.C 1.8 1995/01/25 14:03:09 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id: f_xfer.c,v 1.1.1.1 2002/10/01 17:51:12 sdudley Exp $ */
 
 /*# name=File area routines: Required functions for both ULing and DLing
 */

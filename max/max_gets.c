@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: max_gets.c,v 1.4 2003/11/10 23:07:18 paltas Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Maximus get-string function
 */

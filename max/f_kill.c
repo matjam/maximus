@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: F_KILL.C 1.4 1995/04/27 15:20:44 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id: f_kill.c,v 1.1.1.1 2002/10/01 17:51:05 sdudley Exp $ */
 
 /*# name=File area routines: K)ill function
 */

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: SEM_SCOP.C 1.4 1994/12/30 10:58:55 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Scope opening/closing routines for compiler
 */

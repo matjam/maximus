@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MECCA.C 1.8 1995/07/30 15:26:35 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=MECCA -- the Maximus Embedded Command Compiler (Advanced)
     name=

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MSGAPI.C 1.13 1995/07/23 10:45:44 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #define MSGAPI_INIT
 

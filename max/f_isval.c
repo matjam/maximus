@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: F_ISVAL.C 1.7 1995/09/24 16:59:04 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id: f_isval.c,v 1.1.1.1 2002/10/01 17:51:05 sdudley Exp $ */
 
 /*# name=Routine to validate file areas
 */

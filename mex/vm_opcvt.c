@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: VM_OPCVT.C 2.2 1995/04/29 10:30:40 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #define COMPILING_MEX_VM
 #include "prog.h"

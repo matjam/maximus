@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: T_DISP.C 1.5 1995/07/15 13:44:40 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #define MAX_LANG_m_area
 #include "trackp.h"

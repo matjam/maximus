@@ -27,9 +27,12 @@
  *			  
  *  @author 	Wes Garland
  *  @date   	May 24 2003
- *  @version	$Id: ipcomm.c,v 1.13 2004/01/14 16:09:54 paltas Exp $
+ *  @version	$Id: ipcomm.c,v 1.14 2004/01/19 23:37:03 paltas Exp $
  *
  * $Log: ipcomm.c,v $
+ * Revision 1.14  2004/01/19 23:37:03  paltas
+ * Added some to get freebsd work, and improved maxcomm a bit..
+ *
  * Revision 1.13  2004/01/14 16:09:54  paltas
  * Used a better way to switch between modem and ip..
  *
@@ -93,8 +96,6 @@
 #endif
 
 #define TELNET
-
-static char rcs_id[]="$Id: ipcomm.c,v 1.13 2004/01/14 16:09:54 paltas Exp $";
 
 #include <stdio.h>
 #include <stdlib.h>

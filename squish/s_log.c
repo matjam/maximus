@@ -16,11 +16,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-#ifndef __GNUC__
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: s_log.c,v 1.1.1.1 2002/10/01 17:56:25 sdudley Exp $";
-#pragma on(unreferenced)
-#endif
+
+/* $Id$ */
 
 #include <stdio.h>
 #include <stdarg.h>

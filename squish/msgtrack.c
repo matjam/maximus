@@ -17,11 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#ifndef __GNUC__
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: msgtrack.c,v 1.3 2003/11/28 19:02:40 paltas Exp $";
-#pragma on(unreferenced)
-#endif
+/* $Id$ */
 
 /* Copyright 1992 by Lanius Corporation.
    Portions copyright 1987-1991 by Bit Bucket Software.

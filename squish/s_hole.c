@@ -20,9 +20,12 @@
 /**
  * @file	s_hole.c
  * @author	Scott J. Dudley
- * @version	$Id: s_hole.c,v 1.7 2003/11/23 13:15:20 paltas Exp $
+ * @version	$Id: s_hole.c,v 1.8 2004/01/13 00:42:14 paltas Exp $
  *
  * $Log: s_hole.c,v $
+ * Revision 1.8  2004/01/13 00:42:14  paltas
+ * Fixed compiler warnings
+ *
  * Revision 1.7  2003/11/23 13:15:20  paltas
  *
  * Fixed flofile error..
@@ -46,14 +49,6 @@
  * for the ?ut filenames, where the ? is the mail flavour (FLO)
  *
  */
-
-#ifndef __GNUC__
-#pragma off(unreferenced)
-#endif
-static __attribute__((unused)) char rcs_id[]="$Id: s_hole.c,v 1.7 2003/11/23 13:15:20 paltas Exp $";
-#ifndef __GNUC__
-#pragma on(unreferenced)
-#endif
 
 #define NOVARS
 #define DEBUG_HOLE

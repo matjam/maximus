@@ -17,15 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#ifndef __GNUC__
-#pragma off(unreferenced)
-#endif
-
-static char __attribute__((unused)) rcs_id[]="$Id: max_fini.c,v 1.2 2003/06/29 20:57:14 wesgarland Exp $";
-
-#ifndef __GNUC__
-#pragma on(unreferenced)
-#endif
+/* $Id$ */
 
 /*# tname=Termination code
 */

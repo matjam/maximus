@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MAX_CHAT.C 1.14 1995/07/23 07:59:19 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Chat module.  IPCxx.BBS writing and checking routines, and
     name=resident portion of inbound message handler.

@@ -17,10 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: M_ATTACH.C 1.11 1995/11/23 18:26:54 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Message Section: File attach related functions
 */

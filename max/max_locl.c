@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: max_locl.c,v 1.2 2003/06/04 23:37:33 wesgarland Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Local command functions
 */

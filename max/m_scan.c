@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: M_SCAN.C 1.5 1995/07/27 17:48:39 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Message Section: Msg_Checkmail, S)can and L)ist
 */

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: DISP_DAT.C 1.2 1993/12/05 18:12:59 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id: disp_dat.c,v 1.2 2003/06/04 23:12:08 wesgarland Exp $ */
 
 /*# name=.BBS-file display routines (ctrl-F data codes)
 */

@@ -20,9 +20,12 @@
 /**
  * @file	s_squash.c
  * @author	Scott J. Dudley
- * @version	$Id: s_squash.c,v 1.6 2003/11/18 23:04:18 paltas Exp $
+ * @version	$Id: s_squash.c,v 1.7 2003/12/14 17:40:19 paltas Exp $
  *
  * $Log: s_squash.c,v $
+ * Revision 1.7  2003/12/14 17:40:19  paltas
+ * Fixed different things (can't remember all of it.. )
+ *
  * Revision 1.6  2003/11/18 23:04:18  paltas
  * This _might_ remove the .Flo issue..
  *
@@ -45,14 +48,6 @@
  * for the ?ut filenames, where the ? is the mail flavour (FLO)
  *
  */
-
-#if !defined(__GNUC__)
-#pragma off(unreferenced)
-#endif
-static char __attribute__((unused)) rcs_id[]="$Id: s_squash.c,v 1.6 2003/11/18 23:04:18 paltas Exp $";
-#if !defined(__GNUC__)
-#pragma on(unreferenced)
-#endif
 
 #define NOVARS
 

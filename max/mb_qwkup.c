@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: mb_qwkup.c,v 1.8 2004/01/11 19:50:27 wmcbrine Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# QWK uploads, for processing .REP packets
 */

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: oracle.c 1.19 1996/11/15 08:33:21 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Oracle, the Maximus external .BBS file viewer
 */

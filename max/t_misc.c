@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: t_misc.c,v 1.1.1.1 2002/10/01 17:53:14 sdudley Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*#define TRACK_PERSISTENT*/  /* Only open tracking database once only */
 

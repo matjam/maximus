@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: API_BROW.C 1.6 1995/07/23 07:58:01 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id: api_brow.c,v 1.2 2003/06/04 23:09:26 wesgarland Exp $ */
 
 #define NO_MSGH_DEF
 

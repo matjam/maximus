@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: LOG.C 1.8 1994/03/13 09:26:47 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Log-file manipulation functions
 */

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: F_IDX.C 1.8 1995/06/22 17:57:43 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id: f_idx.c,v 1.1.1.1 2002/10/01 17:51:04 sdudley Exp $ */
 
 /*# name=Routines for accessing the compiled file database
 */

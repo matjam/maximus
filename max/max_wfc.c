@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: max_wfc.c,v 1.7 2004/01/13 00:44:56 paltas Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Waiting-for-caller routines
 */

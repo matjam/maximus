@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: DLLC.C 1.4 1994/01/29 06:06:08 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #include <stdio.h>
 #include "prog.h"

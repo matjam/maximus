@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: M_UPLOAD.C 1.10 1995/11/24 17:13:42 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Message Section: U)pload command
 */

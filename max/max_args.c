@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: max_args.c,v 1.6 2004/01/13 01:33:02 paltas Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Command-line argument processing code
 */

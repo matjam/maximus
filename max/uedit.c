@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: UEDIT.C 1.10 1995/12/02 16:51:07 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Internal user editor
 */

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: ASYNC.C 1.11 1995/02/03 14:50:16 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id: async.c,v 1.1.1.1 2002/10/01 17:50:45 sdudley Exp $ */
 
 #ifdef OS_2
 

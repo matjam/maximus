@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: M_XPORT.C 1.8 1995/07/27 17:48:45 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Message Section: X)port routine
 */

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: M_LREAD.C 1.7 1995/07/30 09:16:46 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Lastread and message-scanning routines.
 */

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: OS2.C 1.4 1993/12/05 18:29:22 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=OS/2-specific functions for Maximus
     credit=Mostly written by Pete, but crunched into this single

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MAX_BAR.C 1.12 1995/09/24 16:56:02 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Barricade-handling routines
 */

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: max_fbbs.c 1.11 2002/09/14 00:32:09 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=FILES.BBS-specific routine for displaying file entry
 */

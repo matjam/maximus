@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: M_RESTR.C 1.2 1993/12/05 18:28:32 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Set restrictions for QWK downloading
 */

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: DEBUG.C 1.2 1993/12/05 18:12:30 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id: debug.c,v 1.1.1.1 2002/10/01 17:50:46 sdudley Exp $ */
 
 #include "prog.h"
 #include "mm.h"

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: EMSI.C 1.5 1994/09/17 13:48:29 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id: emsi.c,v 1.1.1.1 2002/10/01 17:50:54 sdudley Exp $ */
 
 /*# name=IEMSI-processing module for Max 2.0
 */

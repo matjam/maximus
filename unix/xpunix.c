@@ -10,10 +10,11 @@
  *  @author	Wes Garland
  *  @date	June 5th, 2003
  *
- *  $Log:$
+ *  $Log: xpunix.c,v $
+ *  Revision 1.1  2003/06/11 14:44:51  wesgarland
+ *  Initial Revision
+ *
  */
-
-static char rcs_id[]="$Id:$";
 
 #if defined(FLOCK_IS_FCNTL)
 /** Implement flock with fcntl.

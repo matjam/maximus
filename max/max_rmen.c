@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MAX_RMEN.C 1.6 1995/05/21 12:00:57 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Routines to read *.MNU files (Overlaid)
 */

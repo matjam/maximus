@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: maid.c 1.19 1996/11/15 08:25:24 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #define MAX_INCL_LANGUAGE
 #define MAX_INCL_VER

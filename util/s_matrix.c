@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: S_MATRIX.C 1.3 1995/05/21 12:06:35 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=SILT: 'Section Matrix and EchoMail' processing logic
 */

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: DATE.C 1.5 1994/03/10 18:35:43 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id: date.c,v 1.1.1.1 2002/10/01 17:50:46 sdudley Exp $ */
 
 char comp_date[]=__DATE__;
 char comp_time[]=__TIME__;

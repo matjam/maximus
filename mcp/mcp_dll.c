@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MCP_DLL.C 1.7 1995/05/06 17:35:44 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #include <string.h>
 #define INCL_DOS

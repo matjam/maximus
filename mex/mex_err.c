@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MEX_ERR.C 2.9 1995/09/09 14:58:33 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #include <stdio.h>
 #include <stdarg.h>

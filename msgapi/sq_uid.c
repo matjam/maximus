@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: SQ_UID.C 1.4 1994/07/17 17:01:04 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #define MSGAPI_HANDLERS
 #define MSGAPI_NO_OLD_TYPES

@@ -17,11 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#ifndef __GNUC__
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: squish.c,v 1.6 2003/11/28 21:48:07 paltas Exp $";
-#pragma on(unreferenced)
-#endif
+/* $Id$ */
 
 /*#define TEST_VER*/
 #define INITSQUISH

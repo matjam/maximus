@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MED_QUOT.C 1.3 1995/04/27 15:22:37 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=MaxEd editor: Routines for quoting and copying
 */

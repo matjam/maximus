@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MAX_PROT.C 1.11 1995/08/23 16:14:48 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #include <stdio.h>
 #include <io.h>

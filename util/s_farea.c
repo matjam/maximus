@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: S_FAREA.C 1.10 1995/08/16 14:57:47 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=SILT: 'Section Area' processing logic
 */

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: SEM_FLOW.C 1.9 1995/06/19 19:22:20 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #include "prog.h"
 #include "mex.h"

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MAX_RUNO.C 1.8 1995/04/27 15:22:23 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #define MAX_LANG_max_main
 

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: EXPIMP.C 1.6 1995/08/22 15:06:28 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #define INCL_DOS
 #define INCL_REXXSAA

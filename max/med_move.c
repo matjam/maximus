@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MED_MOVE.C 1.3 1994/10/22 15:14:01 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=MaxEd editor: Routines for moving cursor around the screen
 */

@@ -20,9 +20,12 @@
 /**
  * @file	s_scan.c
  * @author	Scott J. Dudley
- * @version	$Id: s_scan.c,v 1.4 2003/09/03 13:51:33 paltas Exp $
+ * @version	$Id: s_scan.c,v 1.5 2004/01/13 00:42:14 paltas Exp $
  *
  * $Log: s_scan.c,v $
+ * Revision 1.5  2004/01/13 00:42:14  paltas
+ * Fixed compiler warnings
+ *
  * Revision 1.4  2003/09/03 13:51:33  paltas
  * /Linux instead of /UNIX on Linux machines
  *
@@ -31,14 +34,6 @@
  * for the ?ut filenames, where the ? is the mail flavour (FLO)
  *
  */
-
-#ifndef __GNUC__
-#pragma off(unreferenced)
-#endif
-static __attribute__((unused)) char rcs_id[]="$Id: s_scan.c,v 1.4 2003/09/03 13:51:33 paltas Exp $";
-#ifndef __GNUC__
-#pragma on(unreferenced)
-#endif
 
 #include <stdio.h>
 #include <stdlib.h>

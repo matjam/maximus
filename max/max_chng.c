@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MAX_CHNG.C 1.23 1995/12/02 18:08:56 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=Change Setup menu options
 */

@@ -17,11 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#ifndef __GNUC__
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: s_config.c,v 1.5 2003/10/05 13:52:50 paltas Exp $";
-#pragma on(unreferenced)
-#endif
+/* $Id$ */
 
 #include <stdio.h>
 #include <string.h>

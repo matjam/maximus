@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MAX_BOR.C 1.16 1995/11/24 17:12:51 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=BORED, the line-oriented editor
 */

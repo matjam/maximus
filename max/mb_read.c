@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: MB_READ.C 1.6 1995/04/27 15:22:35 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 /*# name=R)ead function for the BROWSE command
 */

@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: M_EDITU.C 1.3 1993/12/05 18:26:42 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #include "prog.h"
 #include "max_msg.h"

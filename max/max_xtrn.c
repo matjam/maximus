@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: max_xtrn.c,v 1.7 2003/11/21 03:31:02 paltas Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #define MAX_LANG_max_chat
 #define MAX_INCL_COMMS

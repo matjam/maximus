@@ -17,9 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: FB.C 1.17 1995/08/21 15:43:19 sjd Exp $";
-#pragma on(unreferenced)
+/* $Id$ */
 
 #define NOVER
 #define NOVARS

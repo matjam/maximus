@@ -17,6 +17,14 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+/**
+ * @file	brktrap.c
+ * @author	Scott J. Dudley
+ * @version	$Id: s_squash.c,v 1.3 2003/06/18 02:00:17 wesgarland Exp $
+ *
+ * $Log: $
+ */
+
 /*# name=^c/^break trap functions
 */
 
@@ -501,15 +509,32 @@ static byte brk_is_trapped=0;
   }
 
 #elif defined(UNIX)
+  #include <signal.h>
+
+  void BreakHandler(int sig)
+  {
+    brk_trapped++;
+  }
 
   void _fast brktrap(void)
   {
-    int fix_me_later;
+    /* Handle SIGINT, TERM as if ^c or ^break were
+     * pressed on the DOS keyboard. If we wanted to
+     * a good job here, we'd use sigaction + the
+     * flag that lets system calls keep on trucking
+     * (SA_RESTART?) but I don't feel looking through
+     * the man pages (or digging up UNP1) for something
+     * that nobody is ever likely to notice. And the
+     * syntax escapes me at the moment.
+     */
+    signal(SIGINT, BreakHandler); 
+    signal(SIGTERM, BreakHandler); 
   }
 
   void _stdc brkuntrap(void)
   {
-    int write_me_later;
+    signal(SIGINT, SIG_DFL);
+    signal(SIGTERM, SIG_DFL); 
   }
 
 #else

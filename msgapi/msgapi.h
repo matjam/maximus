@@ -81,7 +81,11 @@ struct _xmsg;
 
     #define EXPENTRY pascal
 #else
-  #define EXPENTRY pascal
+#if !defined(UNIX)
+ #define EXPENTRY pascal
+#else
+ #define EXPENTRY
+#endif
   #define OS2LOADDS
   #define OS2FAR
 #endif

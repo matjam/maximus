@@ -21,6 +21,7 @@
 static char rcs_id[]="$Id: BLD.C 1.1 1993/12/05 05:10:05 sjd Exp $";
 #pragma on(unreferenced)
 
+#include "prog.h"
 #include "bld.h"
 
 #define stringize2(x) #x

@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: MAX_CHO.C 1.11 1995/08/24 14:19:32 sjd Exp $";
+static char rcs_id[]="$Id: max_cho.c,v 1.1.1.1 2002/10/01 17:51:32 sdudley Exp $";
 #pragma on(unreferenced)
 
 /*# name=Chat Mode routines (overlayed).  Includes the chat itself, routines
@@ -148,7 +148,9 @@ static struct _cgs * near ChatFindOpen(void)
     {
       int tid;
 
+#ifndef UNIX
       strupr(ff->szName);
+#endif
 
       /* Grab the number out of this one */
 

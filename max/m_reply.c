@@ -73,7 +73,7 @@ static int near readmsgline(struct _mline * pml)
 
     /* Skip over trailing junk */
 
-    while (*bptr == (byte)'\x8d' || *bptr=='\x0a')
+    while (*(byte *)bptr == (byte)'\x8d' || *bptr=='\x0a')
       ++bptr;
 
     /* See if we got end of line, and if so, return length */

@@ -188,7 +188,7 @@ int Process_Files_Entry(DSTK *d, char *orig_entry)
   
   /* Now add the path for the current directory */
   
-  if (strchr(filename, '\\'))
+  if (strchr(filename, PATH_DELIM))
     strcpy(filespec, filename);
   else
     sprintf(filespec, ss, FAS(fah, downpath), filename);

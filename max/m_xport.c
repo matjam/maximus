@@ -32,6 +32,9 @@ static char rcs_id[]="$Id: M_XPORT.C 1.8 1995/07/27 17:48:45 sjd Exp $";
 #include <mem.h>
 #include "prog.h"
 #include "max_msg.h"
+#ifdef UNIX
+# include <errno.h>
+#endif
 
 void Msg_Xport(void)
 {

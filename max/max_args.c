@@ -34,6 +34,9 @@ static char rcs_id[]="$Id: MAX_ARGS.C 1.16 1995/09/28 11:23:17 sjd Exp $";
 #include "prog.h"
 #include "mm.h"
 #include "caller.h"
+#ifdef UNIX
+#include <errno.h>
+#endif
 
 #ifndef ORACLE
 
@@ -155,9 +158,14 @@ void Parse_Args(char *ctlname,int argc,char *argv[])
     }
     else *p1='\0';    /* No path, so chop it off */
 
-  strcpy(ctlname, cfancy_str(prmname));
+  strcpy(ctlname, cfancy_fn(prmname));
+#ifndef UNIX
   strcat(ctlname, ".Ctl");
   strcat(prmname, ".Prm");
+#else
+  strcat(ctlname, ".ctl");
+  strcat(prmname, ".prm");
+#endif
 }
 
 #if 0

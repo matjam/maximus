@@ -36,7 +36,9 @@ static char rcs_id[]="$Id: MAX_BAR.C 1.12 1995/09/24 16:56:02 sjd Exp $";
 #include "prog.h"
 #include "mm.h"
 #include "max_area.h"
-
+#ifdef UNIX
+#include <errno.h>
+#endif
 
 /* ParseBarPriv
  *

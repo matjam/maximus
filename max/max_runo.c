@@ -211,7 +211,7 @@ static int near Exec_Misc(PAMENU pam, struct _opt *thisopt, char *arg,
 
     case o_menupath:
       strcpy(menupath,arg);
-      Add_Trailing(menupath,'\\');
+      Add_Trailing(menupath, PATH_DELIM);
       break;
 
     case o_cls:

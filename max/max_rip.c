@@ -140,7 +140,7 @@ static int near sendrip(char *pszFile, int fDisplay, int force)
   /* Get qualified filename for file to send */
 
   strcpy(temp, rippath);
-  Add_Trailing(temp, '\\');
+  Add_Trailing(temp, PATH_DELIM);
   strcat(temp, pszFile);
 
   /* See if it exists in the current RIP path */
@@ -151,7 +151,7 @@ static int near sendrip(char *pszFile, int fDisplay, int force)
     /* Ok, then try the default RIP path */
 
     strcpy(temp, PRM(rippath));
-    Add_Trailing(temp, '\\');
+    Add_Trailing(temp, PATH_DELIM);
     strcat(temp, pszFile);
 
     if ((filesize=fexist(temp))==-1)

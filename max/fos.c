@@ -34,6 +34,10 @@ static char rcs_id[]="$Id: fos.c 1.10 1996/11/12 05:34:01 sjd Exp $";
 #include "mm.h"
 #include "modem.h"
 
+#ifdef UNIX
+#define NT
+#endif
+
 static int waslocal =0;
 static int waskeyboard =0;
 

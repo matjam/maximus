@@ -30,6 +30,16 @@ static char rcs_id[]="$Id: THUNK.C 1.3 1993/12/05 18:29:40 sjd Exp $";
 
 /* Thunks for the MsgAPI allocation routines */
 
+/*
+#if defined(UNIX)
+# define OS2FAR
+# define MAPIENTRY
+# define farmalloc(a) malloc(a)
+# define farfree(a) free(a)
+# define farrealloc(a) realloc(a)
+#endif
+*/
+
 void OS2FAR * MAPIENTRY max_palloc(size_t size)
 { return ((void OS2FAR *)malloc(size)); }
 
@@ -47,5 +57,4 @@ void MAPIENTRY max_farpfree(void far *ptr)
 
 void far * MAPIENTRY max_farrepalloc(void far *ptr, size_t size)
 { return ((void far *)farrealloc(ptr, size)); }
-
 

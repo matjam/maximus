@@ -45,7 +45,7 @@ extern char strng[];
 
 static int rip_wrap=1;
 
-#if defined(OS_2) || defined(NT)
+#if defined(OS_2) || defined(NT) || defined(UNIX)
 
     static void near CMDM_PPUTcw(int c)
     {

@@ -39,6 +39,8 @@ void Config_Multitasker(int log_it)
   NW(log_it);
 
   multitasker=MULTITASKER_nt;
+#elif defined(UNIX)
+multitasker=MULTITASKER_unix;
 #elif defined(__MSDOS__)
 
   static struct _mtask
@@ -54,6 +56,7 @@ void Config_Multitasker(int log_it)
               {ddosloaded,  MULTITASKER_DOUBLEDOS,ddossleep,  "DoubleDOS"},
               {pcmosloaded, MULTITASKER_PCMOS,    pcmossleep, "PC-MOS"},
               {os2loaded,   MULTITASKER_OS2,      os2sleep,   "OS/2"},
+	      (unixloaded,  MULTITASKER_UNIX,	  unixsleep,  "UNIX"),
               {NULL,        MULTITASKER_NONE,     spoolsleep, NULL}};
             
   struct _mtask *mt;

@@ -60,7 +60,7 @@ int Msg_Change(void)
 
 
   if ((msgh=MsgOpenMsg(sq, MOPEN_READ, lmsg))==NULL ||
-      MsgReadMsg(msgh, &msg, 0L, 0L, NULL, 0L, NULL)==-1L ||
+      MsgReadMsg(msgh, &msg, 0L, 0L, NULL, 0L, NULL)==(unsigned long)-1L ||
       ! (eqstri(msg.from, usr.name) || eqstri(msg.from, usr.alias) ||
          mailflag(CFLAGM_ATTRANY)))
   {

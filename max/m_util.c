@@ -31,8 +31,8 @@ static char rcs_id[]="$Id: M_UTIL.C 1.1 1995/02/03 18:24:56 davidn Exp $";
 
 int Make_Clean_Directory(char *szDirName)
 {
-
-  Strip_Trailing(szDirName, '\\');
+  Strip_Trailing(szDirName, PATH_DELIM);
+  fixPathMove(szDirName);
 
   /* Make sure that it exists */
 
@@ -45,7 +45,7 @@ int Make_Clean_Directory(char *szDirName)
 
   /* Add the final trailing backslash */
 
-  Add_Trailing(szDirName,'\\');
+  Add_Trailing(szDirName, PATH_DELIM);
 
   Clean_Directory(szDirName, FALSE);
   return 0;
@@ -60,6 +60,7 @@ void Clean_Directory(char * szDirName, int rdir)
   char *dot;
   int isQwk;
 
+  fixPathMove(szDirName);
   isQwk=(szDirName==qwk_path);
 
   /* Now clear it out of any excess garbage by deleting *.* */
@@ -94,7 +95,7 @@ void Clean_Directory(char * szDirName, int rdir)
   if (rdir)
   {
     strcpy(temp, szDirName);
-    Strip_Trailing(temp, '\\');
+    Strip_Trailing(temp, PATH_DELIM);
     rmdir(temp);
   }
 

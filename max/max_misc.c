@@ -261,6 +261,12 @@ void Giveaway_Slice(void)
 #elif defined(__MSDOS__)
   if (sleeper)
     (*sleeper)();
+#elif defined(UNIX)
+# ifdef _REENTRANT
+  sched_yield();
+# else
+  sleep(0);
+# endif
 #else
   #error Unknown OS!
 #endif

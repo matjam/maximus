@@ -226,8 +226,8 @@ char * Startup(void)
     Local_Beep(3);
     maximus_exit(ERROR_FILE);
   }
-  else if (strlen(cfancy_str(original_path)) > 3)
-    strcat(cfancy_str(original_path), "\\");
+  else if (strlen(cfancy_fn(original_path)) > 3)
+    strcat(cfancy_fn(original_path), PATH_DELIMS);
 
   /* Install the critical error handler */
   

@@ -2,8 +2,12 @@
 # @author			Wes Garland
 # @date				May 13th, 2003
 #
-# $Id: Makefile,v 1.6 2003/06/29 20:38:51 wesgarland Exp $
+# $Id: Makefile,v 1.7 2003/08/15 19:57:52 rfj Exp $
 # $Log: Makefile,v $
+# Revision 1.7  2003/08/15 19:57:52  rfj
+# Master makefile updated to support SqaFix source code as part of the Maximus
+# SourceForge project.  SqaFix program is now under GPL.
+#
 # Revision 1.6  2003/06/29 20:38:51  wesgarland
 # Cosmetic change
 #
@@ -22,8 +26,8 @@ SQUISH_LIB_DIRS = btree slib unix msgapi squish
 SQAFIX_LIB_DIRS = msgapi sqafix
 MAX_LIB_DIRS	= slib unix msgapi mex prot comdll 
 LIB_DIRS	= $(SQUISH_LIB_DIRS) $(SQAFIX_LIB_DIRS) $(MAX_LIB_DIRS)
-PROG_DIRS	= squish max mex util sqafix
-DIRS		= $(LIB_DIRS) $(PROG_DIRS)
+PROG_DIRS	= squish max mex util 
+DIRS		= $(LIB_DIRS) $(PROG_DIRS) sqafix
 NO_DEPEND_RULE	:= TRUE
 
 topmost:: header usage

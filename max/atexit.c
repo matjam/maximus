@@ -18,12 +18,15 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: atexit.c 1.1 2002/09/14 00:34:59 sjd Exp $";
+static char rcs_id[]="$Id: atexit.c,v 1.1.1.1 2002/10/01 17:50:45 sdudley Exp $";
 #pragma on(unreferenced)
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifdef UNIX
+#include <errno.h>
+#endif
 #include "alc.h"
 #include "prog.h"
 #include "mm.h"
@@ -56,6 +59,9 @@ int maximus_atexit( register void ( *func )( void ) )
 void maximus_exit(int status)
 {
   AtExitStruct *pae, *paeNext;
+#ifdef UNIX
+  const char *afterMax;
+#endif
 
   for (pae = paeExitList; pae; pae = paeNext)
   {
@@ -63,6 +69,27 @@ void maximus_exit(int status)
     paeNext = pae->next;
     free(pae);
   }
+
+#ifdef UNIX
+  if ((afterMax = getenv("AFTER_MAX")))
+  {
+    char 		buf[32];
+    char 		*argv[] = { afterMax, "AFTER_MAX", buf, NULL };
+    extern char 	**environ;
+
+    snprintf(buf, sizeof(buf), "ERRORLEVEL=%i", status);
+    putenv(buf);
+    snprintf(buf, sizeof(buf), "%i", status);
+
+    logit(":Becoming AFTER_MAX program: %s %s %s", argv[0], argv[1], argv[2]);
+
+    errno=0;
+    execve(argv[0], argv, environ);
+
+    logit("!Error: Could not execute AFTER_MAX program: %s %s %s (%s)", argv[0], argv[1], 
+	  argv[2], strerror(errno));
+  }
+#endif
 
   exit(status);
 }

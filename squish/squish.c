@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: squish.c,v 1.3 2003/06/13 03:34:13 wesgarland Exp $";
+static char rcs_id[]="$Id: squish.c,v 1.4 2003/09/03 13:51:33 paltas Exp $";
 #pragma on(unreferenced)
 
 /*#define TEST_VER*/
@@ -413,7 +413,7 @@ static void near ParseArgs(struct _args *ags, byte *argv[])
         mode |= MODE_link;
       else if (eqstri(*arg, "rescan"))
       {
-        mode=MODE_scan;
+        mode|=MODE_scan;
        
         if (arg[1]==NULL || arg[2]==NULL)
         {

@@ -20,9 +20,12 @@
 /**
  * @file	s_hole.c
  * @author	Scott J. Dudley
- * @version	$Id: s_hole.c,v 1.4 2003/07/26 00:03:58 rfj Exp $
+ * @version	$Id: s_hole.c,v 1.5 2003/09/03 13:51:33 paltas Exp $
  *
  * $Log: s_hole.c,v $
+ * Revision 1.5  2003/09/03 13:51:33  paltas
+ * /Linux instead of /UNIX on Linux machines
+ *
  * Revision 1.4  2003/07/26 00:03:58  rfj
  * Squish (and MSGAPI) updates as suggested by Bo Simonsen, including correcting
  * a \ to / for UNIX systems, changes concerning packet file name case, via line
@@ -40,13 +43,13 @@
 #ifndef __GNUC__
 #pragma off(unreferenced)
 #endif
-static __attribute__((unused)) char rcs_id[]="$Id: s_hole.c,v 1.4 2003/07/26 00:03:58 rfj Exp $";
+static __attribute__((unused)) char rcs_id[]="$Id: s_hole.c,v 1.5 2003/09/03 13:51:33 paltas Exp $";
 #ifndef __GNUC__
 #pragma on(unreferenced)
 #endif
 
 #define NOVARS
-/*#define DEBUG_HOLE*/
+#define DEBUG_HOLE
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -121,8 +124,9 @@ static void near SetHpktName(char *hpname, char *setname)
   strcpy(hpname, from);
 
   /* Convert the filename to uppercase */
-
+#ifndef UNIX
   upper_fn(hpname);
+#endif
 }
 
 
@@ -359,7 +363,7 @@ void Hole_Read_Netmail_Area(void)
 
     (void)printf("To recap:\n\n");
 
-    for (nm=netinf, end=netmsg+n_netmsg; nm < end; nm++)
+    for (nm=netmsg, end=netmsg+n_netmsg; nm < end; nm++)
       (void)printf("%hu:%hu/%hu.%hu, %s\n", nm->to.zone, nm->to.net,
                    nm->to.node, nm->to.point, nm->name);
   }
@@ -821,10 +825,9 @@ void Hole_Nuke_Bundles(void)
 
       char *strs[]={"mo", "tu", "we", "th", "fr", "sa", "su", NULL};
       char **p;
-
-
+#ifndef UNIX
       (void)upper_fn(ff->szName);
-
+#endif
       /* Find the extension of the file */
       
       ext=ff->szName+strlen(ff->szName)-4;

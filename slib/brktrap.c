@@ -20,9 +20,12 @@
 /**
  * @file	brktrap.c
  * @author	Scott J. Dudley
- * @version	$Id: s_squash.c,v 1.3 2003/06/18 02:00:17 wesgarland Exp $
+ * @version	$Id: brktrap.c,v 1.2 2003/06/18 02:03:15 wesgarland Exp $
  *
- * $Log: $
+ * $Log: brktrap.c,v $
+ * Revision 1.2  2003/06/18 02:03:15  wesgarland
+ * Implemented DOS int 24h trap as a SIGINT/SIGTERM trap under UNIX
+ *
  */
 
 /*# name=^c/^break trap functions
@@ -36,7 +39,9 @@
 #include "typedefs.h"
 
 int brk_trapped=0;
+#ifndef UNIX
 static byte brk_is_trapped=0;
+#endif
 
 #if defined(__MSDOS__)
 

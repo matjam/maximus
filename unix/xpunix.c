@@ -11,12 +11,17 @@
  *  @date	June 5th, 2003
  *
  *  $Log: xpunix.c,v $
+ *  Revision 1.3  2004/01/27 21:03:54  paltas
+ *  Fixed localmode
+ *
  *  Revision 1.1  2003/06/11 14:44:51  wesgarland
  *  Initial Revision
  *
  */
 
-static char rcs_id[]="$Id: xpunix.c,v 1.1 2003/06/11 14:44:51 wesgarland Exp $";
+#ifndef __GNUC__
+static char rcs_id[]="$Id: xpunix.c,v 1.3 2004/01/27 21:03:54 paltas Exp $";
+#endif
 
 #if defined(FLOCK_IS_FCNTL)
 /** Implement flock with fcntl.

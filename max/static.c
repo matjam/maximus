@@ -17,9 +17,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+#ifndef __GNUC__
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: static.c,v 1.2 2003/06/04 23:46:22 wesgarland Exp $";
+static char rcs_id[]="$Id: static.c,v 1.4 2004/01/27 21:00:46 paltas Exp $";
 #pragma on(unreferenced)
+#endif
 
 #define MAX_INITIALIZE
 

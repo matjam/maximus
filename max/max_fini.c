@@ -21,7 +21,7 @@
 #pragma off(unreferenced)
 #endif
 
-static char __attribute__((unused)) rcs_id[]="$Id: max_fini.c,v 1.3 2004/01/11 19:43:21 wmcbrine Exp $";
+static char __attribute__((unused)) rcs_id[]="$Id: max_fini.c,v 1.5 2004/01/27 21:00:45 paltas Exp $";
 
 #ifndef __GNUC__
 #pragma on(unreferenced)
@@ -615,7 +615,7 @@ void mdm_hangup(void)  /* Do the raise DTR/drop DTR thingy */
   }
 
 #if (COMMAPI_VER > 1)
-  if (!local && !ComIsAModem(hcModem))
+  if (!local /*&& !ComIsAModem(hcModem)*/)
   {
     ComClose(hcModem);
   }

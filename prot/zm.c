@@ -646,7 +646,7 @@ zsda32(char *buf, int length, int frameend)
  */
 
 void 
-zsdata(char *buf, int length, int frameend)
+zsdata(unsigned char *buf, int length, int frameend)
 {
   unsigned short crc;
 

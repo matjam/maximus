@@ -971,7 +971,7 @@ unsigned XmRx(byte *path, byte *filename, word protocol, unsigned *pusEOB)
   x.protocol=(sword)protocol;
   x.path=path;
 
-  strcpy(x.filename, filename ? filename : "");
+  strcpy(x.filename, filename ? filename : (byte *)"");
 
   x.fd=fd;
   x.size=-1L;

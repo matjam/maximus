@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: language.c 1.16 2002/09/14 00:29:26 sjd Exp $";
+static char rcs_id[]="$Id: language.c,v 1.1.1.1 2002/10/01 17:51:14 sdudley Exp $";
 #pragma on(unreferenced)
 
 #define MAX_LANG_max_chat
@@ -274,6 +274,13 @@ static void Verify_Language_Date(int fd,char *name)
 
 static void CheckLangPtrs(struct _lang *ph, char *name)
 {
+  /* Wes: Commenting this out may be tempting, but doing so
+   * can cause some *very* strange behaviour. If this is 
+   * generating an error for you, you probably have a
+   * mismatch between your etc/lang/english.lth and the
+   * one you built with. These should be generated for
+   * each platform via maid/english.mad.
+   */
   if (ph->inf.file_ptrs != n_lang_ptrs)
   {
     logit("!Language '%s': string count mismatch", name);

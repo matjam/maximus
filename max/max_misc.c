@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: max_misc.c,v 1.2 2003/06/04 23:46:22 wesgarland Exp $";
+static char rcs_id[]="$Id: max_misc.c,v 1.3 2003/06/05 23:26:49 wesgarland Exp $";
 #pragma on(unreferenced)
 
 /*# name=Miscellaneous routines
@@ -1164,7 +1164,7 @@ void Check_Time_Limit(unsigned long *input_timeout, int *timer2)
   }
 
   /* Make sure the user didn't fall asleep... */
-
+#ifndef UNIX
   if (input_timeout && timeup(*input_timeout) &&
       (!local || (local && (prm.flags2 & FLAG2_ltimeout))) &&
        !(fLoggedOn && acsflag(CFLAGA_NOTIME)))
@@ -1173,7 +1173,7 @@ void Check_Time_Limit(unsigned long *input_timeout, int *timer2)
     {
       logit(inputtimeout);
       Puts("\n\n\n");
-      /* mdm_dump(DUMP_OUTPUT); */
+      mdm_dump(DUMP_OUTPUT); 
       mdm_hangup();
     }
     else
@@ -1183,6 +1183,7 @@ void Check_Time_Limit(unsigned long *input_timeout, int *timer2)
       *timer2=TRUE;
     }
   }
+#endif
 }
 
 

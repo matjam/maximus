@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: mb_qwkup.c,v 1.2 2003/06/04 23:46:22 wesgarland Exp $";
+static char rcs_id[]="$Id: mb_qwkup.c,v 1.3 2003/09/12 23:18:24 paltas Exp $";
 #pragma on(unreferenced)
 
 /*# QWK uploads, for processing .REP packets
@@ -673,8 +673,12 @@ static int near QWKGetValidArea(PXMSG msg, char *aname, word tossto)
          !ReadMsgArea(ham, aname, &ma) ||
          !ValidMsgArea(NULL, &ma, VA_VAL | VA_PWD, &bi) ||
          !PopPushMsgArea(aname, &bi) ||
+	 #ifndef UNIX
          ((mah.ma.attribs & MA_READONLY) && !mailflag(CFLAGM_RDONLYOK)) ||
          !CanAccessMsgCommand(&mah, msg_upload, 0))
+	 #else
+         ((mah.ma.attribs & MA_READONLY) && !mailflag(CFLAGM_RDONLYOK)))
+	 #endif	 
   {
     Printf(qwk_invalid_area, msg->to, msg->subj);
 

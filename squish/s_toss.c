@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: s_toss.c,v 1.4 2003/09/10 22:15:48 paltas Exp $";
+static char rcs_id[]="$Id: s_toss.c,v 1.5 2003/09/22 13:21:29 paltas Exp $";
 #pragma on(unreferenced)
 
 #include <stdio.h>
@@ -715,8 +715,6 @@ static char * near ProdCode(byte prod)
     return pnum;
   }
 #else
-  extern struct ftscprod_ products[];
-
   if (products[prod].name)
     return products[prod].name;
   else

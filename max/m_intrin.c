@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: M_INTRIN.C 1.15 1995/07/30 09:16:40 sjd Exp $";
+static char rcs_id[]="$Id: m_intrin.c,v 1.1.1.1 2002/10/01 17:52:44 sdudley Exp $";
 #pragma on(unreferenced)
 
 /*# name=Message Section: Intrinsic functions
@@ -158,7 +158,7 @@ void MaxParseNN(char *netnode, NETADDR *pna)
 }
 
 
-long verylongtime(struct _stamp *sc)
+long verylongtime(union _stampu *sc)
 {
     struct tm t;
 

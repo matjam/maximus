@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: t_add.c 1.5 2002/09/14 00:32:50 sjd Exp $";
+static char rcs_id[]="$Id: t_add.c,v 1.1.1.1 2002/10/01 17:53:13 sdudley Exp $";
 #pragma on(unreferenced)
 
 #include "trackp.h"
@@ -93,7 +93,7 @@ void GenerateActrack(XMSG *pxmsg, char *kend)
 {
   static int counter=0;
   SCOMBO sc;
-  struct _stamp *pm=&sc.msg_st;
+  union _stampu *pm=&sc.msg_st;
 
   NW(pxmsg);
 

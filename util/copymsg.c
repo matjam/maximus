@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: COPYMSG.C 1.1 1993/12/05 07:39:43 sjd Exp $";
+static char rcs_id[]="$Id: copymsg.c,v 1.2 2003/06/05 03:18:58 wesgarland Exp $";
 #pragma on(unreferenced)
 
 #include <stdio.h>
@@ -45,7 +45,7 @@ static void *zalloc(size_t bytes)
     else return(ret);
 }
 
-static char *_ctime(struct _stamp *st)
+static char *_ctime(union _stampu *st)
 {
     static char str[40] = "12/31/89 00:00";
 

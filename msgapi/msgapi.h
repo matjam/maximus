@@ -17,7 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: msgapi.h 1.5 1996/11/11 15:45:48 sjd Exp $ */
+/* $Id: msgapi.h,v 1.3 2003/06/05 22:54:50 wesgarland Exp $ */
 
 #ifndef __SQAPI_H_DEFINED
 #define __SQAPI_H_DEFINED
@@ -273,8 +273,8 @@ struct _xmsg
   NETADDR orig;        /* Origination and destination addresses             */
   NETADDR dest;
 
-  struct _stamp date_written;   /* When user wrote the msg (UTC)            */
-  struct _stamp date_arrived;   /* When msg arrived on-line (UTC)           */
+  union _stampu date_written;   /* When user wrote the msg (UTC)            */
+  union _stampu date_arrived;   /* When msg arrived on-line (UTC)           */
   sword utc_ofs;                /* Offset from UTC of message writer, in    *
                                  * minutes.                                 */
 

@@ -17,7 +17,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: API_SDMP.H 1.1 1993/12/05 05:10:05 sjd Exp $ */
+/* $Id: api_sdmp.h,v 1.1.1.1 2002/10/01 17:54:22 sdudley Exp $ */
 
 static sword MAPIENTRY SdmCloseArea(HAREA mh);
 static HMSG  MAPIENTRY SdmOpenMsg(HAREA mh,word mode,dword msgnum);
@@ -43,7 +43,7 @@ static void Init_Xmsg(PXMSG msg);
 static sword near _SdmRescanArea(HAREA mh);
 static sword near _Grab_Clen(HMSG msgh);
 static void MAPIENTRY WriteToFd(byte OS2FAR *str);
-static void near Get_Binary_Date(struct _stamp *todate,struct _stamp *fromdate,byte *asciidate);
+static void near Get_Binary_Date(union _stampu *todate, union _stampu *fromdate,byte *asciidate);
 
 
 static int statfd; /* file handle for WriteToFd */

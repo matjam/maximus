@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: SCANBLD.C 1.8 1995/05/04 18:08:47 sjd Exp $";
+static char rcs_id[]="$Id: scanbld.c,v 1.1.1.1 2002/10/01 17:57:36 sdudley Exp $";
 #pragma on(unreferenced)
 
 /*# name=SCANBLD main module
@@ -96,7 +96,12 @@ static void near Scan_More(void)
 
   printf("[Press Enter] ");
   fflush(stdout);
-  fgetchar();
+#ifdef UNIX
+  getchar();
+#else
+  getch();
+#endif
+
   printf("\x1b[A\r              \r");
 }
 

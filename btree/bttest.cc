@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: BTTEST.CC 1.4 1995/03/06 16:43:34 sjd Exp $";
+static char rcs_id[]="$Id: bttest.cc,v 1.1.1.1 2002/10/01 17:49:23 sdudley Exp $";
 #pragma on(unreferenced)
 
 #include <stdio.h>
@@ -240,7 +240,11 @@ foo:
                "but couldn't find a[%d]=%d\n",
                i, a[i], i-1, a[i-1], j, a[j]);
 
+#ifndef UNIX
         getch();
+#else
+	getchar();
+#endif
       }
     }
 #endif
@@ -251,7 +255,11 @@ foo:
     if (!b3.remove(addr_int(a[i])))
     {
       printf("3: couldn't remove %d (%d)!\n", a[i], i);
-      getch();
+#ifndef UNIX
+        getch();
+#else
+	getchar();
+#endif
     }
   }
 

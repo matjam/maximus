@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: TRACKIMP.CC 1.3 1995/07/22 13:26:16 sjd Exp $";
+static char rcs_id[]="$Id: trackimp.cc,v 1.1.1.1 2002/10/01 17:49:32 sdudley Exp $";
 #pragma on(unreferenced)
 
 #include <conio.h>
@@ -262,7 +262,11 @@ static void near ImportMsgs(DBASE *pdbMsg)
       if (!pdbMsg->get_btrees()[2].validate())
       {
       printf("Error in validate after inserting %s!\n", tmn.szTrackID);
+#ifdef UNIX
+      getchar();
+#else
       getch();
+#endif
       break;
       }
   }

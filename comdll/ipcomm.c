@@ -17,9 +17,14 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: $
+/* $Id: ipcomm.c,v 1.2 2003/06/06 00:58:21 wesgarland Exp $
  *
- * $Log:$
+ * $Log: ipcomm.c,v $
+ * Revision 1.2  2003/06/06 00:58:21  wesgarland
+ * Update to COMMAPI_VER=2 interface, new 8-bit capable telnet driver, support for
+ * better performance in raw IP or telnet modes by toggling Nagle algorythm,
+ * better detection for sockets disconnecte at the remote end.
+ *
  */
 
 /** 
@@ -43,7 +48,7 @@
 #define WATCHDOG_LISTEN_TIMEOUT		0	/**< how long to wait between listen->accept */
 #define WATCHDOG_ACTIVITY_TIMEOUT	300	/**< how long to wait between ComRead activity */
 
-static char rcs_id[]="$Id: NTCOMM.C 1.3 1995/07/23 16:41:10 sjd Exp $";
+static char rcs_id[]="$Id: ipcomm.c,v 1.2 2003/06/06 00:58:21 wesgarland Exp $";
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -115,6 +120,9 @@ static void _SetTimeoutBlock(HCOMM hc)
 {
   DCB dcb;                        /* Device Control Block info for com port */
 
+  if (!hc)
+    return;
+
   memset(&hc->ct, 0, sizeof hc->ct);   /* Default to a zero timeout for everything */
 
   hc->ct.ReadIntervalTimeout=16;      /* Wait up to 1 msec between chars */
@@ -138,6 +146,9 @@ static void _SetTimeoutBlock(HCOMM hc)
 static void _InitPort(HCOMM hc)
 {
   DCB dcb;
+
+  if (!hc)
+    return;
 
   /* Set communications timeouts */
 
@@ -303,6 +314,9 @@ BOOL COMMAPI ComOpen(LPTSTR pszDevice, HCOMM *phc, DWORD dwRxBuf, DWORD dwTxBuf)
  */
 BOOL COMMAPI ComClose(HCOMM hc)
 {
+  if (!hc)
+    return FALSE;
+
   if (hc->saddr_p)
     shutdown(hc->h, 2);
 
@@ -320,6 +334,9 @@ ssize_t telnet_write(HCOMM hc, const unsigned char *buf, size_t count)
 {
   unsigned char	*iac;
   int		fd = hc->h;
+
+  if (!hc)
+    return -1;
 
   if (hc->telnetOptions & mopt_TRANSMIT_BINARY)
     return write(fd, buf, count);
@@ -462,6 +479,9 @@ static inline ssize_t telnet_read(HCOMM hc, unsigned char *buf, size_t count)
   unsigned char	*iac, *ch, arg, arg2;
   int		fd = hc->h;
   ssize_t	bytesRead = read(fd, buf, count);	/* Select()ed for read already */
+
+  if (!hc)
+    return -1;
 
   if (hc->telnetOptions & mopt_TRANSMIT_BINARY)
     return bytesRead;
@@ -957,7 +977,7 @@ BOOL COMMAPI ComRead(HCOMM hc, PVOID pvBuf, DWORD dwBytesToRead, PDWORD pdwBytes
   fd_set 	rfds;
   struct 	timeval tv;
   BOOL 		retval = FALSE;
-  ssize_t	bytesRead;
+  ssize_t	bytesRead = 0;
 
   if (!ComIsOnline(hc))
     return FALSE;
@@ -1152,6 +1172,9 @@ BOOL COMMAPI ComTxWait(HCOMM hc, DWORD dwTimeOut)
   fd_set fds;
   struct timeval tv;
 
+  if (!hc)
+    return FALSE;
+
   FD_ZERO(&fds);
   FD_SET(hc->h, &fds);
 
@@ -1217,7 +1240,9 @@ DWORD COMMAPI ComOutCount(HCOMM hc)
  */
 DWORD COMMAPI ComOutSpace(HCOMM hc)
 {
-  (void)ComIsOnline(hc);
+  if (!ComIsOnline(hc))
+    return 0;
+
   return hc->txBufSize ? : 1024;
 }
 
@@ -1242,14 +1267,14 @@ BOOL COMMAPI ComPurge(HCOMM hc, DWORD fBuffer)
 /** Return the file handle associated with this com port */
 OSCOMMHANDLE COMMAPI ComGetHandle(HCOMM hc)
 {
-  return hc->h;
+  return hc ? hc->h : -1;
 }
 
 
 /** Get information specific to the serial driver device control block */
 BOOL COMMAPI ComGetDCB(HCOMM hc, LPDCB pdcb)
 {
-  return GetCommState(hc->h, pdcb);
+  return hc ? GetCommState(hc->h, pdcb) : FALSE;
 }
 
 
@@ -1257,7 +1282,7 @@ BOOL COMMAPI ComGetDCB(HCOMM hc, LPDCB pdcb)
 /** Set information specific to the serial driver device control block */
 USHORT COMMAPI ComSetDCB(HCOMM hc, LPDCB pdcb)
 {
-  return SetCommState(hc->h, pdcb);
+  return hc ? SetCommState(hc->h, pdcb) : FALSE;
 }
 
 /** Set the baud rate of the com port, using the DCB functions */
@@ -1265,6 +1290,9 @@ BOOL COMMAPI ComSetBaudRate(HCOMM hc, DWORD dwBps, BYTE bParity, BYTE bDataBits,
 {
   DCB dcb;
   BOOL rc;
+
+  if (!hc)
+    return FALSE;
 
   GetCommState(hc->h, &dcb);
 
@@ -1296,20 +1324,12 @@ BOOL COMMAPI ComPause(HCOMM hc)
    * to send anything unless we give it a character, but this txpause       *
    * semaphore ensures that nothign is transmitted.                         */
 
-#if 0 /* not yet */
-  ResetEvent(hc->hevRxPause);
-  ResetEvent(hc->hevTxPause);
-#endif 
   return FALSE;
 }
 
 
 BOOL COMMAPI ComResume(HCOMM hc)
 {
-#if 0 /* not yet */
-  SetEvent(hc->hevRxPause);
-  SetEvent(hc->hevTxPause);
-#endif
   return FALSE;
 }
 
@@ -1345,8 +1365,12 @@ BOOL COMMAPI ComWatchDog(HCOMM hc, BOOL fEnable, DWORD ulTimeOut)
  */
 BOOL COMMAPI ComBurstMode(HCOMM hc, BOOL fEnable)
 {
-  BOOL lastState = hc->burstModePending;
+  BOOL lastState;
   
+  if (!hc)
+    return FALSE;
+
+  lastState = hc->burstModePending;
   hc->burstModePending = fEnable;
 
   return lastState;

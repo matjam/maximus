@@ -27,6 +27,7 @@ static char rcs_id[]="$Id: KILLRCAT.C 1.7 1994/02/17 01:12:48 sjd Exp $";
 #define INCL_DOS
 
 #include <os2.h>
+#include "prog.h"
 #include "msgapi.h"
 #include "sqfeat.h"
 

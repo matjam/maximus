@@ -40,6 +40,9 @@ static char rcs_id[]="$Id: S_SQUASH.C 1.15 1995/11/06 17:05:16 sjd Exp $";
 #include "msgapi.h"
 #include "squish.h"
 #include "s_squash.h"
+#ifdef UNIX
+# include <errno.h>
+#endif
 
 extern char bsy_pkt_queued[]; /* "%s busy - packet queued" error msg */
 
@@ -102,11 +105,18 @@ static void near RV_Dos(byte *line,byte *ag[],NETADDR nn[],word num)
     cmd=smalloc(strlen(p)+80);
     comspec=getenv("COMSPEC");
     
+#ifndef UNIX
     if (comspec==NULL)
       comspec="COMMAND.COM";
-  
+
     (void)sprintf(cmd, "%s /c %s", comspec, p);
-    
+#else
+    if (comspec==NULL)
+      comspec="/bin/sh";
+
+    (void)sprintf(cmd, "%s %s", comspec, p);
+#endif
+  
     (void)CallExtern(cmd, FALSE);
 
     free(cmd);
@@ -175,7 +185,7 @@ static int near Add_To_Archive(byte *arcname, NETADDR *found, byte *pktname, NET
 
           (void)strcpy(temp, del);
 
-          if (ff->ulSize==0L && (p=strrchr(temp, '\\')) != NULL)
+          if (ff->ulSize==0L && (p=strrchr(temp, PATH_DELIM)) != NULL)
           {
             (void)strcpy(p+1, ff->szName);
             (void)unlink(temp);
@@ -2170,7 +2180,7 @@ static void near MakeArcBase(char *where, NETADDR *dest)
     if (!direxist(where))
       (void)make_dir(where);
 
-    (void)sprintf(where+strlen(where), "\\%08hx",
+    (void)sprintf(where+strlen(where), PATH_DELIMS "%08hx",
                   config.addr->point-dest->point);
   }
   else
@@ -2206,7 +2216,7 @@ void MakeOutboundName(NETADDR *d, char *s)
     if (!direxist(orig))
       (void)make_dir(orig);
 
-    (void)sprintf(s, "\\%08hx", d->point);
+    (void)sprintf(s, PATH_DELIMS "%08hx", d->point);
     s += strlen(s);
   }
   

@@ -28,6 +28,16 @@ static char rcs_id[]="$Id: S_THUNK.C 1.2 1993/12/05 06:16:20 sjd Exp $";
 
 /* Thunks for the MsgAPI allocation routines */
 
+/*
+#if defined(UNIX)
+# define OS2FAR  
+# define MAPIENTRY
+# define farmalloc(a) malloc(a)
+# define farfree(a) free(a)
+# define farrealloc(a) realloc(a)
+#endif
+*/
+
 void OS2FAR * EXPENTRY sq_palloc(size_t size)
 {
   return ((void OS2FAR *)malloc(size));
@@ -57,4 +67,12 @@ void far * EXPENTRY sq_farrepalloc(void far *ptr, size_t size)
 {
   return ((void far *)farrealloc(ptr, size));
 }
+
+
+
+
+
+
+
+
 

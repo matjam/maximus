@@ -51,7 +51,11 @@ extern FILE *dj;
 
 static word full_scan=0;
 static dword scan_ctr;
+#ifndef UNIX
 static char maxmsgs_scan[]="MAXMSGS2.DAT";
+#else
+static char maxmsgs_scan[]="maxmsgs2.dat";
+#endif
 
 static void near cleanup_exit(int erl)
 {
@@ -397,7 +401,7 @@ void Scan_Area(struct _cfgarea *ar, HAREA opensq)
       }
 
       if ((hwm % 5)==0 && (config.flag2 & FLAG2_QUIET)==0)
-        (void)printf("\b\b\b\b\b%05lu", hwm);
+        (void)printf("\b\b\b\b\b%" INT32_FORMAT, hwm);
 
       nmsg_scanned++;
     }
@@ -1781,8 +1785,12 @@ static void near Add_Tear_Line(char *mbuf, struct _cfgarea *ar, XMSG *msg)
   else addrstr=Address(SblistToNetaddr(&ar->primary, &n));
 
   (void)sprintf(temp,
-#if defined(__FLAT__)
+#if defined(__FLAT__) || defined(UNIX)
+# if defined(UNIX)
+                "\r--- Squish/UNIX v%s\r * Origin: %s (%s)\r",
+# else
                 "\r--- Squish/386 v%s\r * Origin: %s (%s)\r",
+# endif
 #else
                 "\r--- Squish v%s\r * Origin: %s (%s)\r",
 #endif

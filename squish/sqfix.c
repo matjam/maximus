@@ -503,7 +503,7 @@ static void near rewrite_lastreads(char *base_name, dword huge *pmsg, dword num_
   if ((fd=sopen(sql_name, O_CREAT | O_TRUNC | O_WRONLY | O_BINARY, SH_DENYRW,
                S_IREAD | S_IWRITE))==-1)
   {
-    printf("Error opening %s for write!\n");
+    printf("Error opening %s for write!\n", sql_name);
     return;
   }
 
@@ -733,7 +733,7 @@ static void near fix_base(char *name)
   rename_base(name, fixbase);
   link_base(name);
 
-  printf("\rDone rebuild!\n\n", name);
+  printf("\rDone rebuild!\n\n");
 
   printf("Free frame headers:    %d\n", free_frames);
   printf("Damaged frame headers: %d\n", damaged_frames);

@@ -49,7 +49,11 @@ short OutToSflo(void)
   char *szDomain="fidonet.org";
   char *szType;
   
+#ifndef UNIX
   if ((fpSflo=shfopen("SUPERFLO.DAT", "w+b",
+#else
+  if ((fpSflo=shfopen("superflo.dat", "w+b",
+#endif
                       O_CREAT | O_TRUNC | O_WRONLY | O_BINARY))==NULL)
   {
     (void)printf("Error creating SuperFLO!\n");

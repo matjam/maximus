@@ -89,7 +89,7 @@ static char * near bsy_extension(char *name)
 
   /* Change the extension to .bsy */
   
-  if (point==NULL || strchr(bsyname, '\\') > point)
+  if (point==NULL || strchr(bsyname, PATH_DELIM) > point)
     (void)strcat(bsyname, dot_bsy);
   else
   {

@@ -444,7 +444,7 @@ int _stdc main(int argc,char *argv[])
   {
     printf("Command-line format:\n\n");
 
-    printf("SQINFO <area name> [<options>...]\n\n", argv[0]);
+    printf("%s <area name> [<options>...]\n\n", argv[0]);
 
     printf("SQINFO will display a diagnostic dump of the headers for the specified\n"
            "message area, and it will report any problems which are found.  SQINFO\n"

@@ -64,10 +64,14 @@ int _stdc main(int argc, char *argv[])
   NW(__fd2n);
 
 
-#ifdef __FLAT__
+#if !defined(UNIX)
+# if defined(__FLAT__)
   Hello("SQUISH/386", "SquishMail Conference Processor", version, "1990, " THIS_YEAR);
-#else
+# else
   Hello("SQUISH", "SquishMail Conference Processor", version, "1990, " THIS_YEAR);
+# endif
+#else
+  Hello("SQUISH/UNIX", "SquishMail Conference Processor", version, "1990, " THIS_YEAR);
 #endif
 
 #ifdef OS_2 /* Serialize Squish's execution */

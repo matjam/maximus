@@ -181,7 +181,11 @@ int MatchOutNext(MATCHOUT *mo)
      * ff->szName.  Now, check the extension, and if it's what we're       *
      * looking for, copy it into 'doname' to get out of the loop.           */
     
+#ifndef UNIX
     if ((p=strchr(strupr(mo->ff->szName),'.')) != NULL)
+#else
+    if ((p=strchr(mo->ff->szName,'.')) != NULL)
+#endif
     {
       /*************************************************************/
       /************** STUPID BINKLEYTERM KLUDGE ALERT **************/
@@ -195,7 +199,7 @@ int MatchOutNext(MATCHOUT *mo)
 
         (void)strcpy(temp, FixOutboundName(config.ob[mo->cur_ob]));
         (void)strcat(temp, mo->ff->szName);
-        (void)strcat(temp, "\\");
+        (void)strcat(temp, PATH_DELIMS);
 
         /* Figure out which point we need to search for */
 
@@ -243,7 +247,11 @@ int MatchOutNext(MATCHOUT *mo)
           
           /* Now parse the dot, so we can handle the next entry */
 
+#ifndef UNIX
           if ((p=strchr(strupr(mo->ff->szName),'.'))==NULL)
+#else
+          if ((p=strchr((mo->ff->szName),'.'))==NULL)
+#endif
             p=oldp;
         }
       }
@@ -307,7 +315,7 @@ int MatchOutNext(MATCHOUT *mo)
           /* Add the name of the parent directory */
 
           if (mo->parentff)
-            (void)sprintf(doname+strlen(doname), "%04hx%04hx.pnt\\",
+            (void)sprintf(doname+strlen(doname), "%04hx%04hx.pnt" PATH_DELIMS,
                           (unsigned)mo->found.net, (unsigned)mo->found.node);
 
           (void)strcat(doname, mo->ff->szName);
@@ -322,8 +330,9 @@ int MatchOutNext(MATCHOUT *mo)
    * filename, so put the name in the right place, and return.              */
   
   (void)strcpy(mo->name,doname);
+#ifndef UNIX
   (void)strupr(mo->name);
-  
+#endif  
   return 1;
 }
 

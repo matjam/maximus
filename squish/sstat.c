@@ -301,8 +301,8 @@ static void near CalculateStats(dword total_in_bytes, dword total_in_msgs)
              sl->out_msgs,
              Percent(sl->out_bytes, al->total_out_bytes),
              Percent(sl->out_msgs,  al->total_out_msgs),
-             area_percent_bytes,
-             area_percent_msgs);
+             (float)area_percent_bytes,
+             (float)area_percent_msgs);
 
       for (nt=nodtot; nt; nt=nt->next)
         if (MatchNN(&nt->node, &sl->node))
@@ -316,7 +316,7 @@ static void near CalculateStats(dword total_in_bytes, dword total_in_msgs)
 
   printf("\nNODE TOTALS:\n\n");
 
-  printf("   Node             %Bytes % Msgs\n");
+  printf("   Node             %%Bytes %% Msgs\n");
   printf("   ---------------- ------ ------\n");
 
   for (nt=nodtot; nt; nt=nt->next)
@@ -419,7 +419,11 @@ static void near ParseConfig(char *cfg)
   sc.do_all=FALSE;
   
   if (cfg==NULL)
+#ifndef UNIX
     cfg="SSTAT.CFG";
+#else
+    cfg="sstat.cfg";
+#endif
   
   if ((fp=shfopen(cfg, "r", O_RDONLY))==NULL)
   {
@@ -447,7 +451,11 @@ int _stdc main(int argc, char *argv[])
   
   ParseConfig(argv[1]);
 
+#ifndef UNIX
   if ((fd=open("SQUISH.STT", O_RDONLY | O_BINARY))==-1)
+#else
+  if ((fd=open("squish.stt", O_RDONLY | O_BINARY))==-1)
+#endif
   {
     printf("Error!  No statistics file to read!\n");
     return 1;

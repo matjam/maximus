@@ -168,7 +168,9 @@ void HoleScanHole(void)
 
   do
   {
+#ifndef UNIX
     (void)strupr(ff->szName);
+#endif
 
     (void)strcpy(fname, hpath);
     (void)strcat(fname, ff->szName);

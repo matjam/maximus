@@ -1032,7 +1032,7 @@ static void near Process_AttReqUpd(XMSG *msg, char *filename, word manual)
   
     if (!manual && *filename)
     {
-      if (filename[1] != ':' && !strchr(filename,'\\'))
+      if (filename[1] != ':' && !strchr(filename,'\\')) /* wes - not changing; \\ is in packet (?) */
       {
         struct _tosspath *tp, *lasttp;
 
@@ -1041,7 +1041,8 @@ static void near Process_AttReqUpd(XMSG *msg, char *filename, word manual)
 
         for (tp=config.tpath, lasttp=tp; tp; lasttp=tp, tp=tp->next)
         {
-          (void)sprintf(tname, "%s\\%s", tp->path, filename);
+          (void)sprintf(tname, "%s" PATH_DELIMS "%s", tp->path, filename);
+	  fixPathMove(tname);
 
           if (fexist(tname))
           {
@@ -1055,8 +1056,8 @@ static void near Process_AttReqUpd(XMSG *msg, char *filename, word manual)
 
         if (!tp)
         {
-          (void)sprintf(tname, "%s\\%s", lasttp->path, filename);
-          filename=tname;
+          (void)sprintf(tname, "%s" PATH_DELIMS "%s", lasttp->path, filename);
+          filename=fixPath(tname);
         }
       }
     }
@@ -1261,7 +1262,7 @@ static void near Process_OneAttReqUpd(XMSG *msg,
 
   (void)strcpy(temp, filename);
 
-  if ((s=strrchr(temp,'\\')) != NULL)
+  if ((s=strrchr(temp, PATH_DELIM)) != NULL)
     (void)strocpy(temp, s+1);
 
   /* Now add it to the message's subject, if there's enough room */

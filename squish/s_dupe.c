@@ -33,6 +33,9 @@ static char rcs_id[]="$Id: S_DUPE.C 1.8 1994/06/05 14:12:50 sjd Exp $";
 #include "squish.h"
 #include "crc.h"
 #include "s_dupe.h"
+#ifdef UNIX
+# include <errno.h>
+#endif
 
 static int dfile=-1;
 static DUPEHEAD dh={0};
@@ -44,7 +47,7 @@ static void far *dupebuf=NULL;
 static int have_last_dupe=FALSE;
 static DUPEID lastdupe;
 
-static char dupefile_sdm[]="%s\\dupefile.dat";
+static char dupefile_sdm[]="%s" PATH_DELIMS "dupefile.dat";
 static char dupefile_sq[] ="%s.sqb";
 static char msgid_str[]="MSGID";
 
@@ -179,6 +182,7 @@ static void near MakeDupeFileName(char *fname, struct _cfgarea *ar)
   (void)sprintf(fname,
                 (ar->type & MSGTYPE_SDM) ? dupefile_sdm : dupefile_sq,
                 ar->path);
+  fixPathMove(fname);
 }
 
 

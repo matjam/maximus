@@ -187,7 +187,12 @@ static void near V_Outbound(char *line, char *ag[])
   /* Make sure that it doesn't end with a backslash */
 
   if (strlen(pob->dir) > 3)
+  {  
     (void)Strip_Trailing(pob->dir, '\\');
+#ifdef UNIX
+    (void)Strip_Trailing(pob->dir, '/');
+#endif
+  }
 
   /* Add to linked list */
 
@@ -444,6 +449,9 @@ static void near V_Netfile(char *line,char *ag[])
     else
     {
       (void)Strip_Trailing(ag[x],'\\');
+#ifdef UNIX
+      (void)Strip_Trailing(ag[x],'/');
+#endif
   
       tp->path=sstrdup(ag[x]);
       break;

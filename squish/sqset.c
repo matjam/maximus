@@ -68,7 +68,11 @@ int _stdc main(int argc,char *argv[])
     if (p && strnicmp(p+1, "sqd", 3)==0)
       *p='\0';
 
+#ifndef UNIX
   sprintf(fname, "%s.Sqd", argv[1]);
+#else
+  sprintf(fname, "%s.sqd", argv[1]);
+#endif
 
   if ((sfd=open(fname,O_RDWR | O_BINARY))==-1)
     ErrOpen(fname);

@@ -274,14 +274,31 @@ static int near Parse_Local_Normal(int ch)
 
   switch(toupper(ch))
   {
-    case '\0':
+    case K_ONEMORE:
       c=loc_getch();
 
+#ifdef UNIX
+      if (c == K_ESC)
+        goto realEscape;
+
+      /* wes -- he flips out of symbol labels and into real scan codes here. so will we.. */
+      if (c >= K_F1 && c <= K_F12)
+      {
+        Parse_FKey((c = c - K_F1 + 59));
+        break;
+      }
+      if (c >= K_SF1 && c <= K_SF12)
+      {
+        Parse_FKey((c = c - K_SF1 + 84));
+        break;
+      }
+#else
       if ((c >= 59 && c <= 68) || (c >= 84 && c <= 113))
       {
         Parse_FKey(c);
         break;
       }
+#endif 
       else switch (c)
       {
         case K_ALTC:
@@ -340,7 +357,12 @@ static int near Parse_Local_Normal(int ch)
       mdm_hangup();
       break;
 
+#ifndef UNIX
     case K_ESC:
+#else
+    case -2:
+    realEscape:     
+#endif
       if (displaymode==VIDEO_IBM && dspwin)
       {
         WinClose(dspwin);

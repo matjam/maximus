@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: BT_REM.CC 1.3 1995/02/26 09:03:37 sjd Exp $";
+static char rcs_id[]="$Id: bt_rem.cc,v 1.1.1.1 2002/10/01 17:49:25 sdudley Exp $";
 #pragma on(unreferenced)
 
 #include <string.h>
@@ -404,7 +404,9 @@ int BTREE::_remove_low_keys(BTNODE *pbnNode, PNODE *pnNodeParents)
     return FALSE;
   }
 
-  for (int parent_idx=0; parent_idx <= bnParent.uiKeys; parent_idx++)
+  int parent_idx;
+
+  for (parent_idx=0; parent_idx <= bnParent.uiKeys; parent_idx++)
     if (bnParent.child[parent_idx]==pbnNode->nn)
       break;
 

@@ -17,9 +17,12 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: ipcomm.c,v 1.2 2003/06/06 00:58:21 wesgarland Exp $
+/* $Id: ipcomm.c,v 1.3 2003/06/11 02:12:01 wesgarland Exp $
  *
  * $Log: ipcomm.c,v $
+ * Revision 1.3  2003/06/11 02:12:01  wesgarland
+ * Modified API-visible routines to check for a valid comm handle before using it.
+ *
  * Revision 1.2  2003/06/06 00:58:21  wesgarland
  * Update to COMMAPI_VER=2 interface, new 8-bit capable telnet driver, support for
  * better performance in raw IP or telnet modes by toggling Nagle algorythm,
@@ -48,11 +51,12 @@
 #define WATCHDOG_LISTEN_TIMEOUT		0	/**< how long to wait between listen->accept */
 #define WATCHDOG_ACTIVITY_TIMEOUT	300	/**< how long to wait between ComRead activity */
 
-static char rcs_id[]="$Id: ipcomm.c,v 1.2 2003/06/06 00:58:21 wesgarland Exp $";
+static char rcs_id[]="$Id: ipcomm.c,v 1.3 2003/06/11 02:12:01 wesgarland Exp $";
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 #include <signal.h>
 #include <sys/time.h>
 #include <sys/types.h>

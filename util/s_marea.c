@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: S_MAREA.C 1.16 1995/08/16 14:57:50 sjd Exp $";
+static char rcs_id[]="$Id: s_marea.c,v 1.1.1.1 2002/10/01 17:57:46 sdudley Exp $";
 #pragma on(unreferenced)
 
 /*# name=SILT: 'Section Area' processing logic
@@ -518,7 +518,9 @@ int ParseMsgArea(FILE *ctlfile, char *name)
 
     HeapAdd(&mi.h, &mi.ma.name, fullname);
 
+#ifdef MAX_TRACKER
     *toNewOwner=0;
+#endif
   }
 
   while (fgets(line, PATHLEN, ctlfile))

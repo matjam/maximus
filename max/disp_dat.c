@@ -51,7 +51,11 @@ word DisplayDatacode(DSTK *d)
   switch (DispSlowGetChar(d))
   {
     case 1:   /* Quote */
+#ifndef UNIX
       sprintf(d->scratch, "%s.BBS", PRM(quote));
+#else
+      sprintf(d->scratch, "%s.bbs", PRM(quote));
+#endif
 
       if ((quotefile=shfopen(d->scratch, fopen_read, O_RDONLY))==NULL)
         return 0;

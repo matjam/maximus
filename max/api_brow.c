@@ -134,7 +134,12 @@ static int near BrowseCheckScanFile(BROWSE *b)
   }
   else if (b->type==MSGTYPE_SQUISH)
   {
+#ifndef UNIX
     sprintf(temp, "%s.SQI", b->path);
+#else
+    sprintf(temp, "%s.sqi", b->path);
+#endif
+
     recsize=sizeof(SQIDX);
     blsiz=SCAN_BLOCK_SQUISH;
   }

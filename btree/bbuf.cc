@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: BBUF.CC 1.3 1994/01/30 00:24:47 sjd Exp $";
+static char rcs_id[]="$Id: bbuf.cc,v 1.1.1.1 2002/10/01 17:49:20 sdudley Exp $";
 #pragma on(unreferenced)
 
 #include <stdio.h>
@@ -124,7 +124,9 @@ int CPPEXPORT BLOCKBUF::put(NNUM nn, void *pvBlock, unsigned fDelta)
 
   // Stop when we find a match
 
-  for (struct _bblist *bb=bbList; bb; bb=bb->next)
+  struct _bblist *bb;
+
+  for (bb=bbList; bb; bb=bb->next)
     if (bb->nn==nn)
       break;
 

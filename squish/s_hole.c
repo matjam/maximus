@@ -20,9 +20,12 @@
 /**
  * @file	s_hole.c
  * @author	Scott J. Dudley
- * @version	$Id: s_hole.c,v 1.5 2003/09/03 13:51:33 paltas Exp $
+ * @version	$Id: s_hole.c,v 1.6 2003/11/18 22:50:50 paltas Exp $
  *
  * $Log: s_hole.c,v $
+ * Revision 1.6  2003/11/18 22:50:50  paltas
+ * Fixed attach netmail
+ *
  * Revision 1.5  2003/09/03 13:51:33  paltas
  * /Linux instead of /UNIX on Linux machines
  *
@@ -43,7 +46,7 @@
 #ifndef __GNUC__
 #pragma off(unreferenced)
 #endif
-static __attribute__((unused)) char rcs_id[]="$Id: s_hole.c,v 1.5 2003/09/03 13:51:33 paltas Exp $";
+static __attribute__((unused)) char rcs_id[]="$Id: s_hole.c,v 1.6 2003/11/18 22:50:50 paltas Exp $";
 #ifndef __GNUC__
 #pragma on(unreferenced)
 #endif
@@ -124,9 +127,7 @@ static void near SetHpktName(char *hpname, char *setname)
   strcpy(hpname, from);
 
   /* Convert the filename to uppercase */
-#ifndef UNIX
   upper_fn(hpname);
-#endif
 }
 
 
@@ -825,9 +826,7 @@ void Hole_Nuke_Bundles(void)
 
       char *strs[]={"mo", "tu", "we", "th", "fr", "sa", "su", NULL};
       char **p;
-#ifndef UNIX
       (void)upper_fn(ff->szName);
-#endif
       /* Find the extension of the file */
       
       ext=ff->szName+strlen(ff->szName)-4;

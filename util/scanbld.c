@@ -17,7 +17,9 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id$ */
+#pragma off(unreferenced)
+static char rcs_id[]="$Id: scanbld.c,v 1.2 2003/06/11 02:13:06 wesgarland Exp $";
+#pragma on(unreferenced)
 
 /*# name=SCANBLD main module
 */

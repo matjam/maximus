@@ -17,7 +17,9 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id$ */
+#pragma off(unreferenced)
+static char rcs_id[]="$Id: silt.c,v 1.1.1.1 2002/10/01 17:57:37 sdudley Exp $";
+#pragma on(unreferenced)
 
 /*# name=SILT, main module
 */

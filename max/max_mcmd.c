@@ -31,6 +31,12 @@ static char rcs_id[]="$Id: MAX_MCMD.C 1.4 1995/07/23 08:00:28 sjd Exp $";
 #include "prog.h"
 #include "mm.h"
 
+#if defined(UNIX) || defined(NT)
+# include "ntcomm.h"
+#else
+# define COMMAPI_VER 0
+#endif
+
 #ifndef SHORT_MDM_CMD
 static char *mdm_rsp[]={"NO CARRIER",
                         "CONNECT",
@@ -47,7 +53,7 @@ static char *mdm_rsp[]={"NO CARRIER",
                         NULL};
 #endif
 
-int mdm_cmd(char *command)
+int _mdm_cmd(char *command)
 {
   #ifndef SHORT_MDM_CMD
   timer_t expire;
@@ -255,4 +261,15 @@ int mdm_cmd(char *command)
   #endif
 }
 
+int mdm_cmd(char *cmd)
+{
+#if (COMMAPI_VER > 1)
+  extern HCOMM hcModem;
+
+  if (!ComIsAModem(hcModem))
+    return 0;	/* Not much point sending modem commands to non-modems.. */
+#endif
+
+  return _mdm_cmd(cmd);
+}
 

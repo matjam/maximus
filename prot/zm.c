@@ -17,7 +17,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id$ */
+#ifndef __GNUC__
+#pragma off(unreferenced)
+static char rcs_id[]="$Id: zm.c,v 1.2 2003/06/05 01:16:01 wesgarland Exp $";
+#pragma on(unreferenced)
+#endif
 
 /*
  *   Z M . C
@@ -503,7 +507,7 @@ zsbhdr(int type, char *hdr)
 
   dlogit(("@zsendhdr: %s %lx", frametypes[type+FTOFFSET], rclhdr(hdr)));
 
-  if (Crc32t = Txfcs32)
+  if ((Crc32t = Txfcs32))
     zsbh32(hdr, type);
   else
   {
@@ -911,7 +915,7 @@ zrdata(char *buf, int length)
 	case GOTCRCG:
 	case GOTCRCQ:
 	case GOTCRCW:
-          crc = ZmUpdCrc((d = c) & 0xff, crc);
+          crc = ZmUpdCrc(((d = c) & 0xff), crc);
 
           if ((c = zdlread()) & ~0xff)
 	    goto crcfoo;

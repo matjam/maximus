@@ -17,7 +17,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id$ */
+#ifndef __GNUC__
+#pragma off(unreferenced)
+static char rcs_id[]="$Id: frecv.c,v 1.2 2003/06/05 01:16:01 wesgarland Exp $";
+#pragma on(unreferenced)
+#endif
 
 #define PROT_LOG
 #define MAX_LANG_protocols

@@ -169,7 +169,7 @@ void DisplayShowDate(char *sho_date, union stamp_combo *sc)
 
 void DisplayShowAddress(char *sho_addr, NETADDR *n, MAH *pmah)
 {
-  Printf(sho_addr, (pmah->ma.attribs & MA_NET) ? Address(n) : blank_str);
+  Printf(sho_addr, (pmah->ma.attribs & MA_NET) ? (char *)Address(n) : (char *)blank_str);
 }
 
 void DisplayMessageSubj(XMSG *msg, PMAH pmah)

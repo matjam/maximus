@@ -2,8 +2,11 @@
 # @author			Wes Garland
 # @date				May 13th, 2003
 #
-# $Id: Makefile,v 1.3 2003/06/11 19:23:53 wesgarland Exp $
+# $Id: Makefile,v 1.4 2003/06/12 02:50:52 wesgarland Exp $
 # $Log: Makefile,v $
+# Revision 1.4  2003/06/12 02:50:52  wesgarland
+# Modified to better support non-standard PREFIX
+#
 # Revision 1.3  2003/06/11 19:23:53  wesgarland
 # Successfully performs a "make distclean; ./configure; make build; make install"
 #
@@ -90,7 +93,8 @@ configure:
 	./configure "--prefix=$(PREFIX)"
 
 config_install:
-	@scripts/copy_install_tree.sh
+	export PREFIX
+	@scripts/copy_install_tree.sh "$(PREFIX)"
 
 	$(MAKE) reconfig
 

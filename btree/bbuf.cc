@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: bbuf.cc,v 1.1.1.1 2002/10/01 17:49:20 sdudley Exp $";
+static char rcs_id[]="$Id: bbuf.cc,v 1.2 2003/06/11 19:41:07 wesgarland Exp $";
 #pragma on(unreferenced)
 
 #include <stdio.h>
@@ -80,7 +80,7 @@ int CPPEXPORT BLOCKBUF::deinit(void)
        bbnext=bb->next, delete bb, bb=bbnext)
   {
     if (bb->pvBlock)
-      delete [] bb->pvBlock;
+      delete [] (char *)(bb->pvBlock);
   }
 
   fOpen=FALSE;
@@ -244,7 +244,7 @@ int CPPEXPORT BLOCKBUF::get_lru(NNUM *pnn, void *pvBlock, unsigned *pfDelta)
 
   // Now delete the memory associated with this block
 
-  delete [] bbLow->pvBlock;
+  delete [] (char *)(bbLow->pvBlock);
   delete bbLow;
 
   // Decrement the block count for this list

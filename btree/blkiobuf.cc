@@ -18,7 +18,7 @@
  */
 
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: BLKIOBUF.CC 1.3 1995/02/26 16:31:35 sjd Exp $";
+static char rcs_id[]="$Id: blkiobuf.cc,v 1.1.1.1 2002/10/01 17:49:21 sdudley Exp $";
 #pragma on(unreferenced)
 
 #include <stdio.h>
@@ -217,7 +217,7 @@ int BLKIOBUF::_insert_list(NNUM nn, char *pcDiskNode, unsigned fSetDelta)
       printf("\a***couldn't get lru block\n");
     }
 
-    delete [] pvBlock;
+    delete [] (char *)pvBlock;
   }
 
   return BLOCKBUF::put(nn, pcDiskNode, fSetDelta);

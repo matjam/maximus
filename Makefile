@@ -2,8 +2,11 @@
 # @author			Wes Garland
 # @date				May 13th, 2003
 #
-# $Id:$
-# $Log:$
+# $Id: Makefile,v 1.3 2003/06/11 19:23:53 wesgarland Exp $
+# $Log: Makefile,v $
+# Revision 1.3  2003/06/11 19:23:53  wesgarland
+# Successfully performs a "make distclean; ./configure; make build; make install"
+#
 #
 
 SQUISH_LIB_DIRS = btree slib unix msgapi squish
@@ -15,7 +18,7 @@ NO_DEPEND_RULE	:= TRUE
 
 topmost:: header usage
 
-include vars.mk
+-include vars.mk
 MAXIMUS=$(PREFIX)/etc/max.prm
 
 .PHONY: all depend clean install mkdirs squish max install_libs install_binaries \
@@ -58,7 +61,7 @@ clean:
 	-rm depend.mk.bak depend.mk
 	-rm */depend.mk.bak */depend.mk
 
-distclean: clean
+dist-clean distclean: clean
 	-rm slib/compiler_details.h
 	-rm vars.mk vars_local.mk
 
@@ -87,11 +90,7 @@ configure:
 	./configure "--prefix=$(PREFIX)"
 
 config_install:
-	@[ ! -f ${PREFIX}/etc/max.ctl ] || echo "This is not a fresh install -- not copying install tree.."
-	@[ -f ${PREFIX}/etc/max.ctl ] || echo "Copying install tree to ${PREFIX}.."
-	@[ -f ${PREFIX}/etc/max.ctl ] || cp -rp install_tree/* $(PREFIX)
-	@[ ! -f ${PREFIX}/bin/runbbs.sh ] || echo "This is not a fresh install -- not copying runbbs.sh.."
-	@ [ -f ${PREFIX}/bin/runbbs.sh ] || cp scripts/runbbs.sh $(PREFIX)/bin/runbbs.sh
+	@scripts/copy_install_tree.sh
 
 	$(MAKE) reconfig
 
@@ -129,6 +128,7 @@ reconfig:
 install: mkdirs squish_install max_install config_install
 
 build:	squish max
+	@echo "Build Complete; edit your control files and 'make install'"
 
 GPL gpl license::
 	@[ -x /usr/bin/less ] && cat LICENSE | /usr/bin/less || /bin/true

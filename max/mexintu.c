@@ -19,7 +19,9 @@
 
 /* Utilities for MEX intrinstics */
 
-/* $Id$ */
+#pragma off(unreferenced)
+static char rcs_id[]="$Id: mexintu.c,v 1.1.1.1 2002/10/01 17:52:26 sdudley Exp $";
+#pragma on(unreferenced)
 
 #include "mm.h"
 #include "mexall.h"

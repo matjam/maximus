@@ -17,7 +17,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: fos_os2.c,v 1.9 2004/01/15 01:09:09 paltas Exp $ */
+#ifndef __GNUC__
+#pragma off(unreferenced)
+static char rcs_id[]="$Id: fos_os2.c,v 1.9 2004/01/15 01:09:09 paltas Exp $";
+#pragma on(unreferenced)
+#endif
 
 /*# name=FOSSIL interface routines (OS/2)
 */
@@ -243,7 +247,7 @@ if (ComIsAModem(hcModem))
     int mdm_blockwrite(int max_chars, char *offset)
     {
     
-      max_chars=min(ComOutSpace(hcModem), max_chars);
+      //max_chars=min(ComOutSpace(hcModem), max_chars);
 
       if (!max_chars)
         return 0;

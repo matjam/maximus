@@ -17,7 +17,9 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id$ */
+#pragma off(unreferenced)
+static char rcs_id[]="$Id: m_full.c,v 1.2 2003/06/04 23:31:28 wesgarland Exp $";
+#pragma on(unreferenced)
 
 #include <stdio.h>
 #include <string.h>

@@ -17,7 +17,9 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id$ */
+#pragma off(unreferenced)
+static char rcs_id[]="$Id: med_read.c,v 1.2 2003/06/04 23:53:49 wesgarland Exp $";
+#pragma on(unreferenced)
 
 /*# name=MaxEd editor: Routines for reading files from disk
 */

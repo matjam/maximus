@@ -17,7 +17,9 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id$ */
+#pragma off(unreferenced)
+static char rcs_id[]="$Id: max_log.c,v 1.6 2004/01/11 19:43:21 wmcbrine Exp $";
+#pragma on(unreferenced)
 
 /*# name=Log-on routines and new-user junk
 */

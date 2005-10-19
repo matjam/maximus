@@ -19,7 +19,7 @@
 
 #ifndef __GNUC__
 #pragma off(unreferenced)
-static char rcs_id[]="$Id: maid.c,v 1.4 2004/01/27 21:06:06 paltas Exp $";
+static char rcs_id[]="$Id: maid.c,v 1.5 2004/01/27 23:02:55 paltas Exp $";
 #pragma on(unreferenced)
 #endif
 
@@ -49,7 +49,8 @@ static char rcs_id[]="$Id: maid.c,v 1.4 2004/01/27 21:06:06 paltas Exp $";
 
 #define MAX_HEAP_STR   256
 
-static char *version=VERSION;
+/* Huh? Static doesn't work ... */
+char *version=VERSION;
 static char *heap;
 static char *hptr;
 

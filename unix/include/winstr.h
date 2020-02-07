@@ -5,8 +5,8 @@
 extern "C" {
 #endif
 
-inline int stricmp(const char *a, const char *b);
-inline int strnicmp(const char *a, const char *b, size_t n);
+int stricmp(const char *a, const char *b);
+int strnicmp(const char *a, const char *b, size_t n);
 char *strupr(char *s);
 char *strlwr(char *s);
 char *itoa(int value, char *buffer, int radix);

@@ -173,14 +173,17 @@ ATTRIBUTES * st_find(SYMTAB *st, byte *name, int search_parent)
 
 VMADDR st_killscope(SYMTAB *st, VMADDR scope)
 {
-  ATTRIBUTES **chain, *last, *ap;
+  ATTRIBUTES **chain, *last, *ap, *prev;
   VMADDR storage_freed=0;
   
   for (chain=st->table; chain < st->table+st->len; chain++)
-    for (ap=*chain, last=NULL; ap; ap=ap->_next)
+    for (ap=*chain, last=NULL, prev=NULL; ap; ap=ap->_next)
     {
       /* If we don't need to kill this one, indicate that it was our        *
        * prior entry in the table.  Otherwise, kill it!                     */
+
+      free(prev);
+      prev=NULL;
 
       if (ap->scope < scope /*|| ap->class==ClassArg*/)
       {
@@ -237,10 +240,13 @@ VMADDR st_killscope(SYMTAB *st, VMADDR scope)
 
         /* Free the memory allocated to this attribute record */
 
-        free(ap);
+	prev=ap;
       }
 
     }
+
+    free(prev);
+    prev=NULL;
 
   return storage_freed;
 }

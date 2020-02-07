@@ -13,7 +13,7 @@
 #endif
 
 #ifdef LINUX
-# define O_NOINHERIT 01000000
+# define O_NOINHERIT 010000000
 #endif
 
 #ifdef SOLARIS

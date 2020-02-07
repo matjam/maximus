@@ -79,6 +79,10 @@
 # define SLOPPY_ALIGNMENT_OKAY  1
 #endif
  
+#if defined(__x86_64) || defined(__amd64) || defined(__x86_64__)
+# define SLOPPY_ALIGNMENT_OKAY  1
+#endif
+
 #if !defined(SLOPPY_ALIGNMENT_OKAY)
 # if defined(__WATCOMC__) || defined(MSC_VER) || defined(__TURBOC__) || defined(__IBMC__) || defined(__TOPAZ__)
 #  define SLOPPY_ALIGNMENT_OKAY 1

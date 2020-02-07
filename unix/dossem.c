@@ -1,3 +1,5 @@
+#define _POSIX_C_SOURCE 200809L
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -24,12 +26,6 @@
  * not using shared/named MutexSems.
  *
  */
-
-#if defined(LINUX) && !defined(PTHREAD_MUTEX_ERRORCHECK)
-/* RedHat 5.2 ships with a not-quite p pthreads interface.. don't know about later versions */
-# define PTHREAD_MUTEX_ERRORCHECK PTHREAD_MUTEX_ERRORCHECK_NP
-# define pthread_mutexattr_settype(attr,type) pthread_mutexattr_setkind_np(attr,type)
-#endif
 
 #define UNIX_SEMDIR "/tmp/.dossem" /* RAM on Solaris */
 

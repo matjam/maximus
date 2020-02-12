@@ -13,6 +13,8 @@ ifeq ($(BUILD),PROFILE)
   LIB_EXT	:= a
 else
   LDFLAGS	+= -L$(LIB) -Xlinker -R$(LIB) $(foreach DIR, $(EXTRA_LD_LIBRARY_PATH), -Xlinker -R$(DIR))
+  __LOADLIBES	:= $(LOADLIBES)
+  LOADLIBES     = -Wl,--start-group $(EXTRA_LOADLIBES) $(__LOADLIBES) -Wl,--end-group
   LIB_EXT	:= so
 endif
 

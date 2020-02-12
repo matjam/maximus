@@ -6,7 +6,7 @@ CPPFLAGS += -I../lang
 all: libxfer.so
 
 libxfer.so: $(OBJS)
-	gcc -shared $^ -o $@
+	gcc -shared $(LDFLAGS) $^ -o $@
 
 install_libs install: libxfer.so
 	cp libxfer.so $(LIB)

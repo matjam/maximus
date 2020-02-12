@@ -5,6 +5,12 @@ LD  := $(LD) -shared
 MDFLAGS += -D__GNUC__
 CFLAGS += -funsigned-bitfields -Wcast-align
 
+ifeq ($(WORDSIZE),32)
+CFLAGS += -m32
+CXXFLAGS += -m32
+LDFLAGS += -m32
+endif
+
 BUILD:=$(strip $(BUILD))
 
 ifeq ($(BUILD),PROFILE)

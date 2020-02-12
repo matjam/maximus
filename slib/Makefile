@@ -54,10 +54,10 @@ OBJS := $(OBJS:.obJ=.o) os2file.o os2key.o
 DEPEND_FILES=$(OBJS:.o=.c)
 
 libsmserial.so: smserial.o
-	gcc -shared $^ -o $@
+	gcc -shared $(LDFLAGS) $^ -o $@
 
 libmax.so: $(OBJS)
-	gcc -shared $^ -o $@
+	gcc -shared $(LDFLAGS) $^ -o $@
 
 install_libs: libsmserial.so libmax.so
 	cp -f $^ "$(LIB)"

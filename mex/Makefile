@@ -40,7 +40,7 @@ mex: $(TABOBJ) $(OBJS)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LOADLIBES)
 
 $(VMDLL): $(VMALL_OBJS)
-	gcc -shared $^ -o $@
+	gcc -shared $(LDFLAGS) $^ -o $@
 
 vm_dll.obj: vm_dll.c
 	$(CC) $(CFLAGS) $(C_DLL) vm_dll

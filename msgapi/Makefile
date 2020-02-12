@@ -46,7 +46,7 @@ $(API_SDMOBJS): msgapi.h apidebug.h
 # Build rule for the .DLL
 
 libmsgapi.so: $(APIOBJS)
-	gcc -shared $^ -o $@
+	gcc -shared $(LDFLAGS) $^ -o $@
 
 clean:
 	-rm *.o *.so

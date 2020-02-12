@@ -37,10 +37,10 @@ install:	install_libs install_bin
 tracklib:	libmaxbt.so libmaxdb.so
 
 libmaxdb.so:	$(TRACK_OBJ)
-		gcc -shared -nostartfiles $^ -o $@
+		gcc -shared $(LDFLAGS) -nostartfiles $^ -o $@
 
 libmaxbt.so:	$(BTREE_OBJ)
-		gcc -shared -nostartfiles $^ -o $@
+		gcc -shared $(LDFLAGS) -nostartfiles $^ -o $@
 
 audit:		audit.o cppmain.o
 

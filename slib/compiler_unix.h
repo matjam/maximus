@@ -70,22 +70,8 @@
 
 #define NW(var) (void)var
 
-#if defined(__GNUC__) && (__GNUC__ > 2) && (__GNU_MINOR__ > 0)
-# define __dll_initialize(...)	dll_initialize(__VA_ARGS__)__attribute__((constructor))__
-# define __dll_terminate(...)	dll_terminate(__VA_ARGS__)__attribute__((destructor))__
-#else
-# define __dll_initialize	_init
-# define __dll_terminate	_fini
-#endif
-
-/* _init and _fini *should work* but can cause problems. Best fix: GCC 3.1+ 
- *
- * later comments -- looks like Scott doesn't use DLL initialization
- * much anyhow -- wes
-#if defined(__GNUC__) && !((__GNUC__ > 2) && (__GNU_MINOR__ > 0))
-# warning You need to upgrade your compiler to gcc 3.1 or better!
-#endif
-*/
+# define __dll_initialize(...)	__attribute__((constructor)) dll_initialize(__VA_ARGS__)
+# define __dll_terminate(...)	__attribute__((destructor)) dll_terminate(__VA_ARGS__)
 
 #define mkdir(a) mkdir(a, 0777)
 #endif /* ! __COMPILER_UNIX_H_DEFINED */

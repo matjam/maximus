@@ -32,6 +32,7 @@ static char rcs_id[]="$Id: maid.c,v 1.5 2004/01/27 23:02:55 paltas Exp $";
 #include <ctype.h>
 #include <fcntl.h>
 #include <io.h>
+#include <libgen.h>
 #include "prog.h"
 #include "language.h"
 #include "max.h"
@@ -75,6 +76,7 @@ static int do_h=FALSE;
 static int do_lth=FALSE;
 
 static char szLangName[32];
+static char szPrefix[PATHLEN];
 static char out[MAX_CONTENTS];
 static char varname[MAX_VARLEN];
 static char heapname[MAX_VARLEN]="";
@@ -122,7 +124,7 @@ static int flags=0;
 static int this_num=FALSE;
 static int this_badrle=FALSE;
 
-static void Make_Name(char *in,char *out,char *ext);
+static void Make_Name(char *in,char *out,char *ext,char *prefix);
 
 #define idchar(c) (c && (isalnum(c) || c=='_' || c=='-' || c=='\''))
 
@@ -1043,15 +1045,15 @@ static void Compile_Language(HPRM hp)
   }
 
   if (do_h)
-    Make_Name(iiname,hname,".h");
+    Make_Name(iiname,hname,".h",szPrefix);
   else
     *hname='\0';
   
-  Make_Name(iiname,lname,".ltf");
-  Make_Name(iiname,mname,".mh");
+  Make_Name(iiname,lname,".ltf",szPrefix);
+  Make_Name(iiname,mname,".mh",szPrefix);
   
   if (do_lth)
-    Make_Name(iiname,ename,".lth");
+    Make_Name(iiname,ename,".lth",szPrefix);
   else
     *ename='\0';
 
@@ -1115,16 +1117,23 @@ static void Maid_Format(void)
   printf("   -n<name>  Set language name to <name>\n");
   printf("   -d        Produce dynamic language include file (.lth)\n");
   printf("   -s        Produce static language include file (.h)\n");
+  printf("   -O<dir>   Store resulting files in <dir>\n");
   printf("   -p<file>  Update specified .PRM file.  (Defaults to MAXIMUS environment\n"
          "             variable.  Use '-p' with no argument to disable PRM updating.)\n");
   exit(1);
 }
 
-static void Make_Name(char *in,char *out,char *ext)
+static void Make_Name(char *in,char *out,char *ext,char *prefix)
 {
-  char *s;
+  char *s, *s2;
 
-  strcpy(out,in);
+  out[0]='\0';
+  if (prefix)
+    strcpy(out,prefix);
+  s2 = strdup(in);
+  s = basename(s2);
+  strcat(out,s);
+  free (s2);
 
   if ((s=strrchr(out,'.')) != NULL)
     *s='\0';
@@ -1154,6 +1163,10 @@ static void Process_Switches(int argc, char *argv[])
 
         case 'n':       /* Set language name */
           strcpy(szLangName, argv[x]+2);
+          break;
+
+        case 'O':       /* Set prefix */
+          strcpy(szPrefix, argv[x]+2);
           break;
 
         case 'p':       /* handled by GetMaximus */

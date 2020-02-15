@@ -53,7 +53,7 @@ silt = executable('silt',
 	          's_menu.c', 's_misc.c', 's_parse.c', 's_sessio.c',
 	          's_system.c', 's_reader.c', 's_lang.c', 's_colour.c',
 	          's_proto.c', 's_marea.c', 's_farea.c', 's_heap.c',
-	          's_area.c', 's_access.c', 'l_attach.c', 'max2priv.c'],
+	          's_area.c', 's_access.c', '../max/l_attach.c', '../max/max2priv.c'],
 	          include_directories: [ inc, include_directories('../lang', '../btree') ],
                   link_with: [ msgapi_lib, maxbt_lib, maxdb_lib, max_lib, compat_lib ])
 

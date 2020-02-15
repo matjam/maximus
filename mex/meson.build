@@ -2,8 +2,8 @@ bison = find_program('bison', required: true)
 
 mex_parser = custom_target('mex parser',
 	input: 'mex_tab.y',
-	output: 'max_tab.c',
-	command: [bison, '@INPUT@', '--output=@OUTPUT@'])
+	output: ['mex_tab.c', 'mex_tab.h'],
+	command: [bison, '@INPUT@', '--defines=@OUTPUT1@', '--output=@OUTPUT0@'])
 
 mexvm_lib = shared_library('mexvm',
 	['vm_run.c', 'vm_heap.c', 'vm_symt.c',

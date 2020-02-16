@@ -940,6 +940,7 @@ struct _css
 
 struct _restart
 {
+  struct {
   byte rst_ver; /* Version number of restart data                 *STABLE* */
 
   sdword timeon;  /* Date user got on system, seconds since 1970  *STABLE* */
@@ -958,6 +959,7 @@ struct _restart
   union _stampu laston;   /* Time the user was last on system   *STABLE*   */
   
   word steady_baud;       /* Locked baud rate of user           *STABLE*   */
+  } __attribute__((packed, aligned(2)));
 
   sdword starttime;       /* Start time, for external protocol             */
   sdword timestart;       /* Time when MAX.EXE was started                 */
@@ -1019,7 +1021,7 @@ struct _restart
   int32 steady_baud_l;             /* Locked baud rate (as integer) */
   SCOMBO date_newfile;            /* User's last newfiles date */
   char menuname[PATHLEN];         /* Name of current menu */
-}  __attribute__((packed, aligned(2)));
+};
 
 /*#include "dmalloc.h"*/
 

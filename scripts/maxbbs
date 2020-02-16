@@ -1,0 +1,42 @@
+#!/bin/bash
+
+if [ -n "$1" ]; then
+	PREFIX="$1"
+else
+	PREFIX=/var/max
+fi
+
+MAXIMUS="${PREFIX}/etc/max.prm"
+PATH="${PATH}:${ROOTDIR}/bin"
+LD_LIBRARY_PATH="${ROOTDIR}/lib:/usr/local/lib:${LD_LIBRARY_PATH}"
+
+minDynNode=3
+
+export PREFIX PATH LD_LIBRARY_PATH minDynNode
+
+mkdir -p "${PREFIX}"
+rm -f "${PREFIX}/die.now"
+cd "${PREFIX}"
+
+# No instance data, so copy the template.
+if [ ! -f "${PREFIX}"/etc/max.ctl ]; then
+	cp -a "${ROOTDIR}"/share/maxbbs/template/* .
+	sed -i -e "s;/var/max;${PREFIX};g" etc/max.ctl etc/areas.bbs etc/compress.cfg etc/squish.cfg etc/sqafix.cfg
+fi
+
+while [ ! -f "${PREFIX}"/die.now ]; do
+	# Recompile the bbs for every login.
+	# Computers are now fast enough and it helps with development.
+	bin/maid english -p
+	bin/mecca etc/help/\*.mec
+	bin/mecca etc/misc/\*.mec
+	bin/silt etc/max -x
+	for file in m/*.mex; do
+		bin/mex ${file/.mex}
+	done
+	bin/maid english -d -s -p${PREFIX}/etc/max
+	bin/silt etc/max -p
+
+	bin/max -w -b38400 -n0 -p2323
+	sleep 1
+done

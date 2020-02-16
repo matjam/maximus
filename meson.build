@@ -36,3 +36,5 @@ subdir('comdll')
 subdir('squish')
 subdir('sqafix')
 subdir('max')
+
+subdir('docs')

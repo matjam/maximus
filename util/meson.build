@@ -1,12 +1,18 @@
+mecca_vb = custom_target('mecca_vb.h',
+	input: 'mecca_vb.h.in',
+	output: 'mecca_vb.h',
+	capture: true,
+	command: ['sort', '@INPUT@'])
+
 maid = executable('maid', 'maid.c',
 		  include_directories: inc,
 		  link_with: [ compat_lib, max_lib ])
 
-mecca = executable('mecca', [ 'mecca.c', 'init.c' ],
+mecca = executable('mecca', [ 'mecca.c', 'init.c', mecca_vb ],
 		   include_directories: inc,
                    link_with: [ compat_lib, msgapi_lib, max_lib ])
 
-accem = executable('accem', [ 'accem.c', 'init.c' ],
+accem = executable('accem', [ 'accem.c', 'init.c', mecca_vb ],
 		   include_directories: inc,
                    link_with: [ compat_lib, msgapi_lib, max_lib ])
 

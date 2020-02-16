@@ -170,7 +170,8 @@
 
     int mdm_nowonline()
     {
-	ModemComIsOnlineNow(hcModem);
+	int ModemComIsOnlineNow(HCOMM hc);
+	return ModemComIsOnlineNow(hcModem);
     }
 
     int mdm_baud(int bod)

@@ -73,17 +73,4 @@ typedef enum
 #undef DeclareOption
 } telnet_option_t;
 
-static struct telnet_option_info_t
-{
-  telnet_option_t	optEnum;
-  telnet_moption_t	optBit;
-  const char		*optionName;
-  char			optionValue;
-} telnet_OptionList[]=
-{
-#define DeclareOption(a,b,c,d)	{ opt_ ## a, 1 << c, d, b },
-#include __FILE__
-#undef DeclareOption
-};
-
 #endif /* top-level include */

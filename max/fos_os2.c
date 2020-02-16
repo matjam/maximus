@@ -57,8 +57,6 @@
 
   int mdm_deinit(void)          /* Returns 0 if closed, -1 if not open. */
   {
-    extern int cdecl port;
-
     if (!local)
     {
       ComTxWait(hcModem, 10000L);
@@ -83,12 +81,12 @@
     *row=csbi.dwCursorPosition.Y;
     *col=csbi.dwCursorPosition.X;
   #else
-    unsigned short r,c;
 
   #ifdef UNIX
     *row = (char)VidWhereY();
     *col = (char)VidWhereX();
   #else
+    unsigned short r,c;
     VioGetCurPos(&r, &c, 0);
     *row=(char)r;
     *col=(char)c;

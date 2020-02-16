@@ -287,7 +287,7 @@ int mdm_gets(char *string, int type, int c, int max, char *prompt)
   char temp[PATHLEN];
   char *msgprompt;
   int timer2, rc;
-  byte ch=0, ch2 = 0;
+  byte ch=0;
 
   str=string;
   num_ch=0;

@@ -27,12 +27,9 @@ int xxspawnvp(int mode, const char *Cfile, char *const argv[])
   struct stat	sb;
   char		*file;
   FILE* 	fp = NULL;
-  int local = FALSE;
-  int fd = -1;
   int i;
   char tmp[1024];
   char buffer[80];
-  struct termios tios;
 
   signal(SIGCHLD, noop);
 

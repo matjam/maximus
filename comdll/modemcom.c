@@ -26,11 +26,8 @@ static char lockname[128];
 BOOL COMMAPI ModemComOpen(LPTSTR pszDevice, HCOMM *phc, DWORD dwRxBuf, DWORD dwTxBuf)
 {
   int                   fd = -1;        /**< file descriptor */
-  int pid;
-  int tmp;
   FILE* lockfp;
   COMMHANDLE    h = NULL;
-  struct termios tios;
 
   if(strstr(pszDevice, "com"))
     pszDevice += 3;
@@ -135,9 +132,7 @@ BOOL COMMAPI ModemComRead(HCOMM hc, PVOID pvBuf, DWORD dwBytesToRead, PDWORD pdw
 {
     fd_set fdrx;
     struct timeval tv;
-    int sresult = 0;    
     int BytesRead = 0;
-    int tmp = 0;
     
     if(!ModemComIsOnline(hc))
 	return FALSE;

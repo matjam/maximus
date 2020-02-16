@@ -182,7 +182,6 @@ int writeWIAC(int fd, unsigned char* buf, int count)
 {
     int i=0;
     static char iac = 255;
-    char* tp;
     
     for(i=0; i < count; i++)
     {
@@ -252,7 +251,7 @@ int fexist(char* filename)
 
 int main(void)
 {
-    int s, t, nt, len, retval;
+    int s, t, len, retval;
     struct sockaddr_un remote;
     struct timeval tv;
     fd_set rfds, wfds;

@@ -116,7 +116,6 @@ int Cominit(int port)
 {
     char tmp[20];
     USHORT rc;
-    HFILE hf;
 
     if(hcModem == NULL)
     {
@@ -133,6 +132,7 @@ int Cominit(int port)
         else
         {
 #ifndef UNIX
+          HFILE hf;
           sprintf(tmp, "handle %d", port+1);
 
           hf = (HFILE)port+1;  /* maximus subtracts 1 from the value on the command line. Add it back here. */

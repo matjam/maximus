@@ -20,7 +20,6 @@
 /**
  * @file	s_squash.c
  * @author	Scott J. Dudley
- * @version	$Id: s_squash.c,v 1.7 2003/12/14 17:40:19 paltas Exp $
  *
  * $Log: s_squash.c,v $
  * Revision 1.7  2003/12/14 17:40:19  paltas

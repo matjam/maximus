@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: BTREE.H 1.4 1995/07/30 09:08:18 sjd Exp $ */
-
 #ifndef __BTREE_H_DEFINED
 #define __BTREE_H_DEFINED
 

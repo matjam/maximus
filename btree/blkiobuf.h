@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: BLKIOBUF.H 1.2 1993/12/17 16:20:05 sjd Exp $ */
-
 #include "blkio.h"
 #include "bbuf.h"
 

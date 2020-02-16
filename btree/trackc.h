@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: TRACKC.H 1.3 1994/01/27 03:47:44 sjd Exp $ */
 
 #ifndef __TRACKC_H_DEFINED
 #define __TRACKC_H_DEFINED

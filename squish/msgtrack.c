@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id$ */
 
 /* Copyright 1992 by Lanius Corporation.
    Portions copyright 1987-1991 by Bit Bucket Software.

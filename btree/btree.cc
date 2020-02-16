@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id$ */
-
 //#define DEBUGBTREE
 // Properties of a B-tree of order n:
 // 1. Every node has no more than n immediate successors.

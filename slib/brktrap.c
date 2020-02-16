@@ -20,7 +20,6 @@
 /**
  * @file	brktrap.c
  * @author	Scott J. Dudley
- * @version	$Id: brktrap.c,v 1.2 2003/06/18 02:03:15 wesgarland Exp $
  *
  * $Log: brktrap.c,v $
  * Revision 1.2  2003/06/18 02:03:15  wesgarland

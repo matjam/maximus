@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: DBASE.H 1.6 1995/07/30 09:08:24 sjd Exp $ */
 
 #ifndef __DBASE_H_DEFINED
 #define __DBASE_H_DEFINED

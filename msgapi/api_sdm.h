@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: API_SDM.H 1.1 1993/12/05 05:10:05 sjd Exp $ */
 
 #ifndef __API_SDM_H_DEFINED
 #define __API_SFM_H_DEFINED

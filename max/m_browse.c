@@ -17,12 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#ifndef __GNUC__
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: m_browse.c,v 1.2 2004/01/11 19:59:50 wmcbrine Exp $";
-#pragma on(unreferenced)
-#endif
-
 /*# name=Message Section: B)rowse command
 */
 

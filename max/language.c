@@ -17,12 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#ifndef __GNUC__
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: language.c,v 1.3 2003/06/11 14:52:19 wesgarland Exp $";
-#pragma on(unreferenced)
-#endif
-
 #define MAX_LANG_max_chat
 #define MAX_LANG_max_chng
 #define MAX_LANG_end

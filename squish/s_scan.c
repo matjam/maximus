@@ -20,7 +20,6 @@
 /**
  * @file	s_scan.c
  * @author	Scott J. Dudley
- * @version	$Id: s_scan.c,v 1.5 2004/01/13 00:42:14 paltas Exp $
  *
  * $Log: s_scan.c,v $
  * Revision 1.5  2004/01/13 00:42:14  paltas

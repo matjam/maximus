@@ -17,10 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: piper.c,v 1.2 2003/06/05 03:18:58 wesgarland Exp $";
-#pragma on(unreferenced)
-
 #error Obsolete.  This program is no longer in the distribution
 
 /*# name=Conversion program for Opus-style SYSTEM*.BBS/DAT files

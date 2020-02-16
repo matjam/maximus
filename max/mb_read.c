@@ -17,12 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#ifndef __GNUC__
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: mb_read.c,v 1.3 2004/01/27 21:00:46 paltas Exp $";
-#pragma on(unreferenced)
-#endif
-
 /*# name=R)ead function for the BROWSE command
 */
 

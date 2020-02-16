@@ -1,4 +1,4 @@
-/* $Id: adcase.c,v 1.7 2003/05/15 08:10:14 d_sergienko Exp $
+/*
  *  Provides case insensitive file name matching on UNIX filesystems.
  *  Written at 1999 by Tobias Ernst and released to the public domain.
  *

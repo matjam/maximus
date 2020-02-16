@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: PALIST.H 1.2 1993/12/18 06:03:53 sjd Exp $ */
 
 #ifndef __PALIST_H_DEFINED
 #define __PALIST_H_DEFINED

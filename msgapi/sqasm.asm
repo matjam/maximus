@@ -1,4 +1,3 @@
-; $Id: SQASM.ASM 1.2 1994/02/06 05:55:47 sjd Exp $
 
 IFNDEF OS_2
 

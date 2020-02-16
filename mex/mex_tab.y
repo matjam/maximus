@@ -179,12 +179,6 @@
   #endif
     
   ATTRIBUTES *curfn=NULL;
-  
-  #ifndef __GNUC__
-  #pragma off(unreferenced)
-  static char rcs_id[]="$Id: mex_tab.y,v 1.2 2003/06/07 05:54:28 wesgarland Exp $";
-  #pragma on(unreferenced)
-  #endif
 %}
 
 

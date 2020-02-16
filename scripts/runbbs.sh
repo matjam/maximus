@@ -1,6 +1,5 @@
 #! /bin/sh
 #
-# $Id: runbbs.sh,v 1.1 2003/06/12 02:09:56 wesgarland Exp $
 #
 # $Log: runbbs.sh,v $
 # Revision 1.1  2003/06/12 02:09:56  wesgarland

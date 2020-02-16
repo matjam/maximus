@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: BTREEP.H 1.2 1993/12/18 06:02:11 sjd Exp $ */
-
 // Header for a B-tree node, as it is stored on disk
 
 struct DISKNODEHDR

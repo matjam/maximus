@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: APIDEBUG.H 1.1 1993/12/05 05:10:05 sjd Exp $ */
 
 /* comment out to disable debugging */
 

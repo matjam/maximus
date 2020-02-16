@@ -17,12 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#ifndef __GNUC__
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: sq_write.c,v 1.2 2003/06/05 22:54:50 wesgarland Exp $";
-#pragma on(unreferenced)
-#endif
-
 #define MSGAPI_HANDLERS
 #define MSGAPI_NO_OLD_TYPES
 

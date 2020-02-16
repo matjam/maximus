@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: DBASEC.H 1.8 1995/07/30 09:08:29 sjd Exp $ */
 
 #ifndef __DBASEC_H_DEFINED
 #define __DBASEC_H_DEFINED

@@ -2,7 +2,6 @@
 # @author			Wes Garland
 # @date				May 13th, 2003
 #
-# $Id: Makefile,v 1.8 2003/10/05 01:56:37 rfj Exp $
 # $Log: Makefile,v $
 # Revision 1.8  2003/10/05 01:56:37  rfj
 # Updated master Makefile to not build SqaFix when compiling just Maximus

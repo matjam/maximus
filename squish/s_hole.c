@@ -20,7 +20,6 @@
 /**
  * @file	s_hole.c
  * @author	Scott J. Dudley
- * @version	$Id: s_hole.c,v 1.8 2004/01/13 00:42:14 paltas Exp $
  *
  * $Log: s_hole.c,v $
  * Revision 1.8  2004/01/13 00:42:14  paltas

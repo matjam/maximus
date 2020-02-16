@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: TRACKCOM.H 1.2 1994/01/29 06:11:21 sjd Exp $ */
 
 // Common definitions for track.h and trackc.h
 

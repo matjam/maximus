@@ -27,7 +27,6 @@
  *			  
  *  @author 	Wes Garland
  *  @date   	May 24 2003
- *  @version	$Id: ipcomm.c,v 1.17 2004/04/09 21:55:39 paltas Exp $
  *
  * $Log: ipcomm.c,v $
  * Revision 1.17  2004/04/09 21:55:39  paltas
@@ -99,10 +98,6 @@
 
 #ifndef UNIX
 # error UNIX only!
-#endif
-
-#ifndef __GNUC__
-static char rcs_id[]="$Id: ipcomm.c,v 1.17 2004/04/09 21:55:39 paltas Exp $";
 #endif
 
 #include <stdio.h>

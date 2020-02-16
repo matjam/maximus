@@ -17,12 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#ifndef __GNUC__
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: fsend.c,v 1.1.1.1 2002/10/01 17:54:38 sdudley Exp $";
-#pragma on(unreferenced)
-#endif
-
 /*#define XM_NO_CRC*/
 #define MAX_LANG_protocols
 #define MAX_INCL_COMMS

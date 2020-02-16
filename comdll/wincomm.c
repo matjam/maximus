@@ -1,6 +1,5 @@
 /**
  * @file 	wincomm.c	WinNT-style Comm functions for UNIX
- * @version	$Id: wincomm.c,v 1.6 2004/06/07 17:41:37 paltas Exp $
  * @author 	Wes Garland
  * @date	May 13 2003
  * @description	Fudge routines/hooks for the comm library and asyncnt.c.

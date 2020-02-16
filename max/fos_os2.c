@@ -17,12 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#ifndef __GNUC__
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: fos_os2.c,v 1.12 2004/06/06 21:48:51 paltas Exp $";
-#pragma on(unreferenced)
-#endif
-
 /*# name=FOSSIL interface routines (OS/2)
 */
 

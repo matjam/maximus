@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: BLKIO.H 1.3 1994/02/06 06:14:08 sjd Exp $ */
-
 // Block I/O class for B-tree and database routines
 
 #ifndef __BLKIO_H_DEFINED

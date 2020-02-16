@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-/* $Id: BTREEC.H 1.4 1994/01/27 02:07:25 sjd Exp $ */
-
 #include "btype.h"
 
 /* We can't define the real type for DBASE and/or PALIST in here, so settle  *

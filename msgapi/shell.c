@@ -21,10 +21,6 @@
 #error "None unix"
 #endif
 
-#pragma off(unreferenced)
-static char rcs_id[]="$Id: shell.c,v 1.1.1.1 2002/10/01 17:54:28 sdudley Exp $";
-#pragma on(unreferenced)
-
 #pragma library("../msgapi.lib");
 
 #define TEST_VER

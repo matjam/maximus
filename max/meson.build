@@ -1,8 +1,3 @@
-compiled_language = custom_target('language file',
-                         input: '../lang/english.mad',
-			 output: 'english.lth',
-			 command: [maid, '-d', '-p', '-O@OUTDIR@/', '@INPUT@'])
-
 executable('max',
 	['max.c', 'date.c', compiled_language,
 	'uedit.c', 'ued_cmds.c', 'ued_disp.c',

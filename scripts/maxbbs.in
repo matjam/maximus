@@ -22,6 +22,10 @@ cd "${PREFIX}"
 if [ ! -f "${PREFIX}"/etc/max.ctl ]; then
 	cp -a "@datadir@"/maxbbs/template/* "${PREFIX}"
 	sed -i -e "s;/var/max;${PREFIX};g" etc/max.ctl etc/areas.bbs etc/compress.cfg etc/squish.cfg etc/sqafix.cfg
+	mkdir -p "${PREFIX}"/log
+	touch "${PREFIX}"/log/echotoss.log
+	touch "${PREFIX}"/log/max.log
+	touch "${PREFIX}"/log/squish.log
 fi
 
 while [ ! -f "${PREFIX}"/die.now ]; do

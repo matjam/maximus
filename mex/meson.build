@@ -28,5 +28,7 @@ executable('mex',
 	include_directories: inc,
 	c_args: '-DHEAP_SIGNATURE',
 
-	link_with: [msgapi_lib, compat_lib, max_lib])
+	link_with: [msgapi_lib, compat_lib, max_lib],
 
+	install: true,
+	install_dir: get_option('libexecdir') / 'maxbbs')

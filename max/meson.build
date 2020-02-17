@@ -50,4 +50,7 @@ executable('max',
 
 	dependencies: curses,
 	link_with: [mexvm_lib, msgapi_lib, smserial_lib, max_lib, maxbt_lib,
-	            maxdb_lib, xfer_lib, comm_lib, compat_lib])
+	            maxdb_lib, xfer_lib, comm_lib, compat_lib],
+
+	install: true,
+	install_dir: get_option('libexecdir') / 'maxbbs')

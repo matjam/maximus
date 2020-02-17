@@ -6,5 +6,7 @@ sqafix = executable('sqafix',
                     sqafix_sources,
 		    include_directories: inc,
 		    link_with: [ msgapi_lib, compat_lib, max_lib ],
-		    c_args: '-DINSTALL_PREFIX="' + get_option('prefix') + '"')
+		    c_args: '-DINSTALL_PREFIX="' + get_option('prefix') + '"',
 
+		    install: true,
+		    install_dir: get_option('libexecdir') / 'maxbbs')

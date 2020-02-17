@@ -9,15 +9,75 @@ msgtrack_lib = shared_library('msgtrack', 'msgtrack.c', include_directories: inc
 
 squish = executable('squish',
                     squish_sources,
+
 		    include_directories: inc,
+		    c_args: '-DINSTALL_PREFIX="' + get_option('prefix') + '"',
+
 		    link_with: [ msgapi_lib, compat_lib, max_lib ],
 		    dependencies: cc.find_library('dl'),
-		    c_args: '-DINSTALL_PREFIX="' + get_option('prefix') + '"')
 
-sqfix = executable('sqfix', 'sqfix.c', include_directories: inc, link_with: [ msgapi_lib, compat_lib, max_lib ])
-sqpack = executable('sqpack', 'sqpack.c', include_directories: inc, link_with: [ msgapi_lib, compat_lib, max_lib ])
-sqconv = executable('sqconv', 'sqconv.c', include_directories: inc, link_with: [ msgapi_lib, compat_lib, max_lib ])
-sqinfo = executable('sqinfo', 'sqinfo.c', include_directories: inc, link_with: [ msgapi_lib, compat_lib, max_lib ])
-sqset = executable('sqset', 'sqset.c', include_directories: inc, link_with: [ msgapi_lib, compat_lib, max_lib ])
-sstat = executable('sstat', 'sstat.c', include_directories: inc, link_with: [ msgapi_lib, compat_lib, max_lib ])
-sqreidx = executable('sqreidx', 'sqreidx.c', include_directories: inc, link_with: [ msgapi_lib, compat_lib, max_lib ])
+		    install: true,
+		    install_dir: get_option('libexecdir') / 'maxbbs')
+
+sqfix = executable('sqfix',
+	'sqfix.c',
+
+	include_directories: inc,
+	link_with: [ msgapi_lib, compat_lib, max_lib ],
+
+	install: true,
+	install_dir: get_option('libexecdir') / 'maxbbs')
+
+sqpack = executable('sqpack',
+	'sqpack.c',
+
+	include_directories: inc,
+	link_with: [ msgapi_lib, compat_lib, max_lib ],
+
+	install: true,
+	install_dir: get_option('libexecdir') / 'maxbbs')
+
+sqconv = executable('sqconv',
+	'sqconv.c',
+
+	include_directories: inc,
+	link_with: [ msgapi_lib, compat_lib, max_lib ],
+
+	install: true,
+	install_dir: get_option('libexecdir') / 'maxbbs')
+
+sqinfo = executable('sqinfo',
+	'sqinfo.c',
+
+	include_directories: inc,
+	link_with: [ msgapi_lib, compat_lib, max_lib ],
+
+	install: true,
+	install_dir: get_option('libexecdir') / 'maxbbs')
+
+sqset = executable('sqset',
+	'sqset.c',
+
+	include_directories: inc,
+	link_with: [ msgapi_lib, compat_lib, max_lib ],
+
+	install: true,
+	install_dir: get_option('libexecdir') / 'maxbbs')
+
+sstat = executable('sstat',
+	'sstat.c',
+
+	include_directories: inc,
+	link_with: [ msgapi_lib, compat_lib, max_lib ],
+
+	install: true,
+	install_dir: get_option('libexecdir') / 'maxbbs')
+
+sqreidx = executable('sqreidx',
+	'sqreidx.c',
+
+	include_directories: inc,
+	link_with: [ msgapi_lib, compat_lib, max_lib ],
+
+	install: true,
+	install_dir: get_option('libexecdir') / 'maxbbs')

@@ -69,7 +69,6 @@ int _stdc c_main(int argc,char *argv[])
   Init_Variables();
 
 #if defined(UNIX)
-  chdir(INSTALL_PREFIX);
   if (!getenv("MAXIMUS"))
     putenv("MAXIMUS=" INSTALL_PREFIX "/etc/max.prm");
 #endif

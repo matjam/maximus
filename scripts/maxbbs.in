@@ -42,6 +42,11 @@ while [ ! -f "${PREFIX}"/die.now ]; do
 	maid english -d -s -p${PREFIX}/etc/max
 	silt etc/max -p
 
-	max -w -b38400 -n0 -p2323
+	# create user db
+	if [ ! -f etc/user.bbs ]; then
+		max etc/max -c
+	fi
+
+	max -w -b38400 -n0 -p2323 || true
 	sleep 1
 done

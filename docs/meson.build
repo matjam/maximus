@@ -1,2 +1,2 @@
 install_data(['max.txt', 'squish.txt'],
-	install_dir: 'share/doc/max-bbs')
+	install_dir: get_option('datadir') / 'doc/maxbbs')

@@ -1,4 +1,4 @@
-project('max-bbs', ['c', 'cpp'],
+project('maxbbs', ['c', 'cpp'],
   version: '3.0.3+',
   license: 'GPL-2.0-or-later',
   default_options: ['b_lundef=false'])

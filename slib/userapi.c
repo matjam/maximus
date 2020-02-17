@@ -621,7 +621,7 @@ int _fast UserFileClose(HUF huf)
   if (huf->fdndx != -1)
     close(huf->fdndx);
 
-  memset(huf, 0, sizeof huf);
+  memset(huf, 0, sizeof(*huf));
   free(huf);
   return TRUE;
 }

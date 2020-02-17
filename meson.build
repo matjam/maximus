@@ -39,3 +39,4 @@ subdir('max')
 subdir('scripts')
 
 subdir('docs')
+subdir('install_tree')

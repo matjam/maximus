@@ -104,8 +104,8 @@ int _fast getwordq(char *strng,char *dest,char *delim,char quote,int findword)
             break;
           }
 
-          if (*(string-1)==quote)
-            isw=0;
+        if (*(string-1)==quote)
+          isw=0;
 
         if (isw==0) wordno++;
       }
@@ -115,8 +115,9 @@ int _fast getwordq(char *strng,char *dest,char *delim,char quote,int findword)
 
     if (wordno==(findword+1))
     {
-      strncpy(dest,(firstchar==oldstring ? firstchar : ++firstchar),
-              (int)(string-firstchar));
+      if (firstchar!=oldstring)
+        firstchar++;
+      strncpy(dest,firstchar,(int)(string-firstchar));
       dest[(int)(string-firstchar)]='\0';
       break;
     }

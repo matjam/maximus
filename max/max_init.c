@@ -465,7 +465,7 @@ char * Startup(void)
     else strcpy(log_name, PRM(log_name));
   }
 
-  if (log_name && *log_name)  /* If we have a valid log name */
+  if (*log_name)  /* If we have a valid log name */
   {
     if (! LogOpen())
       quit(ERROR_CRITICAL);

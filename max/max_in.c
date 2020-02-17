@@ -584,7 +584,7 @@ int cdecl GetListAnswer(char *list, char *help_file, char *invalid_response,
   char *p;
   char *scratch;
 
-  static char lvl=-1;
+  static int lvl=-1;
 
   /* We can recurse into this via the 'help' option */
   /* So we may need more than one buffer            */

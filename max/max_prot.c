@@ -109,7 +109,7 @@ void MaxWriteCtl(struct _proto *pro, word ul)
 
     fprintf(ctl, xctl_time, timeleft());
 
-    if (log_name && *log_name)
+    if (*log_name)
       fprintf(ctl, xctl_log, log_name);
 
     fprintf(ctl, xctl_msgs, MAS(mah, path));

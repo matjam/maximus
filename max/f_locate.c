@@ -429,7 +429,7 @@ void File_Locate(void)
   HAFF haff;
 
   byte savearea[MAX_ALEN];
-  byte *s;
+  char *s;
 
   byte colour;
   char nonstop;

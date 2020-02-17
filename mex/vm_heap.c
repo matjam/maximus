@@ -18,7 +18,6 @@
  */
 
 #define HEAP_PROBLEMS
-#define HEAP_SIGNATURE
 #define COMPILING_MEX_VM
 
 #include <stdio.h>
@@ -27,6 +26,7 @@
 #include "prog.h"
 #include "vm.h"
 
+int hpcheck(void);
 
 void hpinit(void)
 {

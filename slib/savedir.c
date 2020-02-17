@@ -30,7 +30,7 @@
 int _fast Save_Dir(char *orig_disk,char *orig_path[],char *path)
 {
   char temp[PATHLEN];
-  char dn;
+  int dn;
   char *p;
 
   if (*orig_disk==-1)

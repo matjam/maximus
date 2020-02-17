@@ -85,7 +85,7 @@ int LogOpen(void)
   SnoopOpen(pipe, &hsnoop, xfer_id, NullNotify);
 #endif
 
-  if (!logfile && log_name && log_name[0])
+  if (!logfile && log_name[0])
   {
     log_written=TRUE;
 

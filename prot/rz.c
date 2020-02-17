@@ -411,11 +411,7 @@ rzfile(char *path)
 
       case ZFILE:
       {
-        int temp;
-
-        temp=zrdata(secbuf, 1024);
-
-        dlogit(("@rzfile - zfile(zrdata)=%d", temp));
+        dlogit(("@rzfile - zfile(zrdata)=%d", zrdata(secbuf, 1024)));
         continue;
       }
 

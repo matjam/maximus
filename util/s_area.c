@@ -223,7 +223,7 @@ void AddMsgArea(BFILE bDat, BFILE bNdx, BFILE bIdx, PMAH pmah, SLIST *sl)
     AddAttrib(&a, SYSMAIL);
 
   if (pmah->ma.attribs & MA_ECHO)
-    AddAttrib(&a, ECHO);
+    AddAttrib(&a, ECHOMAIL);
 
   if (pmah->ma.attribs & MA_CONF)
     AddAttrib(&a, CONF);

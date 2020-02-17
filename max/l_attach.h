@@ -23,6 +23,7 @@
 #include "typedefs.h"
 #include "stamp.h"
 #include "dbasec.h"
+#include "msgapi.h"
 
 #ifndef __MSGAPI_H_DEFINED
   typedef dword UMSGID;

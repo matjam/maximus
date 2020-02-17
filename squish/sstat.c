@@ -221,7 +221,7 @@ static void near CalcTotals(dword *total_in_bytes, dword *total_in_msgs)
   struct _ahlist *al;
   struct _stlist *sl;
 
-  total_in_bytes=total_in_msgs=0;
+  *total_in_bytes=*total_in_msgs=0;
 
   for (al=ahlist; al; al=al->next)
   {
@@ -239,10 +239,10 @@ static void near CalcTotals(dword *total_in_bytes, dword *total_in_msgs)
     if (al->total_out_bytes==0 && al->total_out_msgs==0)
       continue;
 
-    total_in_bytes += al->in_bytes;
-    total_in_msgs  += al->in_msgs;
+    *total_in_bytes += al->in_bytes;
+    *total_in_msgs  += al->in_msgs;
     #ifdef DEBUG
-	printf("Total in bytes: %d\nTotal in msgs: %d\n\n", (int) total_in_bytes, (int) total_in_msgs);
+	printf("Total in bytes: %d\nTotal in msgs: %d\n\n", (int) *total_in_bytes, (int) *total_in_msgs);
     #endif
   }
 }

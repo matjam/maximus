@@ -616,13 +616,9 @@ static int near RepDoLookup(TRK t, PREP prep, FILE *fp)
 
 static int near TrackMenuReportInternal(TRK t, PREP prep, FILE *fp)
 {
-  static int doing_report=FALSE;
   unsigned rc;
 
   /* We are non-reentrant! */
-
-/*  if (doing_report)
-    return FALSE;*/
 
   if (!RepGetArea(t, prep))
     return FALSE;
@@ -641,9 +637,7 @@ static int near TrackMenuReportInternal(TRK t, PREP prep, FILE *fp)
 
   /* Now perform the actual search */
 
-  doing_report=TRUE;
   rc=RepDoLookup(t, prep, fp);
-  doing_report=FALSE;
 
   return rc;
 }

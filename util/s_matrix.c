@@ -214,7 +214,7 @@ int Parse_Matrix(FILE *ctlfile)
             {
               x=Deduce_Attribute(p);
               getword(line,p,ctl_delim,5);
-              if (x==-20 && (!p || !*p))
+              if (x==-20 && (!*p))
                 prm.msg_localattach=0;
               else
               {
@@ -233,7 +233,7 @@ int Parse_Matrix(FILE *ctlfile)
               x=Deduce_Attribute(p);
 
               getword(line,p,ctl_delim,5);
-              if (x==-20 && (!p || !*p))
+              if (x==-20 && (!*p))
                 prm.msg_localattach=0;
               else
               {

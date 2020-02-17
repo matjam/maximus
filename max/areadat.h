@@ -64,15 +64,14 @@
 #define  NOPUBLIC  0x0004 /* OPUS: Disallow public messages                */
 #define  NOPRIVATE 0x0008 /* OPUS: Disallow private messages               */
 #define  ANON_OK   0x0010 /* OPUS: Enable anonymous messages               */
-#warning termios collision for ECHO
-#define  ECHO      0x0020 /* OPUS: Set=Echomail Clear=Not Echomail         */
+#define  ECHOMAIL  0x0020 /* OPUS: Set=Echomail Clear=Not Echomail         */
 #define  HIGHBIT   0x0040 /* MAX:  Allow high-bit chars in this area       */
 #define  NREALNAME 0x0200 /* MAX:  Don't use ^aREALNAME for this area      */
 #define  UREALNAME 0x0400 /* MAX:  Use usr.name instead of alias (if alsys)*/
 #define  CONF      0x0800 /* MAX:  Conference-type area (no origin/sb's)   */
 #define  UALIAS    0x1000 /* MAX:  Use usr.alias instead of usr.name       */
 
-#define  SHARED     (CONF | ECHO)
+#define  SHARED     (CONF | ECHOMAIL)
 #define  NOPVTORPUB (NOPRIVATE | NOPUBLIC)
 
 struct _override

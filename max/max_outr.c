@@ -31,7 +31,7 @@
 #include "mm.h"
 
 
-#if !defined(OS_2) && !defined(NT)
+#if !defined(OS_2) && !defined(NT) && !defined(UNIX)
 static int timer2=FALSE;
 static int set=TRUE;
 #endif

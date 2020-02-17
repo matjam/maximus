@@ -361,7 +361,7 @@ static char * MungeTypeName(TYPEDESC *t)
 
 static ATTRIBUTES * near GenVarArgName(FUNCCALL *f, DATAOBJ *this, char *name)
 {
-  ATTRIBUTES attr, *found;
+  ATTRIBUTES *found;
 
   if (!this->type)
   {
@@ -375,8 +375,6 @@ static ATTRIBUTES * near GenVarArgName(FUNCCALL *f, DATAOBJ *this, char *name)
           "__%s%s",
           f->func->name,
           strupr(MungeTypeName(this->type)));
-
-  attr.name=name;
 
   /* Make sure that this function has been declared, to be on the     *
    * safe side.                                                       */
@@ -397,7 +395,6 @@ static ATTRIBUTES * near GenVarArgName(FUNCCALL *f, DATAOBJ *this, char *name)
 	(found = st_find(symtab, name + 2, FALSE)))
     {
       name += 2;
-      attr.name += 2;
     }
     else
 #endif

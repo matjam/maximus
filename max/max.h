@@ -877,7 +877,7 @@ typedef struct _llpush
 struct _cgs
 {
   int ptr;
-  char num_tid;
+  int num_tid;
   char rsvd;
 
   int tids[255];

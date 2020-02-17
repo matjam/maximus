@@ -320,7 +320,7 @@ int Parse_Session(FILE *ctlfile)
         if (b && c)
         {
           getword(line,p,ctl_delim,4);
-          *c = (!p || !*p) ? 0 : Deduce_Priv(p);
+          *c = (!*p) ? 0 : Deduce_Priv(p);
         }
       }
       if (!b)

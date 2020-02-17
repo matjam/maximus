@@ -333,7 +333,7 @@ extrn char fix_menupath[LEN(MAX_MENUNAME)]; /* Name to adjust menupath to  */
 extrn char firstname[LEN(36)];          /* User's first name.              */
 extrn union stamp_combo next_ludate;    /* Ludate to insert at logoff      */
 extrn char last_readln[MAXLEN+1];
-extrn byte linebuf[LEN(BUFLEN+1)];      /* Line input bfr for stacked cmds */
+extrn char linebuf[LEN(BUFLEN+1)];      /* Line input bfr for stacked cmds */
 extrn char arq_info[ARQ_LEN];           /* MNP/V42b info                   */
 extrn char usrname[LEN(sizeof(usr.name))]; /* Name/alias of current user   */
 

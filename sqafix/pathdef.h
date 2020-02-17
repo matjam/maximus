@@ -118,21 +118,6 @@
 # define NULL_DEVICE	"/dev/null"
 #endif
 
-/* Macro to propercase MS-DOS filenames.  If your OS is case-dependent,     *
- * use "#define fancy_fn(s) (s)" instead.  Ditto for upper_fn().            */
-
-#if !defined(UNIX)
-# define fancy_fn(s)           fancy_str(s)
-# define cfancy_fn(s)	       cfancy_str(s)
-# define upper_fn(s)           strupr(s)
-# define lower_fn(s)           strlwr(s)
-#else
-# define fancy_fn(s)		(s)
-# define cfancy_fn(s)		(s)
-# define upper_fn(s)		(s)
-# define lower_fn(s)		(s)
-#endif
-
 #ifndef updcrc
 #define updcrc(cp, crc)       (crctab[((crc >> 8) & 255) ^ cp] ^ (crc << 8))
 #endif

@@ -111,7 +111,9 @@ int getword(char *strng,char *dest,char *delim,int findword)
 
     if (wordno==(findword+1))
     {
-      strncpy(dest,(firstchar==oldstring ? firstchar : ++firstchar),(unsigned int)(string-firstchar));
+      if (firstchar!=oldstring)
+        firstchar++;
+      strncpy(dest,firstchar,(unsigned int)(string-firstchar));
       dest[(unsigned int)(string-firstchar)]='\0';
       break;
     }

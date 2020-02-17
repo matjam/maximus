@@ -328,7 +328,6 @@ int Browse_Scan_Areas(BROWSE *b)
   HAFF haff;
   int ret, rc;
   int colour=0, stop, bret;
-  word ixnum;
  
   memset(&ma, 0, sizeof ma);
 
@@ -347,8 +346,6 @@ int Browse_Scan_Areas(BROWSE *b)
   stop=FALSE;
 
   /* Open the tag data file for speedy t)ag access */
-
-  ixnum=0;
 
   if ((haff=AreaFileFindOpen(ham, NULL, 0))==NULL)
     return -1;

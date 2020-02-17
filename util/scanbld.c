@@ -230,7 +230,7 @@ static void near ScanOneArea(struct _sbcfg *psc, PMAH pmah)
   SBHDR sbhdr;
   char sfname[PATHLEN];
   char pszMsgpath[PATHLEN];
-  int do_partial, do_full;
+  int do_full;
   long mn;
   HAREA ha;
   HMSG hmsg;
@@ -239,7 +239,6 @@ static void near ScanOneArea(struct _sbcfg *psc, PMAH pmah)
   /* Do a full build if requested by the user */
 
   do_full=!!(psc->flags & SFLAG_FORCE);
-  do_partial=FALSE;
 
   if ((pmah->ma.type & MSGTYPE_SDM)==0)
     return;
@@ -281,11 +280,10 @@ static void near ScanOneArea(struct _sbcfg *psc, PMAH pmah)
    * messages were entered and nothing else happened, so we can do          *
    * just a partial build.  Otherwise, do a full build!                     */
 
-  if (sbhdr.num_msg &&
+  if (!(sbhdr.num_msg &&
       MsgGetNumMsg(ha)-sbhdr.num_msg == MsgGetHighMsg(ha)-sbhdr.high_msg &&
-      MsgGetHighMsg(ha) >= sbhdr.high_msg)
-    do_partial=TRUE;
-  else do_full=TRUE;
+      MsgGetHighMsg(ha) >= sbhdr.high_msg))
+    do_full=TRUE;
 
   if (do_full)
   {

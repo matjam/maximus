@@ -73,12 +73,9 @@ sword Read_Menu(struct _amenu *menu, char *mname)
   long where, end;
 
   int menufile;
-  word menu_items;
   size_t size, hlen;
 
   char mpath[PATHLEN];
-
-  menu_items=1;
 
   sprintf(mpath, "%s%s.mnu", menupath, mname);
 

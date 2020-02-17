@@ -914,7 +914,7 @@
    // and process the area tag to path conversion method if any
 
    for (pchEnd = psz; *pchEnd && !isspace(*pchEnd); pchEnd++);
-   if ((pch = pchEnd) != '\0' && SkipSpaces(&pch)) {
+   if (*(pch = pchEnd) != '\0' && SkipSpaces(&pch)) {
      *pchEnd = '\0';
      if (!xstricmp(pch, "CRC")) {
        pnewarea->fs|= NA_CONVERTCRC;

@@ -321,8 +321,9 @@ typedef long timer_t;
 
 #include "growhand.h"
 
-/* Macro to propercase MS-DOS filenames.  If your OS is case-dependent,     *
- * use "#define fancy_fn(s) (s)" instead.  Ditto for upper_fn().            */
+/* Macros to propercase MS-DOS filenames.  If your OS is case-dependent,
+ * use dummy functions instead.
+ */
 
 #if !defined(UNIX)
 # define fancy_fn(s)           fancy_str(s)
@@ -330,10 +331,10 @@ typedef long timer_t;
 # define upper_fn(s)           strupr(s)
 # define lower_fn(s)           strlwr(s)
 #else
-# define fancy_fn(s)		(s)
-# define cfancy_fn(s)		(s)
-# define upper_fn(s)		(s)
-# define lower_fn(s)		(s)
+static inline char *fancy_fn(char *s) { return s; }
+static inline char *cfancy_fn(char *s) { return s; }
+static inline char *upper_fn(char *s) { return s; }
+static inline char *lower_fn(char *s) { return s; }
 #endif
 
 #ifndef updcrc

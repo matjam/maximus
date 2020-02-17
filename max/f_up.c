@@ -278,7 +278,6 @@ word File_Get_Files(sword protocol, char *mname, char *path)
   FILE *xferinfo;
 
   char temp[PATHLEN];
-  char *filename;
 
   word fn, ok;
 
@@ -294,8 +293,6 @@ word File_Get_Files(sword protocol, char *mname, char *path)
 
   /* Force logit() calls to be displayed on-screen */
   in_file_xfer=TRUE;
-
-  filename=NULL;
 
   if (IsBatch(protocol))
     Free_Filenames_Buffer(0);

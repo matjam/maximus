@@ -709,7 +709,7 @@
    // Skip through the leading spaces
 
    for (pch = psz; isspace(*pch); pch++);
-       pchEnd = pch;
+   pchEnd = pch;
 
    // Check for the World mask
 
@@ -4436,8 +4436,8 @@ SetIt: psntm->aumsg[psntm->imsg++] = umsg;
 
      // Fix up the end of the password specification
 
-     for (pch = pchEnd; *pchEnd && !isspace(*pchEnd) && *pchEnd != ',';
-     pchEnd++); *pchEnd = '\0';
+     for (pch = pchEnd; *pchEnd && !isspace(*pchEnd) && *pchEnd != ','; pchEnd++);
+     *pchEnd = '\0';
 
      // Calculate password string length and check if it's ok
 

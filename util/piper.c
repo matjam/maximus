@@ -357,7 +357,7 @@ int _stdc main(int argc,char *argv[])
 
           ffo=FindOpen(temp,0);
 
-          if (ffo && (sys110.attrib & ECHO))
+          if (ffo && (sys110.attrib & ECHOMAIL))
           {
             sprintf(temp,"%s%s", sys110.msgpath, ffo->szName);
 
@@ -380,13 +380,13 @@ int _stdc main(int argc,char *argv[])
 
           FindClose(ffo);
 
-          if ((sys110.attrib & ECHO) && *sys110.EchoName)
+          if ((sys110.attrib & ECHOMAIL) && *sys110.EchoName)
             fprintf(areasfile,"        MsgName         %s\n",sys110.EchoName);
 
           if (*sys110.barrpath)
             fprintf(areasfile,"        Barricade       %s\n",sys110.barrpath);
 
-          if (sys110.attrib & ECHO)
+          if (sys110.attrib & ECHOMAIL)
             strcpy(temp,   "EchoMail");
           else if (sys110.attrib & SYSMAIL)
             strcpy(temp,   "Matrix  ");
@@ -472,7 +472,7 @@ int _stdc main(int argc,char *argv[])
 
           ffo=FindOpen(temp,0);
 
-          if (ffo && (sys.attrib & ECHO))
+          if (ffo && (sys.attrib & ECHOMAIL))
           {
             sprintf(temp,"%s%s",sys.msgpath,ffo->szName);
 
@@ -495,7 +495,7 @@ int _stdc main(int argc,char *argv[])
 
           FindClose(ffo);
 
-          if (sys.attrib & ECHO)
+          if (sys.attrib & ECHOMAIL)
           {
             for (x=0;x < abbs_num;x++)
               if (eqstri(sys.msgpath,abbs[x].path))
@@ -514,7 +514,7 @@ int _stdc main(int argc,char *argv[])
           if (fexist(sys.bbspath))
             fprintf(areasfile,"        Barricade       %s\n",sys.bbspath);
 
-          if (sys.attrib & ECHO)
+          if (sys.attrib & ECHOMAIL)
             strcpy(temp,   "EchoMail");
           else if (sys.attrib & SYSMAIL)
             strcpy(temp,   "Matrix  ");

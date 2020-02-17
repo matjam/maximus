@@ -329,9 +329,9 @@ int Outside(char *leaving,char *returning,int method,char *parm,
   sword timeremain, x;
 
   byte save_inchat;
-  long starttime;
 
 #ifdef __MSDOS__
+  long starttime;
   int save_stdout, save_stdin;
   FILE *bat;
 #else
@@ -369,7 +369,9 @@ int Outside(char *leaving,char *returning,int method,char *parm,
   inchat=FALSE;
   stay=reread=nofix=FALSE;
 
+#ifdef __MSDOS__
   starttime=time(NULL);
+#endif
   timeremain=timeleft();
 
 #ifndef __MSDOS__
@@ -1202,7 +1204,7 @@ static void near Write_External_Ctlfile(int ctltype, char *parm, int method)
 
   fprintf(ctl, xctl_time, timeleft());
 
-  if (log_name && *log_name)
+  if (*log_name)
     fprintf(ctl, xctl_log, log_name);
 
   fprintf(ctl, xctl_msgs, MAS(mah, path));

@@ -56,7 +56,6 @@ static char *msg_name;
 
 void QWK_Upload(void)
 {
-  UMSGID uid;
   char fname[PATHLEN];
   int okay;
 
@@ -76,7 +75,7 @@ void QWK_Upload(void)
   
   save_tag_list(NULL);
 
-  uid=MsgMsgnToUid(sq, last_msg);
+  MsgMsgnToUid(sq, last_msg);
   
   if ((msg_name=malloc(PATHLEN))==NULL)
     logit(mem_none);

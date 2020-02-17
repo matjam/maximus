@@ -6,4 +6,7 @@ msgapi_sources = ['msgapi.c', 'sq_area.c', 'sq_msg.c', 'sq_read.c',
 msgapi_lib = shared_library('msgapi',
                             msgapi_sources,
 			    include_directories: inc,
-			    link_with: compat_lib)
+			    link_with: compat_lib,
+
+			    install: true,
+			    install_dir: get_option('libexecdir') / 'maxbbs')

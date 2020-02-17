@@ -15,7 +15,10 @@ mexvm_lib = shared_library('mexvm',
 	include_directories: inc,
 	c_args: '-DHEAP_SIGNATURE',
 
-	link_with: msgapi_lib)
+	link_with: msgapi_lib,
+
+	install: true,
+	install_dir: get_option('libexecdir') / 'maxbbs')
 
 executable('mex',
 	[mex_parser,

@@ -8,8 +8,14 @@ maxdb_sources = ['dbase.cc', 'dbasec.cc', 'track.cc', 'trackc.cc', 'dllc.c']
 maxbt_lib = shared_library('maxbt',
                            maxbt_sources,
 			   include_directories: inc,
-			   link_with: max_lib)
+			   link_with: max_lib,
+
+			   install: true,
+			   install_dir: get_option('libexecdir') / 'maxbbs')
 maxdb_lib = shared_library('maxdb',
                            maxdb_sources,
 			   include_directories: inc,
-			   link_with: maxbt_lib)
+			   link_with: maxbt_lib,
+
+			   install: true,
+			   install_dir: get_option('libexecdir') / 'maxbbs')

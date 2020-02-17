@@ -3,8 +3,21 @@ squish_sources = [ 'squish.c', 's_abbs.c', 's_config.c', 's_scan.c',
 		   's_log.c', 's_misc.c', 's_hole.c', 's_link.c', 's_busy.c',
 		   's_stat.c', 's_sflo.c', 's_thunk.c', 's_dupe.c', 'bld.c' ]
 
-killrcat_lib = shared_library('killrcat', 'killrcat.c', include_directories: inc)
-msgtrack_lib = shared_library('msgtrack', 'msgtrack.c', include_directories: inc)
+killrcat_lib = shared_library('killrcat',
+	'killrcat.c',
+
+	include_directories: inc,
+
+	install: true,
+	install_dir: get_option('libexecdir') / 'maxbbs')
+
+msgtrack_lib = shared_library('msgtrack',
+	'msgtrack.c',
+
+	include_directories: inc,
+
+	install: true,
+	install_dir: get_option('libexecdir') / 'maxbbs')
 
 
 squish = executable('squish',

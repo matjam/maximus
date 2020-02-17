@@ -34,10 +34,16 @@ smserial_lib = shared_library('smserial',
                               smserial_sources,
                               include_directories: inc,
 			      link_with: compat_lib,
-			      dependencies: [curses, threads])
+			      dependencies: [curses, threads],
+
+			      install: true,
+			      install_dir: get_option('libexecdir') / 'maxbbs')
 
 max_lib = shared_library('max',
                          max_sources,
                          include_directories: inc,
 			 link_with: compat_lib,
-			 dependencies: [curses, threads])
+			 dependencies: [curses, threads],
+
+			 install: true,
+			 install_dir: get_option('libexecdir') / 'maxbbs')

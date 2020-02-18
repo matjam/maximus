@@ -843,7 +843,6 @@
  VOID APPENTRY AppendFileExt(PSZ pszDst, PSZ pszSrc, PSZ pszExt, BOOL fAlways);
  BOOL APPENTRY BuildFullPath(PSZ pszDest, PSZ pszSrc);
 
- USHORT GetTextLeng(va_list argptr, PSZ pszFormat, ...);
  VOID APPENTRY WriteMsgLine(SHORT cch, CHAR ch, BOOL fNewLine);
  USHORT WriteMsg(PSZ pszFormat, ...);
  VOID WriteLog(PSZ pszFormat, ...);

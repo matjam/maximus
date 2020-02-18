@@ -1764,30 +1764,6 @@ Done: return (pnetAddr->zone && pnetAddr->net) ? pch : NULL;
  }
 
 /*
- * This routine returns number of characters in the formatted text
- */
-
- USHORT GetTextLeng(va_list argptr, PSZ pszFormat, ...)
- {
-   static FILE * pfile;
-   SHORT cch;
-
-   if (!argptr) va_start(argptr, pszFormat);
-
-   // Check if we have a NUL file opened and open it if no
-
-   if (pfile == NULL) pfile = fopen("NUL", "wt");
-
-   // Format and write text to the NUL device getting the count
-
-   cch = vfprintf(pfile, pszFormat, argptr);
-
-   va_end(argptr);
-
-   return cch == EOF ? 0 : cch;
- }
-
-/*
  * This routine writes out the line of the specified length and character
  */
 
@@ -1822,7 +1798,7 @@ Done: return (pnetAddr->zone && pnetAddr->net) ? pch : NULL;
    if (cfg.fl & FL_DISPLAYGENERATEDMSG)
      cch = vprintf(pszFormat, argptr);
    else
-     cch = GetTextLeng(argptr, pszFormat);
+     cch = vsnprintf(NULL, 0, pszFormat, argptr);
 
    // Check if we're writing a netmail message and this line is
    // going to exhaust the message buffer, then flush buffer and

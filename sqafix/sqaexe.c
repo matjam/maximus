@@ -123,7 +123,7 @@
 
    va_start(argptr, pszFormat);
 
-   cch = GetTextLeng(argptr, pszFormat);
+   cch = vsnprintf(NULL, 0, pszFormat, argptr);
    if (cch < sizeof(achLine))
      pchLine = achLine + vsprintf(achLine, pszFormat, argptr);
    else {
@@ -146,7 +146,7 @@
 
    va_start(argptr, pszFormat);
 
-   cch = GetTextLeng(argptr, pszFormat);
+   cch = vsnprintf(NULL, 0, pszFormat, argptr);
    if ( (PSZ) pchLine + cch < (PSZ) achLine + sizeof(achLine))
    {
      pchLine+= vsprintf(pchLine, pszFormat, argptr);

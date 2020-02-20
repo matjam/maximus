@@ -267,7 +267,7 @@ static int near vm_cleanup(void)
 
 
 
-void _stdc vm_err(char *format,...)
+void _stdc __attribute__((noreturn)) vm_err(char *format,...)
 {
   va_list varg;
   char err[MAXERRLEN];

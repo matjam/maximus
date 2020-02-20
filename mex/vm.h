@@ -342,7 +342,7 @@ struct _fcall
   void hpdbug(void);
   void *fetch(FORM form, IADDR *where);
   int store(IADDR *dest, FORM form, void *val);
-  void _stdc vm_err(char *format,...);
+  void _stdc __attribute__((noreturn)) vm_err(char *format,...);
   int VmRead(char *name);
   void kill_str(IADDR *strptr, IADDR *ptrptr);
 #endif

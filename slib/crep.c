@@ -143,7 +143,7 @@ int _fast Compile_REP(char *exp,struct _rep *rep)
                 }
               }
               else
-                rep->table[ch][*exp]=TRUE;
+                rep->table[ch][(unsigned char)*exp]=TRUE;
               break;
           }
 

@@ -155,7 +155,7 @@
 
   /* Max 2.x priv levels */
 
-#define  TWIT        -2
+#define  TWIT        0xfffe
 #define  DISGRACE    0x0000
 #define  LIMITED     0x0001
 #define  NORMAL      0x0002

@@ -49,6 +49,8 @@ int GetFileEntry(word n, FENTRY *fent);
 int UpdFileEntry(word n, FENTRY *fent);
 void Free_File_Buffer(void);
 
+void adaptcase(char *);
+
   /* `autodate' macro which is also area override flag aware */
 
 #define autodate(f)   (((prm.flags & FLAG_autodate) && !((f).fa.attribs & (FA_MANDATE|FA_LISTDATE))) || ((f).fa.attribs & FA_AUTODATE))

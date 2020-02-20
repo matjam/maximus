@@ -15,7 +15,7 @@ threads = dependency('threads')
 
 add_project_arguments('-Wno-write-strings', '-Wno-format',
 '-Wno-unused-function', '-Wno-sign-compare',
-'-Wno-attributes', '-Wno-parentheses',
+'-Wno-attributes', '-Wno-parentheses', '-Wno-address-of-packed-member',
 language: ['c', 'cpp'])
 
 add_project_arguments( '-Wno-pointer-sign', language: ['c'])

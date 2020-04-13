@@ -26,12 +26,12 @@
 void yyerror(char *s);
 int yyparse(void);
 int yylex(void);
-void _stdc fatal_error(int errnum, ...);
+void _stdc __attribute__((noreturn)) fatal_error(int errnum, ...);
 void _stdc error(int errnum, ...);
 void _stdc warn(int errnum, ...);
 void _stdc debug(char *s,...);
 void _stdc bug(char *s,...);
-void _fast NoMem(void);
+void _fast __attribute__((noreturn)) NoMem(void);
 int AddrEqual(ADDRESS *a1,ADDRESS *a2);
 FUNCARGS *declare_ellipsis(void);
 VMADDR declare_vars(TYPEDESC *typedesc,ATTRIBUTES *attr);

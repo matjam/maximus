@@ -28,6 +28,7 @@
 void NoMem(void)
 {
   (*pfnLogger)("!MEX:  out of memory reading file");
+  exit(1);
 }
 
 /* Read in the file header for a .vm file and all of the instructions. */

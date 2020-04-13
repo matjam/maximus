@@ -154,7 +154,7 @@ void _stdc error(int errnum, ...)
   report_err(errnum, "error", string);
 }
 
-void _stdc fatal_error(int errnum, ...)
+void _stdc __attribute__((noreturn)) fatal_error(int errnum, ...)
 {
   va_list var_args;
   char string[MAX_ERRMSG_LEN];

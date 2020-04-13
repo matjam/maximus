@@ -38,6 +38,8 @@ int xxspawnvp(int mode, const char *Cfile, char *const argv[])
   if (!Cfile || stat(file, &sb))	/* Provide errno e.g. EPERM, ENOENT to caller */
     return -1;
 
+  free(file);
+
   if (mode != P_OVERLAY)
     pid = fork();
   else
@@ -47,7 +49,6 @@ int xxspawnvp(int mode, const char *Cfile, char *const argv[])
   {
     if ((mode == P_NOWAIT) || (mode == P_NOWAITO))
     {
-      fixPathDupFree(Cfile, file);
       return 0;
     }
 
@@ -57,7 +58,6 @@ int xxspawnvp(int mode, const char *Cfile, char *const argv[])
       pid_t dead_kid;
 
       sleep(0);
-      fixPathDupFree(Cfile, file);
 
       do
       {     

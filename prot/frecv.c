@@ -937,14 +937,6 @@ unsigned XmRx(byte *path, byte *filename, word protocol, unsigned *pusEOB)
   unsigned ret;
   int fd=-1;
 
-  /* Allocate buffer for transfer */
-
-  if ((buf=malloc(MAX_XMODEM_BUF))==NULL)
-  {
-    logit(mem_none);
-    return FALSE;
-  }
-
   /* Create a temporary filename to use for the transfer */
 
   if (path)
@@ -958,6 +950,16 @@ unsigned XmRx(byte *path, byte *filename, word protocol, unsigned *pusEOB)
       cant_open(tempname);
       return FALSE;
     }
+  }
+
+  /* Allocate buffer for transfer */
+
+  if ((buf=malloc(MAX_XMODEM_BUF))==NULL)
+  {
+    if (fd != -1)
+      close(fd);
+    logit(mem_none);
+    return FALSE;
   }
 
   /* Initialize the xmstuff data structure */

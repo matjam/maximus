@@ -782,13 +782,9 @@ void near FiltPath(void *v, char *words[], char *line)
 
 void near FiltOverride(void *v, char *words[], char *line)
 {
-  OVRLIST ol=malloc(sizeof(*ol));
   int idx;
 
   NW(line);
-
-  if (!ol)
-    NoMem();
 
 /* 0        1       2         3          4 */
 /* override message msg_reply sysop/1234 R */
@@ -804,6 +800,10 @@ void near FiltOverride(void *v, char *words[], char *line)
     printf("Error!  No access control string specified for override on line %d!\n", linenum);
     return;
   }
+
+  OVRLIST ol=malloc(sizeof(*ol));
+  if (!ol)
+    NoMem();
 
   if ((idx=tsearch(words[2], silt_table, silt_table_size)) != -1)
     ol->or.opt=silt_table[idx].opt;

@@ -17,38 +17,11 @@ char *fixPathDup(const char *filename)
   ** or filename + 2!
   */
 
-  char *fnDup;
-  char *slash;
-
-  if (!filename)
-    return NULL;
-
-  if (filename[0] && (filename[1] == ':'))
-    filename = filename + 2;
-
-  if (!strchr(filename, '\\'))
-    return (char *)filename;
-
-  fnDup = strdup(filename);
-  if (!fnDup)
-    return (char *)filename; /* ack! */
-
-  for (slash = strchr(fnDup, '\\'); slash; slash = strchr(slash, '\\'))
-    *slash = '/';
-
-  return fnDup;
-}
-
-void fixPathDupFree(const char *filename, char *filename_dup)
-{
-  if (filename == filename_dup)
-    return;
-
-  if (filename == filename_dup + 2)
-    return;
-
-  if (filename_dup)
-    free(filename_dup);
+  char *fnDup = strdup(filename);
+  if (!fnDup) {
+    NoMem();
+  }
+  return fixPath(fnDup);
 }
 
 char *fixPath(char *filename)
@@ -137,10 +110,11 @@ int sopen(const char *filename, int openMode, int shacc, ...)
 
   filename_dup = fixPathDup(filename);
   fd = open(filename_dup, openMode, perms);
-  fixPathDupFree(filename, filename_dup);
+  free(filename_dup);
 
-  if (fd < 0)
+  if (fd < 0) {
     return fd;
+  }
 
   if (shacc != SH_DENYNO)
   {

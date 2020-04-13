@@ -42,7 +42,7 @@ int _fast getword(char *strng,char *dest,char *delim,int findword)
     return 0;
   }
 
-  string=oldstring=strng;
+  oldstring=strng;
 
   sl_d=strlen(delim);
 

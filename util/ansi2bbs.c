@@ -123,7 +123,7 @@ int _stdc main(int argc,char *argv[])
   last_x=1;
 
   colour=7;   /* White-on-black, starting colour */
-  high=blink=lasthigh=FALSE; /* NOT high-intensity */
+  blink=lasthigh=FALSE; /* NOT high-intensity */
 
   Hello(A_NAME, A_DESC, VERSION, "1990, " THIS_YEAR);
 

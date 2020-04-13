@@ -193,7 +193,7 @@ void adaptcase(char *pathname)
         k = 0;
     }
 
-    j = 0; i = 0;
+    i = 0;
 
 
 start_over:

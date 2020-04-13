@@ -42,7 +42,7 @@ int _fast getwordq(char *strng,char *dest,char *delim,char quote,int findword)
   char *in,*out;
 #endif
 
-  string=oldstring=strng;
+  oldstring=strng;
 
   sl_d=strlen(delim);
 

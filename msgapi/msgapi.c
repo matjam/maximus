@@ -327,8 +327,7 @@ byte OS2FAR * MAPIENTRY CopyToControlBuf(byte OS2FAR *txt, byte OS2FAR * OS2FAR 
   (void)memset(cbuf, '\0', clen+SAFE_CLEN);
 
   /* Now copy the text itself */
-
-  clen=_CopyToBuf(txt, cbuf, &end, *length);
+  _CopyToBuf(txt, cbuf, &end, *length);
 
   *length -= (size_t)(end-txt);
 

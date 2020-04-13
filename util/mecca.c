@@ -756,7 +756,6 @@ void P_Menu_Cmd(struct _inf *inf)
     if (x==silt_table_size)
     {
       printf("\a    Invalid menu command: `%s'!\n",p);
-      x=0;
     }
     else sprintf(p=temp,"%d",(int)silt_table[x].opt);
   }

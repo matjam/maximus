@@ -245,7 +245,6 @@ static int near process_digit(int c)
 {
   word type=TYPE_DEC;
   int fLong = FALSE;
-  int fUnsigned = FALSE;
   char *scan;
   char *p, *e;
 
@@ -300,7 +299,6 @@ static int near process_digit(int c)
 
     if (c=='u')
     {
-      fUnsigned = TRUE;
       pull_character();
     }
   }

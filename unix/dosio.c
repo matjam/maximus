@@ -158,7 +158,7 @@ int sopen(const char *filename, int openMode, int shacc, ...)
     flags = fcntl(fd, F_GETFD);
     flags |= FD_CLOEXEC;
 
-    fcntl(fd, F_SETFD);
+    fcntl(fd, F_SETFD, flags);
   }
 
   return fd;

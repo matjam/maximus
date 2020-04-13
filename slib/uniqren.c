@@ -71,8 +71,6 @@ sword _fast uniqrename(char *from, char *toorig, char *final, int (_fast *pfnMov
       if (dot[i]=='\0')
         dot[i]='0';
 
-    add=dot+3;
-
     for (add=dot+3; add >= to; add--)
     {
       if (*add >= '0' && *add <= '9')

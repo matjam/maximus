@@ -462,7 +462,7 @@ int CPPEXPORT DBASE::insert(void *pvRecord, int iLength)
     if (! BLKIOBUF::get(nnRec, pcBuf))
     {
       //printf("Error validating record %ld for insert!\n", nnRec);
-      delete pcBuf;
+      delete[] pcBuf;
       return FALSE;
     }
 
@@ -479,7 +479,7 @@ int CPPEXPORT DBASE::insert(void *pvRecord, int iLength)
     if (j==uiIndex)
     {
       //printf("Error!  Attempt to insert duplicate record!\n");
-      delete pcBuf;
+      delete[] pcBuf;
       return FALSE;
     }
   }
@@ -523,7 +523,7 @@ int CPPEXPORT DBASE::insert(void *pvRecord, int iLength)
       if (!pbIndex[i].insert(pcKey, IF_DUPE))
       {
         //printf("Error inserting key in tree!\n");
-        delete pcKey;
+        delete[] pcKey;
         throw 0;
       }
 
@@ -636,7 +636,7 @@ int CPPEXPORT DBASE::update(void *pvRecOld, void *pvRecNew, int iLength)
   if (!remove(ppv) || !insert(pvRecNew, iLength))
     rc=FALSE;
 
-  delete ppv;
+  delete[] ppv;
   return rc;
 }
 

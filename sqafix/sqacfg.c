@@ -852,7 +852,7 @@
 
    // Scan in the trigger node address specification and check if ok
 
-   if ((pch = ScanNetAddr(&netAddr, psz)) != NULL) {
+   if (ScanNetAddr(&netAddr, psz) != NULL) {
 
      // Scan through the existing new area info blocks looking for the
      // trigger node match

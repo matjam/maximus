@@ -105,8 +105,7 @@ int _stdc main(int argc,char *argv[])
        inname[PATHLEN],
        outname[PATHLEN],
        high,
-       lasthigh,
-       *p;
+       lasthigh;
 
   unsigned char colour;
 
@@ -142,7 +141,7 @@ int _stdc main(int argc,char *argv[])
 
   strcpy(inname,argv[1]);
 
-  if ((p=strchr(inname,'.'))==NULL)
+  if (strchr(inname,'.')==NULL)
 #ifndef UNIX
     strcat(inname,".ANS");
 #else
@@ -151,6 +150,7 @@ int _stdc main(int argc,char *argv[])
 
   if (argc < 3)
   {
+    char *p;
     strcpy(outname,inname);
 
     if ((p=strrchr(outname,'.'))==NULL)
@@ -159,7 +159,7 @@ int _stdc main(int argc,char *argv[])
   }
   else strcpy(outname,argv[2]);
 
-  if ((p=strrchr(outname,'.'))==NULL)
+  if (strrchr(outname,'.')==NULL)
     strcat(outname,EXT);
 
 
@@ -288,7 +288,7 @@ int _stdc main(int argc,char *argv[])
               continue;
             }
 
-            if ((ch=getc(ansifile))=='u')
+            if (getc(ansifile)=='u')
               break;
             else        /* back-track */
             {
@@ -319,7 +319,7 @@ int _stdc main(int argc,char *argv[])
 
               case '0':
                 colour=7;
-                high=lasthigh=blink=FALSE;
+                high=blink=FALSE;
                 break;
 
               case '1':

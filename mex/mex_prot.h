@@ -30,7 +30,7 @@ void _stdc __attribute__((noreturn)) fatal_error(int errnum, ...);
 void _stdc error(int errnum, ...);
 void _stdc warn(int errnum, ...);
 void _stdc debug(char *s,...);
-void _stdc bug(char *s,...);
+void _stdc __attribute__((noreturn)) bug(char *s,...);
 void _fast __attribute__((noreturn)) NoMem(void);
 int AddrEqual(ADDRESS *a1,ADDRESS *a2);
 FUNCARGS *declare_ellipsis(void);

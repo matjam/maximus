@@ -312,7 +312,7 @@ TryAgain:
     
     /* Now make copies of the .MNU file, if any were requested */
 
-    if ((s=strtok(name, ctl_delim)) != NULL)
+    if (strtok(name, ctl_delim) != NULL)
     {
       while ((s=strtok(NULL, ctl_delim)) != NULL)
       {

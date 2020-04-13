@@ -170,7 +170,7 @@ void _stdc __attribute__((noreturn)) fatal_error(int errnum, ...)
   exit(1);
 }
 
-void _stdc bug(char *s,...)
+void _stdc __attribute__((noreturn)) bug(char *s,...)
 {
   va_list var_args;
   char string[MAX_ERRMSG_LEN];

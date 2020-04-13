@@ -169,9 +169,7 @@ int peek_character(void)
 
 static int near process_colon(void)
 {
-  int c;
-
-  if ((c=peek_character())=='=')
+  if (peek_character()=='=')
   {
     pull_character();
     return T_ASSIGN;
@@ -185,9 +183,7 @@ static int near process_colon(void)
 
 static int near process_morethan(void)
 {
-  int c;
-
-  if ((c=peek_character())=='=')
+  if (peek_character()=='=')
   {
     pull_character();
     return T_GE;
@@ -797,16 +793,14 @@ static int near process_preprocessor(byte inblock)
 
 static int near process_dot(void)
 {
-  int c;
-
   /* Handle '.' (structure operator), '..' (range operator), and    *
    * '...' (ellipsis).                                              */
 
-  if ((c=peek_character())=='.')
+  if (peek_character()=='.')
   {
     pull_character();
 
-    if ((c=peek_character())=='.')
+    if (peek_character()=='.')
     {
       pull_character();
       return T_ELLIPSIS;

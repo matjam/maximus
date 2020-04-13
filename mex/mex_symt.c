@@ -167,7 +167,7 @@ ATTRIBUTES * st_find(SYMTAB *st, byte *name, int search_parent)
 
 VMADDR st_killscope(SYMTAB *st, VMADDR scope)
 {
-  ATTRIBUTES **chain, *last, *ap, *prev;
+  ATTRIBUTES **chain, *last, *ap, *prev = NULL;
   VMADDR storage_freed=0;
   
   for (chain=st->table; chain < st->table+st->len; chain++)

@@ -312,6 +312,8 @@ static SLNODE * near _fast _SkipCreateNode(word levels, void *data)
 static void near _fast _SkipBlank(SLIST *sl)
 {
   word n;
+
+  if (!sl) return;
   
   /* Now set all of the next ponetrs to NULL */
 

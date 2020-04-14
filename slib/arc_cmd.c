@@ -30,7 +30,8 @@ void _fast Form_Archiver_Cmd(char *arcname,char *pktname,char *cmd,char *org)
   
   if (!arcname || !pktname || !cmd || !org)
   {
-    *cmd='\0';
+    if (cmd)
+      *cmd='\0';
     return;
   }
 

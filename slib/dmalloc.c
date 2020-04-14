@@ -61,7 +61,7 @@ static int cPtrs;
 
 
 
-static void near dmalloc_err(char *fmt, ...)
+static void near __attribute__((noreturn)) dmalloc_err(char *fmt, ...)
 {
   static char szErr[PATHLEN];
   va_list va;

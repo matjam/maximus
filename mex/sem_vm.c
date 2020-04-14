@@ -294,7 +294,7 @@ void GenerateVM(QUADOP op, DATAOBJ *o1, DATAOBJ *o2, ADDRESS *dest)
     if (quad.opform==FormAddr)
       quad.flag |= (FLAG_ARG1_ADDR|FLAG_ARG2_ADDR);
 
-    if (op != QOP_ARG_REF && o2 && o2->type->form==FormAddr)
+    if (op != QOP_ARG_REF && o2 && o2->type && o2->type->form==FormAddr)
       quad.flag |= FLAG_ARG2_ADDR;
 
     if (o1)
@@ -630,8 +630,8 @@ static void near handle_func_arg(INST *inst, QUADOP op, DATAOBJ *o, DATAOBJ *o2)
 
   inst->flag |= FLAG_ARG1_ADDR;
 
-  if (o->objform==ObjformAddress &&
-      ((int)o2 != 0 || o->form.addr.indirect)) /*SJD Sat  05-18-1991  23:12:41 */
+  if (o && o->objform==ObjformAddress &&
+      (o2 != NULL || o->form.addr.indirect)) /*SJD Sat  05-18-1991  23:12:41 */
   {
     inst->arg1.addr.indirect=TRUE;
   }

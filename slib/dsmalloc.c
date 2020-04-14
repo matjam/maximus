@@ -32,7 +32,7 @@
 #undef dmalloc
 #undef dsmalloc
 
-void _fast NoMem(void);
+void _fast __attribute__((noreturn)) NoMem(void);
 
 
 extern struct _ptab * _stdc table;

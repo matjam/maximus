@@ -149,7 +149,7 @@ void pascal serialize(char *SemName);
 char * _fast strnncpy(char *to, char *from, int n);
 char * _fast canon(char *orig, char *dest);
 #ifndef __cplusplus
-void _fast NoMem(void);
+void _fast __attribute__((noreturn)) NoMem(void);
 #endif /* __cplusplus */
 unsigned _fast is_device(int fd);
 unsigned _fast is_devicename(char *filename);

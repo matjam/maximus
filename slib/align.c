@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include "compiler.h"
 
-void NoMem();
+void __attribute__((noreturn)) NoMem();
 
 #if !SLOPPY_ALIGNMENT_OKAY
 

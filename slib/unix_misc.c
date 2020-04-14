@@ -42,8 +42,7 @@ int unlock(int fd, long offset, long len)
   return fcntl(fd, F_SETLK, &lck);
 }
 
-void NoMem() __attribute__((weak));
-void NoMem()
+void __attribute__((weak)) __attribute__((noreturn)) NoMem()
 {
   fprintf(stderr, "Out of memory!\n");
   _exit(1);

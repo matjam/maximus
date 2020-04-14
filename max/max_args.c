@@ -203,7 +203,8 @@ byte getDynamicTaskNumber(int cleanup)
     return 0;
   }
 
-  if (offsets && PRM(ipc_path))
+  /* TODO: check why this is disabled */
+  if (0 && offsets && PRM(ipc_path))
     path = PRM(ipc_path);
   else
     path = "/tmp";
@@ -211,7 +212,7 @@ byte getDynamicTaskNumber(int cleanup)
   /* First scan for files that don't exist at all */
   for (i=1; i <= 0xff; i++)
   {
-    snprintf(filename, sizeof(filename), "%s/max_dtn.%i", /* path */ "/tmp", i);
+    snprintf(filename, sizeof(filename), "%s/max_dtn.%i", path, i);
     fd = open(filename, O_RDWR | O_CREAT, 0644);
     if (fd >= 0)
     {

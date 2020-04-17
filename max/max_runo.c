@@ -47,7 +47,7 @@ static option no_ed_ops[]=
 
 char * RunOption(struct _amenu *menu, struct _opt *thisopt, int ch, XMSG *msg, unsigned *puiFlag, char *menuname)
 {
-  char *kp, *arg, *result;
+  char *kp, *arg, *result = NULL;
   option *op;
   int type;
 

@@ -270,7 +270,7 @@ int TrackInsertTracking(HAREA ha, dword msgnum, XMSG *pxmsg,
 static int near TrackInsertDB(char *actrack, char *name, TRK_OWNER to, dword uid, XMSG *pxmsg)
 {
   TRK_MSG_NDX tmn;
-  int rc;
+  int rc = TRUE;
   TRK t;
 
   /* Fill out the database header */

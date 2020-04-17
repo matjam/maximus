@@ -302,9 +302,12 @@ int ParseFileArea(FILE *ctlfile, char *name)
   if (do_farea)
   {
     FileAreaWrite(&fi, FALSE);
+    OVRLIST oln;
 
-    for (ol=fi.ol; ol; ol=ol->next)
+    for (ol=fi.ol; ol; ol=oln) {
+      oln=ol->next;
       free(ol);
+    }
 
     HeapDelete(&fi.h);
   }

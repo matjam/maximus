@@ -528,8 +528,12 @@ int ParseMsgArea(FILE *ctlfile, char *name)
   {
     MsgAreaWrite(&mi, FALSE);
 
-    for (ol=mi.ol; ol; ol=ol->next)
+    OVRLIST oln;
+
+    for (ol=mi.ol; ol; ol=oln) {
+      oln = ol->next;
       free(ol);
+    }
 
     HeapDelete(&mi.h);
   }

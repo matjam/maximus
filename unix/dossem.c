@@ -124,7 +124,7 @@ int DosCreateSem(int NoExclusive, PHSEM SemHandle, const char *SemName)
   else
     *SemHandle = sem;
 
-  sem->fd = open(SemPathBuf, O_CREAT | O_EXCL | O_RDWR, 0666);
+  sem->fd = open(SemPath, O_CREAT | O_EXCL | O_RDWR, 0666);
   sem->type = dmt_sem;
 
   if (sem->fd < 0)
@@ -195,7 +195,7 @@ int DosOpenSem(PHSEM SemHandle, const char *SemName)
   else
     *SemHandle = sem;
 
-  sem->fd = open(SemPathBuf, O_CREAT | O_RDWR, 0666);
+  sem->fd = open(SemPath, O_CREAT | O_RDWR, 0666);
   sem->type = dmt_sem;
 
   if (sem->fd < 0)
@@ -312,7 +312,12 @@ int DosCreateMutexSem(const char *SemName, PHMTX hmtx_p, int AttributeFlags, int
   if (SemName && (strcasecmp(SemName, "\\SEM32\\") != 0))
     return ERROR_INVALID_NAME;
 
-  if (SemName) 
+  if ((AttributeFlags & DC_SEM_SHARED) || !SemName)
+  {
+    mkdir_recursive(UNIX_SEMDIR);
+    SemPath = tempnam(UNIX_SEMDIR, "sem32");
+  }
+  else
   {
     AttributeFlags |= DC_SEM_SHARED;
     snprintf(SemPathBuf, sizeof(SemPathBuf), UNIX_SEMDIR "/%s", SemName);
@@ -321,12 +326,6 @@ int DosCreateMutexSem(const char *SemName, PHMTX hmtx_p, int AttributeFlags, int
     mkdir_recursive_for(SemPath);
   }
 
-  if (AttributeFlags & DC_SEM_SHARED)
-  {
-    mkdir_recursive(UNIX_SEMDIR);
-    SemPath = tempnam(UNIX_SEMDIR, "sem32");
-  }
-  
   hmtx = calloc(sizeof(**hmtx_p), 1);
   if (!hmtx)
     return ERROR_NOT_ENOUGH_MEMORY;
@@ -334,7 +333,7 @@ int DosCreateMutexSem(const char *SemName, PHMTX hmtx_p, int AttributeFlags, int
   *hmtx_p = hmtx;
   hmtx->type = dmt_mutexsem;
 
-  hmtx->fd = open(SemPathBuf, O_CREAT | O_EXCL | O_RDWR, 0666);
+  hmtx->fd = open(SemPath, O_CREAT | O_EXCL | O_RDWR, 0666);
   if (hmtx->fd < 0)
   {
     free(hmtx);

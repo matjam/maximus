@@ -36,9 +36,9 @@ while [ ! -f "${PREFIX}"/die.now ]; do
 	mecca etc/help/\*.mec
 	mecca etc/misc/\*.mec
 	silt etc/max -x
-	for file in m/*.mex; do
+	(cd m && for file in *.mex; do
 		mex ${file/.mex}
-	done
+	done)
 	maid english -d -s -p${PREFIX}/etc/max
 	silt etc/max -p
 

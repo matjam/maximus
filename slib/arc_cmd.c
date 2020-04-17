@@ -37,7 +37,7 @@ void _fast Form_Archiver_Cmd(char *arcname,char *pktname,char *cmd,char *org)
 
   strcpy(cmd,org);
   
-  for (p=cmd; (p=strchr(cmd,'%')) != NULL; )
+  for (p=cmd; (p=strchr(p,'%')) != NULL; )
   {
     switch (p[1])
     {

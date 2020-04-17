@@ -40,6 +40,9 @@ dword _fast UserHash(byte *f)
   dword hash=0, g;
   signed char *p;
 
+  if (!f)
+    return 0;
+
   for (p=f; *p; p++)
   {
     hash=(hash << 4) + (dword)tolower(*p);

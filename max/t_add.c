@@ -385,7 +385,7 @@ int TrackNeedToAdd(PMAH pmah, XMSG *pxmsg)
     rc=FALSE;
 
   TrackRelease(t);
-  return TRUE;
+  return rc;
 }
 
 

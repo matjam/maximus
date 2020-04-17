@@ -48,7 +48,7 @@ executable('max',
         include_directories: [inc, include_directories('../mex', '../btree', '../prot')],
 	c_args: '-DINSTALL_PREFIX="' + get_option('prefix') + '"',
 
-	dependencies: curses,
+	dependencies: [curses, compiled_language_dep],
 	link_with: [mexvm_lib, msgapi_lib, smserial_lib, max_lib, maxbt_lib,
 	            maxdb_lib, xfer_lib, comm_lib, compat_lib],
 

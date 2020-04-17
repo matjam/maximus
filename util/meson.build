@@ -4,13 +4,6 @@ mecca_vb = custom_target('mecca_vb.h',
 	capture: true,
 	command: ['sort', '@INPUT@'])
 
-maid = executable('maid', 'maid.c',
-		  include_directories: inc,
-		  link_with: [ compat_lib, max_lib ],
-
-		  install: true,
-		  install_dir: get_option('libexecdir') / 'maxbbs')
-
 mecca = executable('mecca', [ 'mecca.c', 'init.c', mecca_vb ],
 		   include_directories: inc,
                    link_with: [ compat_lib, msgapi_lib, max_lib ],
@@ -97,6 +90,7 @@ silt = executable('silt',
 	          's_proto.c', 's_marea.c', 's_farea.c', 's_heap.c',
 	          's_area.c', 's_access.c', '../max/l_attach.c', '../max/max2priv.c'],
 	          include_directories: [ inc, include_directories('../lang', '../btree') ],
+	          dependencies: compiled_language_dep,
                   link_with: [ msgapi_lib, maxbt_lib, maxdb_lib, max_lib, compat_lib ],
 
 		  install: true,

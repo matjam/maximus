@@ -42,7 +42,7 @@ DeclareOption(ENVIRON,		36,	10,	"environment variables")
 typedef enum
 {
 #define DeclareCommand(a,b,c)	cmd_ ## a = b,
-#include __FILE__
+#include "telnet.h"
 #undef DeclareCommand
 } telnet_command_t;
 
@@ -54,7 +54,7 @@ static struct
 } telnet_Commands[]=
 {
 #define DeclareCommand(a,b,c)		{ cmd_ ## a, c },
-#include __FILE__
+#include "telnet.h"
 #undef DeclareCommand
 };
 #endif
@@ -62,14 +62,14 @@ static struct
 typedef enum
 {
 #define DeclareOption(a,b,c,d)	mopt_ ## a = 1 << c,
-#include __FILE__
+#include "telnet.h"
 #undef DeclareOption
 } telnet_moption_t;
 
 typedef enum
 {
 #define DeclareOption(a,b,c,d)	opt_ ## a = b,
-#include __FILE__
+#include "telnet.h"
 #undef DeclareOption
 } telnet_option_t;
 

@@ -30,7 +30,6 @@
  
 int sopen(const char *filename, int openMode, int shacc, ...);
 char *fixPathDup(const char *filename);
-void fixPathDupFree(const char *filename, char *filename_dup);
 char *fixPath(char *filename);
 void fixPathMove(char *filename);
 int sopen(const char *filename, int openMode, int shacc, ...);

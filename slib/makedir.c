@@ -60,14 +60,14 @@ int _fast make_dir(char *dirC)
 
     if (!direxist(temp) && mkdir(temp)==-1)
     {
-      fixPathDupFree(dirC, dir);
+      free(dir);
       return -1;
     }
 
     strcpy(temp,save);
   }
 
-  fixPathDupFree(dirC, dir);
+  free(dir);
   return (mkdir(temp));
 }
 

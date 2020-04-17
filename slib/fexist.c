@@ -77,7 +77,7 @@ int _fast fexist(char *filename)
     int 	i;
 
     i = stat(fndup, &sb);
-    fixPathDupFree(filename, fndup);
+    free(fndup);
 
     if (i)
       return FALSE;
@@ -114,7 +114,7 @@ long _fast fsize(char *filename)
     int 	i;
 
     i = stat(fndup, &sb);
-    fixPathDupFree(filename, fndup);
+    free(fndup);
 
     if (i)
       return -1;

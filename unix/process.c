@@ -37,7 +37,7 @@ int spawnvp(int mode, const char *Cfile, char *const argv[])
   {
     if ((mode == P_NOWAIT) || (mode == P_NOWAITO))
     {
-      fixPathDupFree(Cfile, file);
+      free(file);
       return 0;
     }
 
@@ -47,7 +47,7 @@ int spawnvp(int mode, const char *Cfile, char *const argv[])
       pid_t dead_kid;
 
       sleep(0);
-      fixPathDupFree(Cfile, file);
+      free(file);
 
       do
       {     

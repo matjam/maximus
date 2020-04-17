@@ -1231,8 +1231,9 @@ int _stdc main(int argc,char *argv[])
 /* following code is to alleviate lib dependancies for silly things */
 dword MAPIENTRY SquishHash(byte OS2FAR *f) { NW(f); return 0; }
 
-void NoMem()
+void __attribute__((noreturn)) NoMem()
 {
   fprintf(stderr, "Out of memory!");
+  exit(1);
 }
 

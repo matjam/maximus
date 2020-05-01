@@ -89,7 +89,6 @@ int _fast set_disk(int drive);
 int pascal far ddos_sleep(void);
 int pascal far desq_sleep(void);
 int pascal far pcmos_sleep(void);
-int _fast zeller(int m,int d,int y);
 void _fast colour_to_string(int col,char *s);
 int _fast make_dir(char *dir);
 FILE * _fast shfopen(char *name,char *fpmode,int fdmode);

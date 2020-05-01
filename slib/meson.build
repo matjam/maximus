@@ -25,7 +25,7 @@ max_sources = ['hmalloc.c', 'hmemmove.c',
 	'crit.c', 
 	'skiplist.c', 'acomp.c', 'arc_cmd.c', 
 	'arcmatch.c', 'bfile.c', 'bprintf.c', '_ctype.c', 
-	'setfsize.c', 'cstrupr.c', 'strnncpy.c', 'zeller.c', 
+	'setfsize.c', 'cstrupr.c', 'strnncpy.c',
 	'getmax.c', 'prmapi.c', 'strbuf.c', 
 	'unix_misc.c', 'vio.c', 'align.c',
 	'os2key.c', 'os2file.c']

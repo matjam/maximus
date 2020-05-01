@@ -169,12 +169,6 @@ extern "C" {
   int _fast unlock(int fh, long offset, long len);
 #endif
 
-#ifdef __MSC__
-  #undef toupper
-  extern unsigned char _MyUprTab[256];      /* see _ctype.c */
-  #define toupper(c)  ((int)_MyUprTab[(c)])
-#endif
- 
 #ifdef OS_2
   void _fast vbuf_flush(void);
   void SnSetPipeName(char *pipename);

@@ -59,12 +59,6 @@
   int _fast unlock(int fh, long offset, long len);
 #endif
 
-#ifdef __MSC__
-  #undef toupper
-  extern unsigned char _MyUprTab[256];      /* see _ctype.c */
-  #define toupper(c)  ((int)_MyUprTab[(c)])
-#endif
- 
 #ifdef __WATCOMC__  /* WC 9.0 mistakenly omits prototype for fdopen */
   #if __WATCOMC__==900
   FILE *fdopen(int __handle,const char *__mode);

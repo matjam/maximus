@@ -222,7 +222,6 @@ void Giveaway_Slice(void)
           LogClose();
 
           brkuntrap();
-          uninstall_24();
 
           _exit(ERROR_CRITICAL);
         }

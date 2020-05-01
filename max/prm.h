@@ -103,7 +103,7 @@ struct _netaddr
   #define FLAG2_ltimeout   0x0008 /* Local keyboard timeout                 4*/
   #define FLAG2_noshare    0x0010 /* SHARE not used -- don't lock files!    5*/
   #define FLAG2_CAPTURE    0x0020 /* Sysop chat capture automatically on    6*/
-  #define FLAG2_NOCRIT     0x0040 /* Don't use internal crit.err handler    7*/
+//  #define FLAG2_NOCRIT     0x0040 /* Don't use internal crit.err handler    7*/
   #define FLAG2_CHECKDUPE  0x0080 /* Check for duplicate uploads            8*/
   #define FLAG2_CHECKEXT   0x0100 /* Compare extension for duplicate uploads9*/
   #define FLAG2_GLOBALHB   0x0200 /* Global high bit allowed               10*/

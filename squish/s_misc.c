@@ -1101,8 +1101,6 @@ int CallExtern(char *origcmd, word archiver)
     _heapshrink();
   #endif
 
-  uninstall_24();
-
 #ifdef OS_2
     {
       /* Hide our file handles so that children do not inherit them - saves *
@@ -1163,8 +1161,6 @@ int CallExtern(char *origcmd, word archiver)
   else
 #endif
   arcret=spawnvp(P_WAIT, args[0], (char **)args);
-
-  install_24();
 
   if (archiver && (config.flag & FLAG_QUIETARC))
   {

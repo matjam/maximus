@@ -94,11 +94,6 @@ int _stdc main(int argc, char *argv[])
   if (!fexist(ar.cfgname) && (p=getenv("SQUISH")) != NULL)
     (void)strcpy(ar.cfgname, p);
 
-#if defined(__MSDOS__) && !defined(__FLAT__)
-  install_24();
-  (void)atexit(uninstall_24);
-#endif
-
   if (argc < 2)
     usage();
     

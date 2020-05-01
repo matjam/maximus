@@ -219,7 +219,6 @@ void cdecl logit(char *format,...)
     LogFlush();
     LogClose();
     brkuntrap();
-    uninstall_24();
     _exit(ERROR_CRITICAL);
   }
 

@@ -712,9 +712,6 @@ int _stdc main(int argc, char **argv)
   orig_disk=(char)getdisk();
   atexit(restore_dirs);
 
-  install_24();
-  atexit(uninstall_24);
-  
   if (argc < 2 ||
       (eqstri(argv[1], "-?") ||
        eqstri(argv[1], "/?") ||

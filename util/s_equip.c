@@ -159,8 +159,9 @@ int Parse_Equipment(FILE *ctlfile)
       {
         getword(line, p, ctl_delim, 2);
 
-        if (eqstr(p, "critical"))
-          prm.flags2 |= FLAG2_NOCRIT;
+        if (eqstr(p, "critical")) {
+	  printf("critical not supported anymore\n");
+	}
       }
       else if (eqstri(p,"app") || eqstri(p,"application"))
         ;

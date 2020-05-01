@@ -156,9 +156,6 @@ int _stdc main(int argc, char *argv[])
 
   Get_Dos_Date(&scNow);
 
-  install_24();
-  atexit(uninstall_24);
-
   if ((ppszAreas = malloc(argc * sizeof(char *)))==NULL)
     NoMem();
 

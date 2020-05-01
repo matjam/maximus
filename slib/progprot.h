@@ -131,8 +131,6 @@ void * _fast qsortl(void *list, void *(_stdc *getnext)(void *),
                     int (_stdc *compare)(void *, void *));
 int _fast GEdate(union stamp_combo *s1,union stamp_combo *s2);
 int _fast EQdate(union stamp_combo *s1,union stamp_combo *s2);
-void _fast install_24(void);
-void _stdc uninstall_24(void);
 sword _fast uniqrename(char *from, char *toorig, char *final, int (_fast *pfnMove)(char *fromfile, char *tofile));
 int _fast SetFileDate(char *name, union stamp_combo *sc);
 int _fast setfsize(int fd, long size);

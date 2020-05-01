@@ -761,9 +761,6 @@ RetProc:
 
   /* Reinstall the critical error handler */
 
-  if ((prm.flags2 & FLAG2_NOCRIT)==0)
-    install_24();
-
   /* Restart ^c handler */
 
 #if !(defined(OS_2) && defined(__FLAT__))
@@ -892,9 +889,6 @@ static void near Out_Disable_Ctrlc(void)
 #if !(defined(OS_2) && defined(__FLAT__))
   brkuntrap();
 #endif
-
-  if ((prm.flags2 & FLAG2_NOCRIT)==0)
-    uninstall_24();
 
   /* Put cursor back to real position, and flush output */
   vbuf_flush();

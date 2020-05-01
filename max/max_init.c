@@ -228,12 +228,6 @@ char * Startup(void)
 
   /* Install the critical error handler */
   
-  if ((prm.flags2 & FLAG2_NOCRIT)==0)
-  {
-    install_24();
-    maximus_atexit(uninstall_24);
-  }
-
   Initialize_Languages();
   Initialize_Colours();
 

@@ -786,9 +786,6 @@ int _stdc main(int argc, char *argv[])
   printf("\nSQPACK  Squish Database Pack Utility; Version " SQVERSION "\n"
      "Copyright 1991, " THIS_YEAR " by Lanius Corporation.  All rights reserved.\n\n");
 
-  install_24();
-  atexit(uninstall_24);
-
   #ifdef DMALLOC
   dmalloc_on(1);
   #endif

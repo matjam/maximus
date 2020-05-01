@@ -22,7 +22,6 @@
 
 #include <stdio.h>
 #include "prog.h"
-#include "fctype.h"
 
 char * _fast memstr(char *string,char *search,unsigned lenstring,unsigned strlen_search)
 {

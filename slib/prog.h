@@ -316,8 +316,6 @@ typedef long timer_t;
 #define eqstrin(str1,str2,n)  eqstrni(str1,str2,n)
 
 #define divby(num,div)        ((num % div)==0)
-#define f_tolwr(c)            (_to_lwr[c])
-#define f_toupr(c)            (_to_upr[c])
 
 #include "growhand.h"
 

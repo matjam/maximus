@@ -23,7 +23,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "prog.h"
-#include "fctype.h"
 
 #define MAX_SEARCH 16
 
@@ -47,11 +46,11 @@ int _fast stristrm(char *string,char *search[],int stopbit)
   {
     while (*string)
     {
-      lower_string=f_tolwr(*string);
+      lower_string=tolower(*string);
 
       for (x=0;x < max_keys;x++)
       {
-        if (lower_string==f_tolwr(search[x][last_found[x]])) last_found[x]++;
+        if (lower_string==tolower(search[x][last_found[x]])) last_found[x]++;
         else
         {
           if (last_found[x] != 0)

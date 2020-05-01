@@ -45,13 +45,6 @@
 #endif
 
 
-#if defined(__FARDATA__) || defined(__FLAT__)
-  #define fmemmove memmove
-#else
-  #define fmemmove f_memmove
-#endif
-
-
 /* Open the index file and read the index for this area */
 
 HIDX _SquishOpenIndex(HAREA ha)
@@ -324,7 +317,7 @@ static int near _SquishAppendIndexRecord(HIDX hix, SQIDX *psqi)
         return FALSE;
       }
 
-      (void) fmemmove(psqiNew,
+      (void) memmove(psqiNew,
                       pss->psqi,
                       (size_t)pss->dwUsed * (size_t)sizeof(SQIDX));
 
@@ -468,7 +461,7 @@ unsigned _SquishRemoveIndexEntry(HIDX hix, dword dwMsg, SQIDX *psqiOut,
 
         /* Shift the rest of the text over this segment */
 
-        (void)fmemmove(hix->pss[i].psqi+j, hix->pss[i].psqi+j+1,
+        (void)memmove(hix->pss[i].psqi+j, hix->pss[i].psqi+j+1,
                        (size_t)(hix->pss[i].dwUsed - (dword)j - (dword)1)
                           * (size_t)sizeof(SQIDX));
 

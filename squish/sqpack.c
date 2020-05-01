@@ -198,13 +198,8 @@ int pack_base(struct _sqbase *isqb, int infd, int outfd, struct _sqbase *osqb, S
         fflush(stdout);
       }
 
-#ifdef __FARDATA__
-      h_memmove(idx+n_msg, idx+n_msg+1L,
-                ((long)isqb->num_msg-(n_msg+1L))*(long)sizeof(SQIDX));
-#else
       memmove(idx+n_msg, idx+n_msg+1L,
               ((word)isqb->num_msg-(n_msg+1))*sizeof(SQIDX));
-#endif
       continue;
     }
 

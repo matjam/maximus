@@ -147,8 +147,6 @@ void _fast __attribute__((noreturn)) NoMem(void);
 unsigned _fast is_device(int fd);
 unsigned _fast is_devicename(char *filename);
 void _stdc Vidfcur(void);
-void _fast h_memmove(void huge *to, void huge *from, long size);
-void pascal far f_memmove(void huge *from, void huge *to, unsigned short size);
 
 void huge * _fast h_malloc(long size);
 void _fast h_free(void huge *p);

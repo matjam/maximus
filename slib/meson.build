@@ -1,5 +1,5 @@
 smserial_sources = ['smserial.c']
-max_sources = ['hmalloc.c', 'hmemmove.c',
+max_sources = ['hmalloc.c',
 	'hread.c',
 	'areaapi.c', 'userapi.c', 'md5.c',
 	'nopen.c', 'fd2n.c', 'isdevice.c',

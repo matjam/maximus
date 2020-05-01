@@ -602,7 +602,7 @@ dword huge *save_lastreads(char *sqd_name, dword *pnum_lastread)
 
   /* Allocate enough memory for all of the records */
 
-  if ((pi=h_malloc(size))==NULL)
+  if ((pi=malloc(size))==NULL)
   {
     bitch_memory("index");
     close(fd);
@@ -611,7 +611,7 @@ dword huge *save_lastreads(char *sqd_name, dword *pnum_lastread)
 
   if (h_read(fd, (char huge *)pi, size) != size)
   {
-    h_free(pi);
+    free(pi);
     close(fd);
     return NULL;
   }
@@ -623,7 +623,7 @@ dword huge *save_lastreads(char *sqd_name, dword *pnum_lastread)
 
   if ((fp=fopen(sql_name, "rb"))==NULL)
   {
-    h_free(pi);
+    free(pi);
     return NULL;
   }
 
@@ -641,7 +641,7 @@ dword huge *save_lastreads(char *sqd_name, dword *pnum_lastread)
 
   /* Allocate memory for array of new lastreads */
 
-  if ((plr=h_malloc(size))==NULL)
+  if ((plr=malloc(size))==NULL)
   {
     bitch_memory("lastread");
     return NULL;

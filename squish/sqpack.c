@@ -44,20 +44,6 @@
 #include "dmalloc.h"
 #endif
 
-#if defined(__FARDATA__) && !defined(__FLAT__)
-  #if defined(__WATCOMC__) && !defined(OS_2)
-    #define myfarmalloc(p)  halloc(p,1)
-    #define myfarfree(p)    hfree(p)
-  #else
-    #define myfarmalloc(p)  h_malloc(p)
-    #define myfarfree(p)    h_free(p)
-  #endif
-#else
-  #define myfarmalloc(p)    malloc(p)
-  #define myfarfree(p)      free(p)
-#endif
-
-
 static void near error(void)
 {
   printf("\a  Err!  Run SQINFO!");
@@ -375,7 +361,7 @@ static int near pack_file(int sqd, int ifd, int newfd)
 
   if (bytes)
   {
-    if ((idx=myfarmalloc(bytes))==NULL)
+    if ((idx=malloc(bytes))==NULL)
       NoMem();
 
     /* Now read it in */
@@ -387,7 +373,7 @@ static int near pack_file(int sqd, int ifd, int newfd)
 #endif
     {
       printf("\a  Err!  Can't read index!");
-      myfarfree(idx);
+      free(idx);
       return 1;
     }
   }
@@ -418,7 +404,7 @@ static int near pack_file(int sqd, int ifd, int newfd)
     /* Truncate the file at the end of the index */
 
     setfsize(ifd, (long)bytes);
-    myfarfree(idx);
+    free(idx);
   }
     
 

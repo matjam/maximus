@@ -148,11 +148,8 @@ unsigned _fast is_device(int fd);
 unsigned _fast is_devicename(char *filename);
 void _stdc Vidfcur(void);
 
-void huge * _fast h_malloc(long size);
-void _fast h_free(void huge *p);
 long _fast h_read(int fd, char huge *buf, long size);
 long _fast h_write(int fd, char huge *buf, long size);
-void huge * _fast h_realloc(void huge *p, long newsize);
 unsigned long cdecl thunk16to32(unsigned long addr16);
 unsigned long cdecl thunk32to16(unsigned long addr32);
 char *GetMaximus(int argc, char **argv, int iBadErrorlevel);

@@ -147,7 +147,7 @@ int _stdc main(int argc,char *argv[])
   fancy_fn(outname);
 #endif    
   
-  iqsort((char *)verbs, verb_table_size, sizeof(verbs[0]), trcmp);
+  qsort((char *)verbs, verb_table_size, sizeof(verbs[0]), trcmp);
   Init_Table();
 
   fixPathMove(inname);

@@ -257,9 +257,6 @@ void Giveaway_Slice(void)
   DosSleep(1L);
 #elif defined(NT)
   Sleep(1L);
-#elif defined(__MSDOS__)
-  if (sleeper)
-    (*sleeper)();
 #elif defined(UNIX)
 # ifdef _REENTRANT
   sched_yield();

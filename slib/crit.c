@@ -24,88 +24,12 @@
 #include "prog.h"
 
 
-#if defined(__MSDOS__)
-
-  #define INT_CRITERR 0x24
-
-
-  #ifdef __FLAT__
-    #include <conio.h>
-    #pragma aux newint24h parm [];
-
-    void __interrupt newint24h(dword rgs, dword rfs, dword res, dword rds,
-                               dword redi, dword resi, dword rebp, dword resp,
-                               dword rebx, dword redx, dword recx,
-                               dword volatile reax)
-    {
-      NW(redi); NW(redx); NW(recx); NW(rebx); NW(rebp); NW(resi);
-      NW(resp); NW(rds); NW(res); NW(rfs); NW(rgs);
-
-      if (reax & 0x8000)
-      {
-        cputs("Critical error ");
-
-        cputs((reax & 0x0100) ? "writing " : "reading ");
-        cputs("drive ");
-        putch('A'+(char)(reax & 0xff));
-        cputs(":\r\n");
-      }
-      else
-      {
-        cputs("Critical error accessing device\r\n");
-      }
-
-      reax=3; /* FAIL error code */
-      return;
-    }
-
-  #else
-    void _intr newint24h(void);
-  #endif
-
-  static byte installed=FALSE;
-  static void (_intr * old_24h)(void);
-
-
-  void _fast install_24(void)
-  {
-    if (installed)
-      return;
-
-    installed=TRUE;
-
-    old_24h=(_intcast)getvect(INT_CRITERR);
-    setvect(INT_CRITERR, (_veccast)newint24h);
-  }
-
-  void _stdc uninstall_24(void)
-  {
-    if (!installed)
-      return;
-
-    installed=FALSE;
-
-    setvect(INT_CRITERR, (_veccast)old_24h);
-  }
-
-#elif defined(OS_2)
   void _fast install_24(void)
   {
   }
   void _stdc uninstall_24(void)
   {
   }
-#elif defined(NT) || defined(UNIX)
-  void _fast install_24(void)
-  {
-  }
-  void _stdc uninstall_24(void)
-  {
-  }
-#else
-  #error unknown operating system
-#endif /* OS_2 */
-
 
 #ifdef TEST_HARNESS
 

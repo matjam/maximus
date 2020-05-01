@@ -465,10 +465,6 @@ extrn PCLH pclh;                        /* Class information               */
 
 extrn struct callinfo sci;              /* Caller information              */
 
-#ifndef OS_2
-extrn void (far pascal *sleeper)(void) IS(NULL); /* Give away timeslice f()*/
-#endif
-
 #ifdef DEBUG_OUT
 extrn char dout_log IS(FALSE);
 #endif

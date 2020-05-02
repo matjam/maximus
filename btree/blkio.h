@@ -29,7 +29,6 @@ class BLKIO
   int fd;                               // File handle used for I/O
   unsigned fOpen;                       // Has the file been opened?
   unsigned uiBlkSize;                   // Block size for this file
-  unsigned fShareLoaded;                // Is SHARE.EXE loaded?
 
   int position(NNUM nn);
 

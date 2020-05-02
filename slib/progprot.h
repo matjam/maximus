@@ -154,13 +154,6 @@ unsigned long cdecl thunk16to32(unsigned long addr16);
 unsigned long cdecl thunk32to16(unsigned long addr32);
 char *GetMaximus(int argc, char **argv, int iBadErrorlevel);
 
-#ifdef __MSDOS__
-  sword far pascal shareloaded(void);
-#else
-  #define shareloaded() TRUE
-#endif
-
-
 /*lint --flb */
 
 cpp_end()

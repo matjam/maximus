@@ -221,7 +221,6 @@ cpp_begin()
 
     word req_version;                       /* Should always be MSGAPI_VERSION */
     word def_zone;
-    word haveshare;           /* no need to set - filled in by msgapi routines */
 
     /* Version 1 information */
 

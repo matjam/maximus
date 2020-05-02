@@ -579,7 +579,6 @@ static void near Init(struct _sbcfg *psc, int argc, char **argv)
 
   mi.req_version=0;
   mi.def_zone=1;
-  mi.haveshare=0;
 
   MsgOpenApi(&mi);
 

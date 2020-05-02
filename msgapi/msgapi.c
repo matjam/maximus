@@ -42,11 +42,7 @@ static byte *area_colon="AREA:";
   word _stdc msgapierr=0;       /* Global error value for MsgAPI routines */
 #endif
 
-#if defined(__MSDOS__)
-struct _minf _stdc mi={0,1,0};  /* DOS defaults - v0, zone 1, no share */
-#else
-struct _minf _stdc mi={0,1,1};  /* OS/2 defaults - v0, zone 1, with share */
-#endif
+struct _minf _stdc mi={0,1};  /* OS/2 defaults - v0, zone 1 */
 
 unsigned _SquishCloseOpenAreas(void);
 
@@ -122,7 +118,6 @@ sword MAPIENTRY MsgOpenApi(struct _minf OS2FAR *minf)
 {
   (void)memset(&mi, '\0', sizeof mi);
   mi=*minf;
-  mi.haveshare=minf->haveshare=shareloaded();
 
   /* If the caller wants to set the malloc/free hooks, do so here */
 

@@ -47,7 +47,7 @@ static unsigned near _SquishLockBase(HAREA ha)
    * process may be attempting to do the same thing, so we retry a couple   *
    * of times just in case.                                                 */
 
-  while (iMaxTry && mi.haveshare)
+  while (iMaxTry)
   {
     if (lock(Sqd->sfd, 0L, 1L)==0)
       break;
@@ -83,8 +83,7 @@ static unsigned near _SquishUnlockBase(HAREA ha)
 
   /* Unlock the first byte of the file */
 
-  if (mi.haveshare)
-    (void)unlock(Sqd->sfd, 0L, 1L);
+  (void)unlock(Sqd->sfd, 0L, 1L);
 
   return TRUE;
 }

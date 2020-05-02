@@ -27,17 +27,10 @@
 #include <share.h>
 #include "blkio.h"
 
-#ifdef __MSDOS__
-  extern "C" { sword far pascal shareloaded(void); };
-#else
-  #define shareloaded() TRUE
-#endif
-
 // Constructor for the block I/O class
 
 CPPEXPORT BLKIO::BLKIO()
 {
-  fShareLoaded=shareloaded();
   fOpen=FALSE;
 }
 
@@ -172,10 +165,7 @@ int CPPEXPORT BLKIO::lock(NNUM nn)
   
   return (fcntl(fd, F_SETLK, &lck) < 0) ? FALSE : TRUE;
 #else
-  if (fShareLoaded)
-    return ::lock(fd, nn * (long)uiBlkSize, 1)==0;
-  else
-    return TRUE;
+  return ::lock(fd, nn * (long)uiBlkSize, 1)==0;
 #endif
 }
 
@@ -194,10 +184,7 @@ int CPPEXPORT BLKIO::unlock(NNUM nn)
   
   return (fcntl(fd, F_SETLK, &lck) < 0) ? FALSE : TRUE;
 #else
-  if (fShareLoaded)
-    return ::unlock(fd, nn * (long)uiBlkSize, 1)==0;
-  else
-    return TRUE;
+  return ::unlock(fd, nn * (long)uiBlkSize, 1)==0;
 #endif
 }
 

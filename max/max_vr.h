@@ -25,8 +25,6 @@
 
   #ifdef MAX_INCL_VER /* if we need to include version info */
 
-    #include "bldupd.h"
-
     #ifdef MAX_DEFINE_VERSION
       #define ver_extern
       #define VER_IS(x) = x

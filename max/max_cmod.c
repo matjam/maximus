@@ -533,12 +533,6 @@ static int near Open_Chatlog(void)
   else chatlog=sfopen(temp, "w+", O_RDWR | O_CREAT | O_TRUNC | O_NOINHERIT,
                       SH_DENYWR);
 
-  if (temp==NULL)
-  {
-    cant_open(temp);
-    return FALSE;
-  }
-
   fseek(chatlog, 0L, SEEK_END);
 
   Get_Dos_Date(&stamp);

@@ -19,7 +19,7 @@
 
 
 #ifndef __API_SDM_H_DEFINED
-#define __API_SFM_H_DEFINED
+#define __API_SDM_H_DEFINED
 
 
 #define MAX_SDM_CLEN  512   /* Maximum number of bytes which can be used    *

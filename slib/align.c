@@ -8,6 +8,7 @@
  *        of certain types.
  */
 
+#include <malloc.h>
 #include <stdlib.h>
 #include "compiler.h"
 

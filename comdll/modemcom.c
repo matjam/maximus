@@ -18,6 +18,7 @@
 #include "telnet.h"
 #include "comstruct.h"
 #include "comprots.h"
+#include "protod.h"
 
 static char filename[128];
 static char lockname[128];

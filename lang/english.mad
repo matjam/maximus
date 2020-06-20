@@ -1853,7 +1853,7 @@ trk_added_owner_as=     "Added owner '%s' as '%s'\n";
 trk_msg_already_in_db=  "Error!  Message is already in tracking database!\n";
 trk_msg_not_in_db=      "Error!  Message is not in tracking database!\n";
 trk_added_to_db=        "Added to database";
-trk_msg_info=           "%sStatus: %s, Priority: %s, Owner: %s%s";
+trk_msg_info=           "%cStatus: %s, Priority: %s, Owner: %s%c";
 
 ; Include any user heaps here
 

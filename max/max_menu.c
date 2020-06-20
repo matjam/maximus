@@ -156,11 +156,11 @@ static void near ShowMenuCommand(PAMENU pam, struct _opt *popt,
     default: /* novice */
       nontty = usr.video != GRAPH_TTY;
 
-      Printf("%s%c%s%s%-*.*s%c",
+      Printf("%s%c%s%c%-*.*s%c",
              menu_high_col,
              *optname,
              menu_opt_col,
-             ")" + nontty,
+	     ')'+nontty,
              pam->m.opt_width + nontty - 3,
              pam->m.opt_width + nontty - 3,
              optname+1,
@@ -168,7 +168,7 @@ static void near ShowMenuCommand(PAMENU pam, struct _opt *popt,
       break;
 
     case REGULAR:
-      Printf("%s%c", " " + !!first_opt, *optname);
+      Printf("%c%c", ' ' + !!first_opt, *optname);
 
     case EXPERT:
       break;

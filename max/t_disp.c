@@ -40,9 +40,9 @@ static void near TrackDisplayStatus(TRK_MSG_NDX *ptmn, int update_status)
     strcpy(szOwner, ptmn->to);
 
   Printf(trk_msg_info,
-         " "+!(usr.bits & BITS_FSR),
+         ' ' + !(usr.bits & BITS_FSR),
          TrkGetStatus(t, ptmn), TrkGetPriority(t, ptmn), szOwner,
-         " "+!(usr.bits & BITS_FSR));
+         ' ' + !(usr.bits & BITS_FSR));
 
   /* If the message was originally a new message, change its status         *
    * to "open" since we have now seen it.                                   */

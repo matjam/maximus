@@ -32,7 +32,7 @@ typedef struct _file_entry
 {
   char *szName;         /* Filename and path */
   char *szDesc;         /* File description; used for xtr protocol ULs */
-  dword ulSize;         /* Estimated size of file */
+  unsigned long ulSize; /* Estimated size of file */
   word fFlags;          /* File flags.  See FFLAG_xxx in max.h */
 } FENTRY;
 

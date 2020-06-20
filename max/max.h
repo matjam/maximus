@@ -23,6 +23,8 @@
 #ifndef __MAX_H_DEFINED
 #define __MAX_H_DEFINED
 
+#include <stdint.h>
+
 /***************************************************************************
  *    Conditional flags for the entire program, and portability stuff      *
  ***************************************************************************/
@@ -941,24 +943,24 @@ struct _css
 struct _restart
 {
   struct {
-  byte rst_ver; /* Version number of restart data                 *STABLE* */
+  uint8_t rst_ver; /* Version number of restart data                 *STABLE* */
 
-  sdword timeon;  /* Date user got on system, seconds since 1970  *STABLE* */
-  sdword timeoff; /* Date user must be OFF system, secs since '70 *STABLE* */
-  sdword restart_offset; /* Offset in .BBS file to restart at     *STABLE* */
+  int32_t timeon;    /* Date user got on system, seconds since 1970  *STABLE* */
+  int32_t timeoff;   /* Date user must be OFF system, secs since '70 *STABLE* */
+  int32_t restart_offset;   /* Offset in .BBS file to restart at     *STABLE* */
 
-  dword baud;             /* User's baud rate                   *STABLE*   */
-  dword max_time;         /* Max time, as given by '-t' param   *STABLE*   */
+  uint32_t baud;             /* User's baud rate                   *STABLE*   */
+  uint32_t max_time;         /* Max time, as given by '-t' param   *STABLE*   */
 
-  sword port;             /* Current COM port, 0=COM1, 1=COM2,  *STABLE*   */
+  int16_t port;              /* Current COM port, 0=COM1, 1=COM2,  *STABLE*   */
 
-  char written_echomail;  /* 0=user HASN'T written echomail     *STABLE*   */
-  char written_matrix;    /* 0=user HASN'T entered matrix msg   *STABLE*   */
-  char local;             /* 0=NOT local                        *STABLE*   */
+  uint8_t written_echomail;  /* 0=user HASN'T written echomail     *STABLE*   */
+  uint8_t written_matrix;    /* 0=user HASN'T entered matrix msg   *STABLE*   */
+  int8_t local;              /* 0=NOT local                        *STABLE*   */
 
-  union _stampu laston;   /* Time the user was last on system   *STABLE*   */
+  union _stampu laston;      /* Time the user was last on system   *STABLE*   */
   
-  word steady_baud;       /* Locked baud rate of user           *STABLE*   */
+  uint16_t steady_baud;      /* Locked baud rate of user           *STABLE*   */
   } __attribute__((packed, aligned(2)));
 
   sdword starttime;       /* Start time, for external protocol             */

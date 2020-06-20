@@ -281,7 +281,7 @@ int Msg_Area(void)
   }
   while (!ok);
 
-  logit(log_msga, usr.msg ? usr.msg : "(null)");
+  logit(log_msga, usr.msg);
   DisposeMah(&ma);
 
   return 0;

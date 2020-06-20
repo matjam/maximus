@@ -47,11 +47,6 @@ word Write_LastUser(void)
 
   user=usr;
 
-
-  /* Compatibility with Max 1.02 */
-
-  Adjust_User_Record(&user);
-
   /* Compatibility with Max 2.xx */
 
   user.max2priv=max2priv(user.priv);

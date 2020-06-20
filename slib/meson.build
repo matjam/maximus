@@ -19,7 +19,7 @@ max_sources = [
 	'cvtdate.c', 'trail.c', 'parsenn.c', 'qslist.c',
 	'lcopy.c', 'fnsplit.c', 'uniqren.c', 'mktemp.c',
 	'soundex.c', 'address.c', 'mktime.c', 'cencode.c',
-	'adj_user.c', 'win_pick.c', 'arc_def.c', 'coreleft.c',
+	'win_pick.c', 'arc_def.c', 'coreleft.c',
 	'smalloc.c', 'strocpy.c',
 	'cshopen.c', 'crc32.c', 'crc16.c', 'strrstr.c',
 	'skiplist.c', 'acomp.c', 'arc_cmd.c',

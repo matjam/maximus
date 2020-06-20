@@ -52,8 +52,6 @@ char user_dat[]="user.dat";
 char users_bbs[]="users.bbs";
 char rec_num[]="Record %04d\r";
 
-void _fast Adjust_User_Record(struct _usr *user);
-
 int _stdc c_main(int argc,char *argv[])
 {
   int x;
@@ -688,9 +686,6 @@ void Convert_Max102(void)
       printf(rec_num, num);
       fflush(stdout);
     }
-
-    /* Max 1.0x compatibility */
-    Adjust_User_Record(&usr);
 
     if (!UserFileCreateRecord(huf, &usr, TRUE))
       printf("Error writing user record for %s\n", usr.name);

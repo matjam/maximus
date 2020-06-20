@@ -669,7 +669,6 @@ static void near Write_User(void)
   user=usr;
 
   user.max2priv=max2priv(user.priv);
-  Adjust_User_Record(&user);
   
   if (!UserFileUpdate(huf, origusr.name, origusr.alias, &user))
     logit(cantwrite, PRM(user_file));

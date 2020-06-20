@@ -357,7 +357,6 @@ word QuoteThisLine(char *txt);
 word ShowBody(HMSG msgh, word (*handle)(byte *txt,void *info,word lt), void *info, word norm_margin, word quote_margin, word flag);
 word halt(void);
 void far cdecl GetKey(char far *info);
-void _fast Adjust_User_Record(struct _usr *user);
 word MatchWC(char *pat,char *fn);
 word File_Okay(char *filename);
 sword ShowFileEntry(word *type, char *nstop, word isoffline, SCOMBO *pscFile, SCOMBO *pscUl, byte *filename, long size, int ck_abort, byte *desc, byte *descwork, PFAH pfah);

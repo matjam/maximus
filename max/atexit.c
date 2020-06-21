@@ -56,7 +56,7 @@ void maximus_exit(int status)
 {
   AtExitStruct *pae, *paeNext;
 #ifdef UNIX
-  const char *afterMax;
+  char *afterMax;
 #endif
 
   for (pae = paeExitList; pae; pae = paeNext)
@@ -70,7 +70,7 @@ void maximus_exit(int status)
   if ((afterMax = getenv("AFTER_MAX")))
   {
     char 		buf[32];
-    char 		*argv[] = { afterMax, "AFTER_MAX", buf, NULL };
+    char *const		argv[] = { afterMax, "AFTER_MAX", buf, NULL };
     extern char 	**environ;
 
     snprintf(buf, sizeof(buf), "ERRORLEVEL=%i", status);

@@ -79,8 +79,8 @@ int xxspawnvp(int mode, const char *Cfile, char *const argv[])
 
       return -1;
     }
+    return 0;
   }
-
   else /* child */
   {
 
@@ -92,7 +92,7 @@ int xxspawnvp(int mode, const char *Cfile, char *const argv[])
 	signal(SIGCHLD, SIG_IGN);
 	(void)setpgid(pid, pid); 
 	if (fork())
-        _exit(0);
+          _exit(0);
     }
 
     if(!hcModem)
@@ -119,11 +119,3 @@ int xxspawnvp(int mode, const char *Cfile, char *const argv[])
     _exit(1);
   }
 }
-
-
-
-
-
-
-
-

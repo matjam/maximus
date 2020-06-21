@@ -10,6 +10,7 @@
 #include <prog.h>
 #include "ntcomm.h"
 #include "process.h"
+#include "protod.h"
 #include "io.h"
 
 #define unixfd(hc)      FileHandle_fromCommHandle(ComGetHandle(hc))

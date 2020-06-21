@@ -29,7 +29,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int spawnlp(char* cmd, ...)
+int spawnlp(int wait, char* cmd, ...)
 {
     va_list var_args;
     char * tmp;

@@ -919,7 +919,7 @@
  extern NEWAREA newareaDef;             // Default new area info
  extern struct _minf minf;              // Global msg info
 
- int spawnlp(char* cmd, ...);
+ int spawnlp(int, char* cmd, ...);
 
 /*
  * End of SQAFIX.H

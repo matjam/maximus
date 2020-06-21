@@ -105,7 +105,7 @@ int File_Get_Download_Names(int do_tag,sword protocol)
 {
   FFIND *ff;
   
-  byte *fpath=NULL;
+  char *fpath=NULL;
 
   byte *namebuf, *newfn=NULL, *no_path=NULL;
   byte *p;

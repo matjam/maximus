@@ -885,6 +885,7 @@ unsigned XmTx(char *filename, word protocol, unsigned long ulFiles, unsigned lon
       (bf=Bopen(filename, BO_RDONLY | BO_BINARY, BSH_DENYNO, 8192))==NULL)
   {
     logit(cantfind, filename);
+    free(buf);
     return FALSE;
   }
 
@@ -894,6 +895,7 @@ unsigned XmTx(char *filename, word protocol, unsigned long ulFiles, unsigned lon
   {
     logit(udev, filename);
     Bclose(bf);
+    free(buf);
     return FALSE;
   }
 

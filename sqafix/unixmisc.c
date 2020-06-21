@@ -46,7 +46,9 @@ int spawnlp(int wait, char* cmd, ...)
 	strcat(syscmd, " ");	
 	strcat(syscmd, tmp);
     }
-    return system(syscmd);
+    int ret = system(syscmd);
+    free(syscmd);
+    return ret;
 }
 
 

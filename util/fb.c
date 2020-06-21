@@ -226,12 +226,14 @@ int _stdc main(int argc, char *argv[])
   if ((haf=AreaFileOpen(adat_name, FALSE))==NULL)
   {
     cant_open(adat_name);
+    free(ppszAreas);
     return EXIT_FAILURE;
   }
 
   if ((haff=AreaFileFindOpen(haf, NULL, AFFO_DIV))==NULL)
   {
     cant_open(adat_name);
+    free(ppszAreas);
     return EXIT_FAILURE;
   }
 

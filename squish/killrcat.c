@@ -277,6 +277,7 @@ word FEATENTRY _export FeatureConfig(struct _feat_config far *pfc)
     VioPuts("Invalid configuration line: `");
     VioPuts(pfc->szConfigLine);
     VioPuts("\r\n");
+    free(ps);
     return 0;
   }
 

@@ -139,14 +139,10 @@ int Process_Files_Entry(DSTK *d, char *orig_entry)
     
   if (filename==NULL || line==NULL || string==NULL || filespec==NULL)
   {
-    if (string)
-      free(string);
-    
-    if (line)
-      free(line);
-    
-    if (filename)
-      free(filename);
+    free(string);
+    free(line);
+    free(filename);
+    free(filespec);
     
     return DRET_NOMEM;
   }

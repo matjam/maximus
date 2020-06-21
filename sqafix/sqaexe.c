@@ -897,7 +897,7 @@ fprintf(STDAUX, "------------: my AKA %s for %s (%s)\r\n", FormatNetAddr(&pnode-
 
      // Attempt to create directory and switch to it
 
-     fDone = mkdir(pch);
+     mkdir(pch);
      fDone = chdir(pch);
 
      // Restore the zeroed backslash and advance to the next directory
@@ -2273,22 +2273,22 @@ fprintf(STDAUX, "DoSetNewAreaLevel: %s level=%u, minLinkLevel=%u\r\n", parea->ac
 
      switch (type) {
        case NT_FREQ_CREATED:
-            cch = sprintf(ach, "Forwarded request%s at %s",
+            sprintf(ach, "Forwarded request%s at %s",
                           cArea > 1 ? "s" : "", FormatNetAddr(&netAddr));
             break;
        case NT_FREQ_EXPWARN:
-            cch = sprintf(ach, "Forwarded request%s to be expired at %s%s%s",
+            sprintf(ach, "Forwarded request%s to be expired at %s%s%s",
                           cArea > 1 ? "s" : "", FormatNetAddr(&netAddr),
                           timeNote ? " on " : "",
                           timeNote ? FormatSecs(timeNote) : (PSZ) "");
             break;
        case NT_FREQ_EXPNOTE:
-            cch = sprintf(ach, "Forwarded request%s %s been expired at %s",
+            sprintf(ach, "Forwarded request%s %s been expired at %s",
                           cArea > 1 ? "s" : "", cArea > 1 ? "have" : "has",
                           FormatNetAddr(&netAddr));
             break;
        default:
-            cch = sprintf(ach, "Forwarded request%s fucked at %s",
+            sprintf(ach, "Forwarded request%s fucked at %s",
                           cArea > 1 ? "s" : "", FormatNetAddr(&netAddr));
             break;
      }
@@ -2325,22 +2325,22 @@ fprintf(STDAUX, "DoSetNewAreaLevel: %s level=%u, minLinkLevel=%u\r\n", parea->ac
 
      switch (type) {
        case NT_FREQ_CREATED:
-            cch = sprintf(ach, "Forwarded request%s at %s",
+            sprintf(ach, "Forwarded request%s at %s",
                           cArea > 1 ? "s" : "", FormatNetAddr(&netAddr));
             break;
        case NT_FREQ_EXPWARN:
-            cch = sprintf(ach, "Forwarded request%s to be expired at %s%s%s",
+            sprintf(ach, "Forwarded request%s to be expired at %s%s%s",
                           cArea > 1 ? "s" : "", FormatNetAddr(&netAddr),
                           timeNote ? " on " : "",
                           timeNote ? FormatSecs(timeNote) : (PSZ) "");
             break;
        case NT_FREQ_EXPNOTE:
-            cch = sprintf(ach, "Forwarded request%s %s been expired at %s",
+            sprintf(ach, "Forwarded request%s %s been expired at %s",
                           cArea > 1 ? "s" : "", cArea > 1 ? "have" : "has",
                           FormatNetAddr(&netAddr));
             break;
        default:
-            cch = sprintf(ach, "Forwarded request%s fucked at %s",
+            sprintf(ach, "Forwarded request%s fucked at %s",
                           cArea > 1 ? "s" : "", FormatNetAddr(&netAddr));
             break;
      }
@@ -2482,18 +2482,18 @@ fprintf(STDAUX, "DoSetNewAreaLevel: %s level=%u, minLinkLevel=%u\r\n", parea->ac
 
      switch (type) {
        case NT_IDLE_EXPWARN:
-            cch = sprintf(ach, "Idle passthru area%s to be deleted at %s%s%s",
+            sprintf(ach, "Idle passthru area%s to be deleted at %s%s%s",
                           cArea > 1 ? "s" : "", FormatNetAddr(&netAddr),
                           timeNote ? " on " : "",
                           timeNote ? FormatSecs(timeNote) : (PSZ) "");
             break;
        case NT_IDLE_EXPNOTE:
-            cch = sprintf(ach, "Idle passthru area%s %s been deleted at %s",
+            sprintf(ach, "Idle passthru area%s %s been deleted at %s",
                           cArea > 1 ? "s" : "", cArea > 1 ? "have" : "has",
                           FormatNetAddr(&netAddr));
             break;
        default:
-            cch = sprintf(ach, "Idle passthru area%s fucked at %s",
+            sprintf(ach, "Idle passthru area%s fucked at %s",
                           cArea > 1 ? "s" : "", FormatNetAddr(&netAddr));
             break;
      }
@@ -2530,18 +2530,18 @@ fprintf(STDAUX, "DoSetNewAreaLevel: %s level=%u, minLinkLevel=%u\r\n", parea->ac
 
      switch (type) {
        case NT_IDLE_EXPWARN:
-            cch = sprintf(ach, "Idle passthru area%s to be deleted at %s%s%s",
+            sprintf(ach, "Idle passthru area%s to be deleted at %s%s%s",
                           cArea > 1 ? "s" : "", FormatNetAddr(&netAddr),
                           timeNote ? " on " : "",
                           timeNote ? FormatSecs(timeNote) : (PSZ) "");
             break;
        case NT_IDLE_EXPNOTE:
-            cch = sprintf(ach, "Idle passthru area%s %s been deleted at %s",
+            sprintf(ach, "Idle passthru area%s %s been deleted at %s",
                           cArea > 1 ? "s" : "", cArea > 1 ? "have" : "has",
                           FormatNetAddr(&netAddr));
             break;
        default:
-            cch = sprintf(ach, "Idle passthru area%s fucked at %s",
+            sprintf(ach, "Idle passthru area%s fucked at %s",
                           cArea > 1 ? "s" : "", FormatNetAddr(&netAddr));
             break;
      }

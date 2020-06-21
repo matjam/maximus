@@ -420,6 +420,7 @@ static void near BounceMessage(struct _feat_netmsg far *pfn)
   if ((hmsg=MsgOpenMsg(pfn->ha, MOPEN_CREATE, 0))==NULL)
   {
     printf("MsgTrack:  Couldn't create bounce message.\n");
+    free(bounce);
     return;
   }
 

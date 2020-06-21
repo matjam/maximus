@@ -71,7 +71,6 @@ int Msg_Change(void)
     if ((ctrl_buf=malloc(ctrl_len))==NULL)
     {
       logit(mem_none);
-      ctrl_len=0;
     }
     else
     {

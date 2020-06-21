@@ -357,8 +357,6 @@ static void near Forward_Body(struct _fwdp *f,HMSG th,char *buf)
       mputs(th, buf, got);
     else
     {
-      p=buf;
-      
       for (p=buf;
            (p=stristr(p, "---")) != NULL && p < buf+FWDBUFSIZE-FWD_OVERLAP;
            p=found+1)

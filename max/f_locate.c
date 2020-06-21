@@ -503,9 +503,6 @@ void File_Locate(void)
   if ((haff=AreaFileFindOpen(haf, NULL, 0))==NULL)
     return;
 
-  colour=0;
-  ret=0;
-
   biSave.priv=usr.priv;
   biSave.keys=usr.xkeys;
   strcpy(savearea, usr.files);

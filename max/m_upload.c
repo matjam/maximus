@@ -73,7 +73,7 @@ void Msg_Upload(void)
     return;
   }
 
-  aborted=isareply=isachange=FALSE;
+  isareply=isachange=FALSE;
 
   Blank_Msg(&msg);
   *netnode='\0';

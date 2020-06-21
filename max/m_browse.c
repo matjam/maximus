@@ -56,7 +56,6 @@ int Msg_Browse(word newb, SEARCH *newfirst, char *menuname)
  
   in_mcheck=TRUE;
   b.bflag=newb;
-  ret=0;
   idling=0;
   last_title=FALSE;
   display_line=display_col=1;

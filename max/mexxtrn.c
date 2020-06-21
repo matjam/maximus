@@ -99,8 +99,6 @@
 
     /* Convert our argument into one acceptable to Outside() */
 
-    out_method=0;
-
     if (method & IOUTSIDE_RUN)
       out_method=OUTSIDE_RUN;
     else

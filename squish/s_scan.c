@@ -1488,9 +1488,7 @@ static void near Fix_SeenBys(struct _sblist *sb, unsigned num_sb, char *mbuf, un
   endtear=NULL;
   tearpos=GetTearPos(mbuf, &endtear);
   
-  if (GetNextToken(mbuf, tearpos, seen_by_str)==NULL)
-    tearpos=mbuf;
-  
+  GetNextToken(mbuf, tearpos, seen_by_str);
 
   /* Find the beginning of the seenbys */
 

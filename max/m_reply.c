@@ -198,9 +198,7 @@ int Msg_ReplyArea(char *areaname)
 
   if (ctlen)
   {
-    if ((ctrl=malloc((int)ctlen+1))==NULL)
-      ctlen=0;
-    else
+    if ((ctrl=malloc((int)ctlen+1))!=NULL)
     {
       MsgReadMsg(omsgh, NULL, 0L, 0L, NULL, ctlen, ctrl);
       ctrl[(size_t)ctlen]='\0';

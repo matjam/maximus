@@ -80,8 +80,6 @@ void BackSpace(void)
 
         if (strlen(screen[offset+cursor_x]+1) >= usrwidth)
         {
-          cx=cursor_x;
-
           Goto(cx=cursor_x,cursor_y=usrwidth);
 
           Word_Wrap(MODE_UPDATE);
@@ -147,7 +145,6 @@ void Delete_Char(void)
       {
 /*        *screen[offset+cursor_x]=SOFT_CR;*/
             
-        cx=cursor_x;
         cy=cursor_y;
 
         Goto(cx=cursor_x, cursor_y=usrwidth);

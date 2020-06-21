@@ -77,8 +77,6 @@ int GetMsgAttr(XMSG *msg, PMAH pmah, char *mname, long mn, long highmsg)
   if (SendWarnings(pmah)==-1)
     return -1;
   
-  ret=0;
-
   /* We can accept high bits in the message header */
 
   in_msghibit++;

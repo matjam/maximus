@@ -205,9 +205,6 @@ static int near Quote_Read(void)
           Printf(norm_format, usrlen+1+lines_displayed++, msg_quote_col,
                  blank_str);
 
-        /* Break out of loop */
-
-        temp=QUOTELINES;
         break;
       }
     }

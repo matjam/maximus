@@ -127,7 +127,7 @@ char * firstchar(char *strng,char *delim,int findword)
   if (! *strng)
     return NULL;
 
-  string=oldstring=strng;
+  oldstring=strng;
 
   sl_d=strlen(delim);
 

@@ -341,7 +341,6 @@ static int near Decompress_REP(char *rep_name)
 
 static int near Toss_QWK_Packet(char *name)
 {
-  struct _qmhdr *qh;
   XMSG msg;
 
   char *block;
@@ -371,8 +370,6 @@ static int near Toss_QWK_Packet(char *name)
     return -1;
   }
   
-  qh=(struct _qmhdr *)block;
-
   /* Now try to snatch the header for the .REP file itself */
     
   if (QWK_Get_Rep_Header(qfd, block) != -1)
@@ -383,6 +380,7 @@ static int near Toss_QWK_Packet(char *name)
 
     for (msgn=1; read(qfd, (char *)block, QWK_RECSIZE)==QWK_RECSIZE; msgn++)
     {
+      struct _qmhdr *qh;
       QWK_To_Xmsg(qh=(struct _qmhdr *)block, &msg, msgn);
 
       if (!Toss_QWK_Message(qh, &msg, qfd, block))

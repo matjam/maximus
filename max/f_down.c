@@ -1255,7 +1255,7 @@ word File_Send_Files_Sub(sword protocol, char *mname, char *newuppath, long real
         }
         else
         {
-          result=XmTx(NULL, protocol, 0, 0, NULL);
+          XmTx(NULL, protocol, 0, 0, NULL);
         }
 
         Delay(protocol==PROTOCOL_ZMODEM ? 150 : 50);

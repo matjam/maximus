@@ -774,7 +774,7 @@ void P_Access(struct _inf *inf, char type)
 {
   char *p;
 
-  if ((p=strtok(NULL,TOKENDELIM+1))!=NULL)
+  if ((p=strtok(NULL,&TOKENDELIM[1]))!=NULL)
     fprintf(*inf->outfile,"\x10%c%s ", type, p);
 }
 

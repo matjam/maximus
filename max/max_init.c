@@ -878,9 +878,6 @@ void Local_Beep(int n)
     #ifdef OS_2
       DosBeep(300, 250);
       DosSleep(100);
-    #elif UNIX
-      beep();
-      sleep(1);
     #else
       fputc('\a', stdout);
     

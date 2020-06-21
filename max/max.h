@@ -161,6 +161,7 @@
 #define InputGetsWNH InputGets
 #define InputGetseNH InputGetse
 #define InputGetsNH  InputGetsL
+int mdm_nowonline();
 #define mdm_getsp(d,m)      Inputf(d,INPUT_MSGENTER | INPUT_NLB_LINE,0,m,NULL)
 #define mdm_getspnc(d,m)    Inputf(d,INPUT_MSGENTER | INPUT_NLB_LINE  | INPUT_NOCLEOL,0,m,NULL)
 #define KeyGetRNP(p)        Input_Charf(CINPUT_DISPLAY | CINPUT_PROMPT | CINPUT_NOXLT | CINPUT_DUMP, p)
@@ -1391,5 +1392,6 @@ struct _pktprefix
 
 #endif
 
+int xxspawnvp(int mode, const char *Cfile, char *const argv[]);
 #endif  /* __MAX_H_DEFINED */
 

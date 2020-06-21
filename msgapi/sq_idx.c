@@ -20,6 +20,7 @@
 #define MSGAPI_HANDLERS
 #define MSGAPI_NO_OLD_TYPES
 
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 #include <io.h>
@@ -36,7 +37,7 @@
 
 #ifdef __FLAT__
   #define MORE_SPACE       256      /* Allow for up to 256 additions */
-  #define SEGMENT_SIZE    (LONG_MAX/(long)sizeof(SQIDX))
+  #define SEGMENT_SIZE    (UINT32_MAX/sizeof(SQIDX))
   #define SHIFT_SIZE      32768
 #else
   #define MORE_SPACE        16      /* Allow for up to 16 additions */

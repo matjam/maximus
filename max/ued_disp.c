@@ -194,7 +194,7 @@ void DisplayUser(void)
   Printf(ued_scity,        user.city);
   if (MKD()) goto Dump;
 #ifdef CANENCRYPT
-  Printf(ued_spwd,         Show_Pwd((user.bits & BITS_ENCRYPT) ? brackets_encrypted : user.pwd, pwd, (char)(disp_pwd ? 0 : '.')));
+  Printf(ued_spwd,         Show_Pwd((user.bits & BITS_ENCRYPT) ? brackets_encrypted : (char*)user.pwd, pwd, (char)(disp_pwd ? 0 : '.')));
 #else
   Printf(ued_spwd,         Show_Pwd(user.pwd, pwd, (char)(disp_pwd ? 0 : '.')));
 #endif

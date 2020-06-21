@@ -94,11 +94,11 @@ typedef struct _usrndx
 
 struct   _usr
    {
-      byte name[36];        /* Caller's name                               0*/
-      byte city[36];        /* Caller's location                          36*/
+      char name[36];        /* Caller's name                               0*/
+      char city[36];        /* Caller's location                          36*/
 
-      byte alias[21];       /* MAX: user's alias (handle)                 72*/
-      byte phone[15];       /* MAX: user's phone number                   93*/
+      char alias[21];       /* MAX: user's alias (handle)                 72*/
+      char phone[15];       /* MAX: user's phone number                   93*/
 
       word lastread_ptr;    /* MAX: a num which points to offset in      108*/
                             /* file -- Offset of lastread pointer will be   */

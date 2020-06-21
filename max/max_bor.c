@@ -133,7 +133,7 @@ static void near Bored_GetLine(int max)
 
   Clear_KBuffer();
 
-  Printf(LGREEN "   Ú\x19Ä%c¿\n",usrwidth-7);
+  Printf(LGREEN "   \xda\x19\xc4%c\xbf\n",usrwidth-7);
 
   while (max==0 || linecount < max)
   {

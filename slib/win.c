@@ -44,11 +44,19 @@ void (_fast *WinHideFunc)(void)=NULL;
 void (_fast *WinShowFunc)(void)=NULL;
 VWIN *wscrn=NULL;
 
+/* should be:
+   hbar, vbar,
+   upper left corner, upper middle, upper right corner
+   middle left, middle, middle right
+   lower left corner, lower middle, lower right corner
+
+   only hbar, vbar and the 4 corner are in use.
+*/
 static char *boxc[]={"           ",
-                     "Ä³ÚÂ¿ÃÅ´ÀÁÙ",
-                     "ÍºÉË»ÌÎ¹ÈÊ¼",
-                     "ÄºÖÒ·Ç×¶ÓÐ½",
-                     "Í³ÕÑ¸ÆØµÔÏ¾"};
+                     "-|+++++++++",
+                     "-|+++++++++", // should be double line, = etc
+                     "-|+++++++++", // should be double line vertically, single line horizontally
+                     "-|+++++++++"};// should be double line horizontally, single line vertically
 
 static void near _WinUpdateShadows(VWIN *head);
 static int near _fast WinUpdateOK(VWIN *current,int Row,int Col);

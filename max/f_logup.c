@@ -147,7 +147,7 @@ void Get_File_Description(char *filename, long fsize, char *dsc)
   /* Display a maximum-length bar */
 
   if (! (dsc && *dsc) && (local || carrier()))
-    Puts(LGREEN "\n  Ú\x19Ä\x2d¿\n");
+    Puts(LGREEN "\n  \xda\x19\xc4\x2d\xbf\n");
 
   *nw='\0';
 

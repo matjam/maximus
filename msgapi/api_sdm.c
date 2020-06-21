@@ -44,7 +44,7 @@
 #define MsghMhd ((struct _sdmdata *)(((HMSG)msgh)->ha->apidata))
 
 
-static byte *hwm_from="-=|ÿSquishMailÿ|=-";
+static byte *hwm_from="-=|\xffSquishMail\xff|=-";
 
 
 //extern void far pascal DosSleep(dword);

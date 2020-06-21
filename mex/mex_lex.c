@@ -704,14 +704,14 @@ static void near process_elseifdef(char *line)
 static int near process_preprocessor(byte inblock)
 {
   char *ppbuf, *s, *tok;
+  int val;
 
   ppbuf=smalloc(PPLEN);
 
   /* Read till the end of line */
 
   for (s=ppbuf;
-         s < ppbuf+PPLEN-1 && (*s=(char)peek_character()) != EOF &&
-         *s != '\n';
+         s < ppbuf+PPLEN-1 && (val = peek_character()) != EOF && ((*s = (char)val) != '\n');
        s++)
   {
     pull_character();
@@ -823,6 +823,7 @@ static int near process_id(int c, int *prc)
   MACDEF md;
   struct _id *i;
   char *p, *e;
+  int val;
 
   /* Probably a reserved word or identifier */
 
@@ -841,7 +842,7 @@ static int near process_id(int c, int *prc)
    * end of file, or a non-identifier character.                    */
 
   for (*p++=(char)c;
-       (*p=(char)peek_character()) != EOF && isidchar(*p) && p < e;
+       (val = peek_character()) != EOF && isidchar(*p = (char)val) && p < e;
        p++)
     pull_character();
 

@@ -108,8 +108,6 @@ char * _fast Strip_Trailing(char *str,char strip);
 char * _fast Add_Trailing(char *str,char add);
 void _fast Parse_NetNode(char *netnode,word *zone,word *net,word *node,word *point);
 void _fast ParseNN(char *netnode,word *zone,word *net,word *node,word *point,word all);
-void _fast c_encode(char *str,char *iarray,int len,int key);
-void _fast c_decode(char *iarray,char *str,int key);
 char * _fast sc_time(union stamp_combo *sc,char *string);
 int _stdc AreaNameComp(byte *a1,byte *a2);
 void * _fast smalloc(unsigned int size);

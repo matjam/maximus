@@ -42,6 +42,10 @@
 #include "prog.h"
 #include "wincomm.h"
 
+/* from modemcom.c */
+void ModemRaiseDTR (int fd, int baud, int cts);
+void ModemLowerDTR (int fd);
+
 /** UNIX approximation for information referenced in Windows by
  *  an hfComm/COMMHANDLE. In Windows, this is basically like a
  *  file descriptor (HFILE) with the extra settings being magically

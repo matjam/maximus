@@ -425,10 +425,6 @@ statement_list  :       /* epsilon */
                 |       statement_list statement
                 ;
 
-opt_statement   :       /* epsilon */
-                |       statement
-                ;
-
 statement       :       block
                                 { }
                 |       useful_expr T_SEMICOLON

@@ -503,7 +503,7 @@ int CPPEXPORT TRACKER::GetOwner(TRK_OWNER to, char *szOwner)
 
 int CPPEXPORT TRACKER::SetDefaultOwner(char *szArea, TRK_OWNER to)
 {
-  TRK_AREA_NDX tan={0};
+  TRK_AREA_NDX tan={{0}};
 
   if (!fOpen)
     return FALSE;

@@ -250,6 +250,7 @@ static long near btree(char *filename, void *desired, int (near *compare)(void *
 
       if (k == 0)
       {
+        long ret = nodeidx->ndx.INodeBlk.IndxRef[j].IndxData;
 
         /* Key matches in the index node. Since we're just doing lookup, we *
          * can assume its pointer is valid. If we were doing updates, that  *
@@ -262,7 +263,7 @@ static long near btree(char *filename, void *desired, int (near *compare)(void *
         free(nodeidx);
         close(stream);
 
-        return (nodeidx->ndx.INodeBlk.IndxRef[j].IndxData);
+        return ret;
       }
     }
 

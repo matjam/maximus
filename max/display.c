@@ -53,6 +53,7 @@ int _stdc Display_File(word type, char *nonstop, char *fname,...)
 {
   DSTK *d, *dtsave;
   va_list var_args;
+  int ret;
 
   /* Save pointer to top of display stack */
 
@@ -74,14 +75,15 @@ int _stdc Display_File(word type, char *nonstop, char *fname,...)
 
   while (*d->filename && DisplayOneFile(d)==0)
     ;
-  
+
+  ret = d->ret;
   DisplayCleanup(d);
 
   /* Restore pointer to top of display stack */
 
   dtop=dtsave;
 
-  return d->ret;
+  return ret;
 }
 
 

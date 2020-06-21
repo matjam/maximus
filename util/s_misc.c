@@ -355,7 +355,7 @@ void Unknown_Ctl(int linenum,char *p)
 }
 
 
-int Compiling(char type,char *string,char *name)
+int Compiling(int type,char *string,char *name)
 {
   static char last_string[80],
               last_name[80];

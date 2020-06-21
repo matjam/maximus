@@ -34,7 +34,7 @@ int Deduce_Priv(char *p);
 int Deduce_Attribute(char *a);
 int Deduce_Class(int priv);
 void Unknown_Ctl(int linenum,char *p);
-int Compiling(char type,char *string,char *name);
+int Compiling(int type,char *string,char *name);
 void Blank_Sys(struct _sys *sys,int mode);
 int Add_Backslash(char *s);
 int Remove_Backslash(char *s);

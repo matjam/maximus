@@ -310,7 +310,7 @@ if (ComIsAModem(hcModem))
     {
       int c;
 
-      extern char local;
+      extern int local;
 
       /* This code is only required for OS/2.  Since the OS/2 keyboard cannot   *
        * (easily) send a signal for control-c when running in binary mode,      *

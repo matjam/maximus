@@ -27,7 +27,7 @@
 #include "dr.h"
 #include "alc.h"
 
-int _fast Save_Dir(char *orig_disk,char *orig_path[],char *path)
+int _fast Save_Dir(int *orig_disk,char *orig_path[],char *path)
 {
   char temp[PATHLEN];
   int dn;
@@ -81,7 +81,7 @@ int _fast Save_Dir(char *orig_disk,char *orig_path[],char *path)
 
 
 
-void _fast Restore_Dir(char *orig_disk,char *orig_path[])
+void _fast Restore_Dir(int *orig_disk,char *orig_path[])
 {
   int x;
 

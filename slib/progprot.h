@@ -23,8 +23,8 @@ cpp_begin()
 
 void pascal far flush_handle2(int fd);
 void _fast flush_handle(FILE *fp);
-int _fast Save_Dir(char *orig_disk,char *orig_path[],char *path);
-void _fast Restore_Dir(char *orig_disk,char *orig_path[]);
+int _fast Save_Dir(int *orig_disk,char *orig_path[],char *path);
+void _fast Restore_Dir(int *orig_disk,char *orig_path[]);
 char * _fast Area_Name(int area);
 int _fast Set_Area_Name(char *aname);
 /* char * _fast Priv_Level(int priv); */

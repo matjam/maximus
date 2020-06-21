@@ -311,8 +311,8 @@ extrn char main_menu[MAX_MENUNAME] IS("MAIN"); /* unless overriden in max.prm */
 extrn char files_bbs[13] IS ("files.bbs");
 extrn char sfiles[13] IS ("files");
 extrn char last_onexit[LEN(PATHLEN)] IS("");
-extrn char orig_disk2;                  /* Disk drive we started from, alt1*/
-extrn char orig_disk3;                  /* Disk drive we started from, alt2*/
+extrn int orig_disk2;                   /* Disk drive we started from, alt1*/
+extrn int orig_disk3;                   /* Disk drive we started from, alt2*/
 extrn char original_path[PATHLEN];      /* The DRIVE/PATH we started from  */
 #ifdef UNIX
 extrn char prmname[LEN(80)] IS("etc/max.prm");/* Name of current .PRM file     */

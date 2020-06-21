@@ -46,7 +46,7 @@
 #include "prmapi.h"
 
 char *orig_path[MAX_DRIVES];
-char orig_disk;
+int orig_disk;
 
 extrn int _stdc brk_trapped;
 static long total = 0L;

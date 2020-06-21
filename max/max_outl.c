@@ -101,14 +101,14 @@ void Lputc(int ch)
 {
 
   static char str2[25];
-  static char state=-1;
+  static signed char state=-1;
   static char newattr;
 
   static word s2, s3;
 
   static byte uch;
   static byte save_cx;
-  static char rip_state=-1; /* -1=Not RIP 0=At bol 1=Got '!' 2=Got'|' 3=Got'\' at eol */
+  static signed char rip_state=-1; /* -1=Not RIP 0=At bol 1=Got '!' 2=Got'|' 3=Got'\' at eol */
 
   static word x, y, z, a;
 

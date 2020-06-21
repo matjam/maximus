@@ -181,8 +181,8 @@ void Mdm_putc(int ch)
   static char str2[25];
   static char str3[25];
   static int args[6];
-  static char state=-1;
-  static char rip_state=-1;
+  static signed char state=-1;
+  static signed char rip_state=-1;
             
   static word s2, s3;
 

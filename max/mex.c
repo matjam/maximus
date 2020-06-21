@@ -613,8 +613,9 @@ void MexImportUser(struct mex_usr *pusr, struct _usr * user)
   user->sex=pusr->sex;
   MexStampToStamp(&pusr->ludate, &user->ludate);
 
-  strcpy(xkeys, "/");
-  GetStringUser(xkeys+1, xkeys);
+  GetStringUser(xkeys, xkeys);
+  memmove(xkeys, xkeys + 1, sizeof(xkeys) - 1);
+  xkeys[0] = '/';
   user->xkeys=SZKeysToMask(xkeys);
 
   user->lang=pusr->lang;

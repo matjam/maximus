@@ -15,7 +15,7 @@ max_sources = [
 	'sfopen.c', 'shfopen.c', 'gwordq.c',
 	'ffname.c', 'sbs.c', 'isleap.c', 'tdelay.c',
 	'dmalloc.c', 'noise.c', 'tune.c', 'date2bin.c',
-	'dosdate.c', 'flush.c', 'canon.c', 'win.c',
+	'dosdate.c', 'flush.c', 'win.c',
 	'cvtdate.c', 'trail.c', 'parsenn.c', 'qslist.c',
 	'lcopy.c', 'fnsplit.c', 'uniqren.c', 'mktemp.c',
 	'soundex.c', 'address.c', 'mktime.c',

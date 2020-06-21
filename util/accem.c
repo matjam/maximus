@@ -39,7 +39,7 @@
 void Process_Colour_Code(FILE *bbsfile,FILE *mecfile);
 int sstsearch(char *key,struct _table base[],unsigned int num);
 void Get_Number_String(FILE *bbsfile,char *string,int max_len);
-int _stdc trcmp(void *, void *);
+int _stdc trcmp(const void *, const void *);
 
 long offsets[MAX_OFFSETS],
      fpos;
@@ -385,7 +385,7 @@ void Process_Colour_Code(FILE *bbsfile,FILE *mecfile)
 
 
 
-int _stdc trcmp(void *v1, void *v2)
+int _stdc trcmp(const void *v1, const void *v2)
 {
   return (strcmp(((struct _table *)v1)->translation,
                  ((struct _table *)v2)->translation));

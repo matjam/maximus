@@ -101,9 +101,9 @@ int IsIntegral(TYPEDESC *t)
     case FormWord:
     case FormDword:
       return TRUE;
+    default:
+      return FALSE;
   }
-  
-  return FALSE;
 }
 
 word PassByRef(TYPEDESC *t)

@@ -560,6 +560,10 @@ DATAOBJ * EvalUnary(DATAOBJ *o, word operator)
         res->form.val.kind.dwordval=(dword)-(sdword)o->form.val.kind.dwordval;
         res->type = &DwordType;    /* ensure that result is signed */
         break;
+
+      case StringKind:
+        bug("Shouldn't happen: ObjformValue, but StringKind");
+        break;
     }
     
     return res;

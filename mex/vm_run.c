@@ -528,6 +528,9 @@ static int near proc_instruction(INST *inst)
         if (inst->flag & FLAG_ARG1_LIT)
           arg.a1=inst->arg1.litstr;
         else arg.a1=*(IADDR *)fetch(FormString, &inst->arg1.addr);
+
+      default:
+        vm_err("Unsupported opcode format %x encountered in line %d", opform, __LINE__);
     }
 
 
@@ -580,6 +583,9 @@ static int near proc_instruction(INST *inst)
           if (inst->flag & FLAG_ARG2_LIT)
             arg.a2=inst->arg2.litstr;
           else arg.a2=*(IADDR *)fetch(FormString, &inst->arg2.addr);
+
+      default:
+        vm_err("Unsupported opcode format %x encountered in line %d", opform, __LINE__);
       }
     }
   }

@@ -1298,7 +1298,7 @@ static int near AttachedFileExists(char *pszFile)
     else
       p=pszFile;
 
-    strcat(path, pszFile);
+    strcat(path, p);
 
     /* If the file exists, return TRUE */
 

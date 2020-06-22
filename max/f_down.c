@@ -511,7 +511,7 @@ static int near IndexSearch(char *name, int do_tag, sword protocol)
     p++;
   else p=name;
 
-  if ((ix=IndexOpen(name))==NULL)
+  if ((ix=IndexOpen(p))==NULL)
     return -1;
   
   do

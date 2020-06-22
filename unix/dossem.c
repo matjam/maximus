@@ -323,7 +323,6 @@ int DosCreateMutexSem(const char *SemName, PHMTX hmtx_p, int AttributeFlags, int
   }
   else
   {
-    AttributeFlags |= DC_SEM_SHARED;
     snprintf(SemPathBuf, sizeof(SemPathBuf), UNIX_SEMDIR "/%s", SemName);
     fixPath(SemPathBuf);
     SemPath = SemPathBuf;

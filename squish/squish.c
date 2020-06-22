@@ -340,7 +340,7 @@ static void near CleanupConfig(void)
 
 
 
-void usage(void)
+void __attribute__((noreturn)) usage(void)
 {
   char temp[50];
 

@@ -114,7 +114,7 @@ void StatsWriteBlock(word type, word len, word actual_len, void *data);
 void StatsWriteAreas(void);
 void StatsOpen(void);
 void StatsClose(void);
-void usage(void);
+void __attribute__((noreturn)) usage(void);
 unsigned FlavourToMsgAttr(byte flavour);
 void OS2FAR * EXPENTRY sq_palloc(size_t size);
 void EXPENTRY sq_pfree(void OS2FAR *ptr);

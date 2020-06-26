@@ -679,7 +679,7 @@ static sword near Read_LzhArc(int type,int lzhfile)
       compressed_size=archead.compressed_size;
       uncompressed_size=archead.uncompressed_size;
       
-      fname=archead.name;
+      fname=strdup(archead.name);
       crc=archead.crc;
     }
     else if (type==ARCHIVE_ARJ)
@@ -820,6 +820,8 @@ static sword near Read_LzhArc(int type,int lzhfile)
 
       free(lhtemp);
       free(fname);
+      lhtemp=NULL;
+      fname=NULL;
     }
     else if (type==ARCHIVE_ARC)
       lseek(lzhfile, archead.compressed_size, SEEK_CUR);
@@ -834,12 +836,18 @@ static sword near Read_LzhArc(int type,int lzhfile)
         lseek(lzhfile, arj->comp_size, SEEK_CUR);
 
       free(lhtemp);
+      lhtemp=NULL;
     }
     
     first=FALSE;
 
     num_files++;
   }
+
+  free(lhtemp);
+  free(fname);
+  lhtemp=NULL;
+  fname=NULL;
 
   Puts(arc_t1);
 

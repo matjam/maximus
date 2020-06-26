@@ -120,6 +120,7 @@ static void near get_random_tune(char *file, char *tune)
       if (*line=='*')
         num_tune++;
 
+  free(line);
   fclose(fp);
 
   /* Select a tune by its number */

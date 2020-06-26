@@ -488,7 +488,7 @@ static void near ParseArgs(int argc, char *argv[], struct _sbcfg *psc)
         if ((psc->names_to_scan[psc->num_names]=malloc(strlen(name)+2))==NULL)
           NoMem();
 
-        *psc->names_to_scan[psc->num_names]='#';
+        psc->names_to_scan[psc->num_names][0]='#';
         strcpy(psc->names_to_scan[psc->num_names++]+1, name);
       }
 

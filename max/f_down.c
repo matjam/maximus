@@ -212,7 +212,7 @@ int File_Get_Download_Names(int do_tag,sword protocol)
          p && !fBreakLoop;
          p=strtok(NULL, dl_delim))
     {
-      char *cpnp;
+      char cpnp[NAMEBUFLEN];
 
       if (*p=='/')
       {
@@ -254,7 +254,7 @@ int File_Get_Download_Names(int do_tag,sword protocol)
 
       /* So far, this entry has NOT been expanded */
 
-      cpnp=strdup(no_path);
+      strcpy(cpnp, no_path);
 
       expd=EXP_NONE;
       flag=0;
@@ -358,21 +358,9 @@ int File_Get_Download_Names(int do_tag,sword protocol)
         /* Now check the global index to see if it's there, starting with   *
          * the basic filename again.                                        */
 
-        if (cpnp==NULL)
-        {
-          /* If we couldn't allocate it, start again from the beginning */
+        /* Else just make a copy of the stripped path */
 
-          strcpy(no_path, p);
-          Strip_Path(no_path);
-        }
-        else
-        {
-          /* Else just make a copy of the stripped path */
-
-          strcpy(no_path, cpnp);
-          free(cpnp);
-          cpnp=NULL;
-        }
+        strcpy(no_path, cpnp);
 
         IndexSearch(no_path, do_tag, protocol);
 

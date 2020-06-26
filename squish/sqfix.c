@@ -724,6 +724,7 @@ static void near fix_base(char *name)
 
   MsgCloseArea(new);
   free(bufr);
+  free(pLastRead);
 
   close(old_sqd);
   

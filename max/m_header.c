@@ -184,6 +184,7 @@ static int near IsHeaderOkay(XMSG *msg, PMAH pmah)
         Press_ENTER();
       }
     }
+    free(temp);
   }
   
   if (pmah->ma.attribs & MA_NET)

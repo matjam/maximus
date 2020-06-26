@@ -148,10 +148,10 @@ int _SquishBeginBuffer(HIDX hix)
 
     /* Try to allocate memory for this segment */
 
-    if ((hix->pss[i].psqi=farpalloc((size_t)dwSize * (size_t)sizeof(SQIDX)))==NULL)
+    if ((hix->pss[i].psqi=malloc((size_t)dwSize * (size_t)sizeof(SQIDX)))==NULL)
     {
       while (i--)
-        farpfree(hix->pss[i].psqi);
+        free(hix->pss[i].psqi);
 
       pfree(hix->pss);
 
@@ -171,7 +171,7 @@ int _SquishBeginBuffer(HIDX hix)
     if (farread(HixSqd->ifd, (char far *)hix->pss[i].psqi, uiSize) != (int)uiSize)
     {
       do
-        farpfree(hix->pss[i].psqi);
+        free(hix->pss[i].psqi);
       while (i--);
 
       pfree(hix->pss);
@@ -312,7 +312,7 @@ static int near _SquishAppendIndexRecord(HIDX hix, SQIDX *psqi)
       /* Don't use realloc because we cannot afford to lose the info that we  *
        * already have!                                                        */
 
-      if ((psqiNew=farpalloc(((size_t)pss->dwMax + MORE_SPACE) * sizeof(SQIDX)))==NULL)
+      if ((psqiNew=malloc(((size_t)pss->dwMax + MORE_SPACE) * sizeof(SQIDX)))==NULL)
       {
         msgapierr=MERR_NOMEM;
         return FALSE;
@@ -327,7 +327,7 @@ static int near _SquishAppendIndexRecord(HIDX hix, SQIDX *psqi)
       pss->dwUsed++;
       pss->dwMax += MORE_SPACE;
 
-      farpfree(pss->psqi);
+      free(pss->psqi);
       pss->psqi=psqiNew;
       return TRUE;
     }
@@ -349,7 +349,7 @@ static int near _SquishAppendIndexRecord(HIDX hix, SQIDX *psqi)
 
   /* Allocate memory for the new segment */
 
-  if ((hix->pss[hix->cSeg].psqi=farpalloc(MORE_SPACE * sizeof(SQIDX)))==NULL)
+  if ((hix->pss[hix->cSeg].psqi=malloc(MORE_SPACE * sizeof(SQIDX)))==NULL)
   {
     msgapierr=MERR_NOMEM;
     return FALSE;
@@ -642,7 +642,7 @@ int _SquishEndBuffer(HIDX hix)
   /* Free the memory used by these segments */
 
   for (i=0; i < hix->cSeg; i++)
-    farpfree(hix->pss[i].psqi);
+    free(hix->pss[i].psqi);
 
   pfree(hix->pss);
   hix->cSeg=0;

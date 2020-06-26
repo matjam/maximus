@@ -179,14 +179,6 @@ static void near InitializeConfig(void)
   minf.req_version=MSGAPI_VERSION;
   minf.def_zone=config.addr->zone;
 
-  minf.palloc=sq_palloc;
-  minf.pfree=sq_pfree;
-  minf.repalloc=sq_repalloc;
-
-  minf.farpalloc=sq_farpalloc;
-  minf.farpfree=sq_farpfree;
-  minf.farrepalloc=sq_farrepalloc;
-
   if (MsgOpenApi(&minf) != 0)
   {
     (void)printf("Error initializing MsgAPI.  Aborting...\n");

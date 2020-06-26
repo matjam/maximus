@@ -555,15 +555,6 @@ char * Startup(void)
   mi.req_version=MSGAPI_VERSION;
   mi.def_zone=prm.address[0].zone;
 
-  mi.palloc=max_palloc;
-  mi.pfree=max_pfree;
-  mi.repalloc=max_repalloc;
-
-  mi.farpalloc=max_farpalloc;
-  mi.farpfree=max_farpfree;
-  mi.farrepalloc=max_farrepalloc;
-
-  
   if (MsgOpenApi(&mi)==-1)
   {
     logit(log_err_msgapi);

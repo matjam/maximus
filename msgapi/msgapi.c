@@ -85,62 +85,10 @@ unsigned _SquishCloseOpenAreas(void);
   #endif
 #endif
 
-/* Default allocation thunks */
-
-static void OS2FAR * MAPIENTRY _palloc(size_t size)
-{ return ((void OS2FAR *)malloc(size)); }
-
-static void MAPIENTRY _pfree(void OS2FAR *ptr)
-{ free(ptr); }
-
-static void OS2FAR * MAPIENTRY _repalloc(void OS2FAR *ptr, size_t size)
-{ return ((void OS2FAR *)realloc(ptr, size)); }
-
-static void far * MAPIENTRY _farpalloc(size_t size)
-{ return ((void far *)alloc(size)); }
-
-static void MAPIENTRY _farpfree(void far *ptr)
-{ free(ptr); }
-
-static void far * MAPIENTRY _farrepalloc(void far *ptr, size_t size)
-{ return ((void far *)realloc(ptr, size)); }
-
-
-void OS2FAR * (MAPIENTRY *palloc)(size_t size) = _palloc;
-void (MAPIENTRY *pfree)(void OS2FAR *ptr) = _pfree;
-void OS2FAR * (MAPIENTRY *repalloc)(void OS2FAR *ptr, size_t size) = _repalloc;
-
-void far * (MAPIENTRY *farpalloc)(size_t size) = _farpalloc;
-void (MAPIENTRY *farpfree)(void far *ptr) = _farpfree;
-void far * (MAPIENTRY *farrepalloc)(void far *ptr, size_t size) = _farrepalloc;
-
 sword MAPIENTRY MsgOpenApi(struct _minf OS2FAR *minf)
 {
   (void)memset(&mi, '\0', sizeof mi);
   mi=*minf;
-
-  /* If the caller wants to set the malloc/free hooks, do so here */
-
-  if (mi.req_version >= 1)
-  {
-    if (mi.palloc)
-      palloc=mi.palloc;
-
-    if (mi.pfree)
-      pfree=mi.pfree;
-
-    if (mi.repalloc)
-      repalloc=mi.repalloc;
-
-    if (mi.farpalloc)
-      farpalloc=mi.farpalloc;
-
-    if (mi.farpfree)
-      farpfree=mi.farpfree;
-
-    if (mi.farrepalloc)
-      farrepalloc=mi.farrepalloc;
-  }
 
   return 0;
 }
@@ -289,14 +237,14 @@ static word near _CopyToBuf(byte *p, byte *out, byte **end, unsigned remaining)
 
 void MAPIENTRY MsgFreeCtrlBuf(char *cbuf)
 {
-  pfree(cbuf);
+  free(cbuf);
 }
 
 /* Used to free returned ptr from MsgGetCtrlToken */
 
 void MAPIENTRY MsgFreeCtrlToken(char *cbuf)
 {
-  pfree(cbuf);
+  free(cbuf);
 }
 
 
@@ -316,7 +264,7 @@ byte OS2FAR * MAPIENTRY CopyToControlBuf(byte OS2FAR *txt, byte OS2FAR * OS2FAR 
   
   #define SAFE_CLEN 20
 
-  if ((cbuf=palloc(clen+SAFE_CLEN))==NULL)
+  if ((cbuf=malloc(clen+SAFE_CLEN))==NULL)
     return NULL;
 
   (void)memset(cbuf, '\0', clen+SAFE_CLEN);
@@ -344,7 +292,7 @@ byte OS2FAR * MAPIENTRY GetCtrlToken(byte OS2FAR *where, byte OS2FAR *what)
     if (!end)
       end=found+strlen(found);
 
-    if ((out=palloc((size_t)(end-found)+1))==NULL)
+    if ((out=malloc((size_t)(end-found)+1))==NULL)
       return NULL;
 
     (void)memmove(out, found, (size_t)(end-found));
@@ -382,7 +330,7 @@ void MAPIENTRY ConvertControlInfo(byte OS2FAR *ctrl, NETADDR OS2FAR *orig, NETAD
 
     Parse_NetNode(s, &norig.zone, &norig.net, &norig.node, &norig.point);
 
-    pfree(p);
+    free(p);
 
     /* Only use this as the "real" zonegate address if the net/node         *
      * addresses in the INTL line match those in the message                *
@@ -407,7 +355,7 @@ void MAPIENTRY ConvertControlInfo(byte OS2FAR *ctrl, NETADDR OS2FAR *orig, NETAD
   if ((s=GetCtrlToken(ctrl,fmpt)) != NULL)
   {
     orig->point=(word)atoi(s+5);
-    pfree(s);
+    free(s);
 
     RemoveFromCtrl(ctrl,fmpt);
   }
@@ -418,7 +366,7 @@ void MAPIENTRY ConvertControlInfo(byte OS2FAR *ctrl, NETADDR OS2FAR *orig, NETAD
   if ((s=GetCtrlToken(ctrl,topt)) != NULL)
   {
     dest->point=(word)atoi(s+5);
-    pfree(s);
+    free(s);
 
     RemoveFromCtrl(ctrl,topt);
   }
@@ -434,7 +382,7 @@ byte OS2FAR * MAPIENTRY CvtCtrlToKludge(byte OS2FAR *ctrl)
   
   clen=strlen(ctrl) + NumKludges(ctrl) + 20;
   
-  if ((buf=palloc(clen))==NULL)
+  if ((buf=malloc(clen))==NULL)
     return NULL;
   
   to=buf;
@@ -469,7 +417,7 @@ void MAPIENTRY RemoveFromCtrl(byte OS2FAR *ctrl, byte OS2FAR *what)
   byte *search;
   byte *p, *s;
   
-  if ((search=palloc(strlen(what)+2))==NULL)
+  if ((search=malloc(strlen(what)+2))==NULL)
     return;
   
   (void)strcpy(search, "\x01");
@@ -485,7 +433,7 @@ void MAPIENTRY RemoveFromCtrl(byte OS2FAR *ctrl, byte OS2FAR *what)
     (void)strocpy(p, s);
   }
   
-  pfree(search);
+  free(search);
 }
 
 

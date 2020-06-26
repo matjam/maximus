@@ -222,15 +222,6 @@ cpp_begin()
     word req_version;                       /* Should always be MSGAPI_VERSION */
     word def_zone;
 
-    /* Version 1 information */
-
-    void OS2FAR * (MAPIENTRY *palloc)(size_t size);
-    void (MAPIENTRY *pfree)(void OS2FAR *ptr);
-    void OS2FAR * (MAPIENTRY *repalloc)(void OS2FAR *ptr, size_t size);
-
-    void far * (MAPIENTRY *farpalloc)(size_t size);
-    void (MAPIENTRY *farpfree)(void far *ptr);
-    void far * (MAPIENTRY *farrepalloc)(void far *ptr, size_t size);
   };
 cpp_end()
 

@@ -311,8 +311,10 @@ static sword near Zip_Read_Directory(int zipfile,long zip_pos,int offset)
       /* Read in the filename */
       
       if (read(zipfile, filename, dir_head.info.filename_length) !=
-            (signed)dir_head.info.filename_length)
+            (signed)dir_head.info.filename_length) {
+	free(file_comment);
         return -1;
+      }
       
       filename[dir_head.info.filename_length]='\0';
 
@@ -455,9 +457,7 @@ static sword near Zip_Read_Directory(int zipfile,long zip_pos,int offset)
        * file comment.                                                      */
 
       free(filename);
-
-      if (dir_head.info.file_comment_length)
-        free(file_comment);
+      free(file_comment);
     }
     else if (memcmp(temp,END_STRSIG,4)==0)
     {

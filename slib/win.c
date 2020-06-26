@@ -916,7 +916,7 @@ VWIN * _fast WinOpen(int row,int col,int height,int width,int border,int attr,in
     return NULL;
   }
   
-  if ((win->buf=farmalloc((height+1)*(width+2)*sizeof(int)))==NULL)
+  if ((win->buf=malloc((height+1)*(width+2)*sizeof(int)))==NULL)
   {
     free(win->orig_rt);
     free(win);
@@ -935,7 +935,7 @@ VWIN * _fast WinOpen(int row,int col,int height,int width,int border,int attr,in
         free(win->dright);
     }
     
-    farfree(win->buf);
+    free(win->buf);
     free(win->orig_rt);
     free(win);
     return NULL;
@@ -1056,7 +1056,7 @@ void _fast WinClose(VWIN * win)
     free(win->orig_blitz);
     free(win->orig_dl);
     free(win->orig_dr);
-    farfree(win->buf);
+    free(win->buf);
 
     free(win->orig_rt);
 

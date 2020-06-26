@@ -915,11 +915,6 @@ static void near Out_Video_Down(void)
   
       Draw_StatusLine(STATUS_REMOVE);
   
-      #ifdef __MSDOS__
-      if (multitasker==MULTITASKER_desqview)
-        End_Shadow();
-      #endif
-      
       if (!no_video && !in_wfc)
         WinSyncAll();
     #endif
@@ -937,11 +932,6 @@ static void near Out_Video_Up(void)
     #ifdef SHUTVIDEO
       StartUpVideo(); /* start-up from scratch */
     #else
-
-      #ifdef __MSDOS__
-      if (multitasker==MULTITASKER_desqview)
-        Start_Shadow();
-      #endif
 
       if (!no_video)
       {

@@ -233,7 +233,7 @@ static void near WriteDupeList(void)
 
   dfile=-1;
 
-  farfree(dupebuf);
+  free(dupebuf);
   dupebuf=NULL;
   config.has_dlist=NULL;
   have_last_dupe=FALSE;
@@ -255,7 +255,7 @@ static int near ReadDupeList(struct _cfgarea *ar)
   {
     /* Allocate enough memory for max size of dupe list */
 
-    if ((dupebuf=farcalloc(size, 1))==NULL)
+    if ((dupebuf=calloc(size, 1))==NULL)
       return FALSE;
   }
 

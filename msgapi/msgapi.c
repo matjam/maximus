@@ -97,13 +97,13 @@ static void OS2FAR * MAPIENTRY _repalloc(void OS2FAR *ptr, size_t size)
 { return ((void OS2FAR *)realloc(ptr, size)); }
 
 static void far * MAPIENTRY _farpalloc(size_t size)
-{ return ((void far *)farmalloc(size)); }
+{ return ((void far *)alloc(size)); }
 
 static void MAPIENTRY _farpfree(void far *ptr)
-{ farfree(ptr); }
+{ free(ptr); }
 
 static void far * MAPIENTRY _farrepalloc(void far *ptr, size_t size)
-{ return ((void far *)farrealloc(ptr, size)); }
+{ return ((void far *)realloc(ptr, size)); }
 
 
 void OS2FAR * (MAPIENTRY *palloc)(size_t size) = _palloc;

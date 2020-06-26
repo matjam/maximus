@@ -540,7 +540,7 @@ static void near HashUserFile(struct _sbcfg *psc)
 
   size=UserFileSize(huf) * sizeof(dword) * 2;
 
-  if ((psc->hashes=farmalloc(size))==NULL)
+  if ((psc->hashes=malloc(size))==NULL)
     NoMem();
 
   psc->num_hash=size / sizeof(dword);

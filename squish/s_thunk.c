@@ -25,16 +25,6 @@
 
 /* Thunks for the MsgAPI allocation routines */
 
-/*
-#if defined(UNIX)
-# define OS2FAR  
-# define MAPIENTRY
-# define farmalloc(a) malloc(a)
-# define farfree(a) free(a)
-# define farrealloc(a) realloc(a)
-#endif
-*/
-
 void OS2FAR * EXPENTRY sq_palloc(size_t size)
 {
   return ((void OS2FAR *)malloc(size));
@@ -52,17 +42,17 @@ void OS2FAR * EXPENTRY sq_repalloc(void OS2FAR *ptr, size_t size)
 
 void far * EXPENTRY sq_farpalloc(size_t size)
 {
-  return ((void far *)farmalloc(size));
+  return ((void far *)malloc(size));
 }
 
 void EXPENTRY sq_farpfree(void far *ptr)
 {
-  farfree(ptr);
+  free(ptr);
 }
 
 void far * EXPENTRY sq_farrepalloc(void far *ptr, size_t size)
 {
-  return ((void far *)farrealloc(ptr, size));
+  return ((void far *)realloc(ptr, size));
 }
 
 

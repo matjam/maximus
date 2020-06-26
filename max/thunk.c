@@ -26,16 +26,6 @@
 
 /* Thunks for the MsgAPI allocation routines */
 
-/*
-#if defined(UNIX)
-# define OS2FAR
-# define MAPIENTRY
-# define farmalloc(a) malloc(a)
-# define farfree(a) free(a)
-# define farrealloc(a) realloc(a)
-#endif
-*/
-
 void OS2FAR * MAPIENTRY max_palloc(size_t size)
 { return ((void OS2FAR *)malloc(size)); }
 
@@ -46,11 +36,11 @@ void OS2FAR * MAPIENTRY max_repalloc(void OS2FAR *ptr, size_t size)
 { return ((void OS2FAR *)realloc((void *)ptr, size)); }
 
 void far * MAPIENTRY max_farpalloc(size_t size)
-{ return ((void far *)farmalloc(size)); }
+{ return ((void far *)malloc(size)); }
 
 void MAPIENTRY max_farpfree(void far *ptr)
-{ farfree(ptr); }
+{ free(ptr); }
 
 void far * MAPIENTRY max_farrepalloc(void far *ptr, size_t size)
-{ return ((void far *)farrealloc(ptr, size)); }
+{ return ((void far *)realloc(ptr, size)); }
 

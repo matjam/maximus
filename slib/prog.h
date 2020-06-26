@@ -27,167 +27,49 @@
 extern "C" {
 #endif
 
-#ifndef SJD
-#define SJD
-#endif
-
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "compiler.h"
 #include "typedefs.h"
 #include "stamp.h"
 
-/*#include "typedefs.h"*/ /* now included from compiler.h */ /* not anymore - wes */
-#if defined(UNIX)
-# include <unistd.h>
+/* For ERRNO definitions */
+#define ENOTSAM EXDEV
+
+int _stdc fnsplit(const char *path,char *drive,char *dir,char *name,char *ext);
+int _stdc getcurdir(int drive, char *directory);
+
+int fossil_wherex(void);
+int fossil_wherey(void);
+void fossil_getxy(char *row, char *col);
+
+#define textattr(attr)
+#define getdisk()                  get_disk()
+#define setdisk(drive)             set_disk(drive)
+
+#define getvect(int)            _dos_getvect(int)
+#define setvect(int, func)      _dos_setvect(int, func)
+
+#ifndef inportb
+  #define inportb(port)           inp(port)
 #endif
 
-#ifndef NULLL
-#ifdef OS_2 /* for use with DLLs */
-  #define NULLL (void far *)NULL
-#else
-  #define NULLL NULL
-#endif
+#define inport(port)            inpw(port)
+
+#ifndef outportb
+  #define outportb(port, byte)    outp(port, byte)
 #endif
 
-#ifdef __FARDATA__
-  #include "alc.h"
+#define outport(port, byte)     outpw(port, byte)
 
-  #if !defined(_lint)
-    #define malloc(n)     farmalloc(n)
-    #define calloc(n,u)   farcalloc(n,u)
-    #define free(p)       farfree(p)
-    #define realloc(p,n)  farrealloc(p,n)
-  #endif
-
-  #if defined(__TURBOC__) && !defined(__TOPAZ__)
-    #define coreleft()    farcoreleft()
-  #endif
-#else
-  unsigned cdecl coreleft(void);
-  unsigned long cdecl farcoreleft(void);
+#if !defined(MK_FP) && !defined(_lint)
+  #define MK_FP(seg, off)  (void far *)((unsigned long)(seg)<<16L | (off))
 #endif
 
-
-#if defined(__WATCOMC__) || defined(__MSC__) || defined(_lint)
-
-  #define farmalloc(n)    _fmalloc(n)
-  #define farfree(p)      _ffree(p)
-  #define farrealloc(p,n) _frealloc(p,n)
-  void far *farcalloc(int n,int m);
-
-  #ifdef _MSC_VER
-    #if _MSC_VER >= 600
-      #define farcalloc(a,b) _fcalloc(a,b)
-    #endif /* _MSC_VER >= 600 */
-  #endif /* _MSC_VER */
-
-  #define da_year year
-  #define da_day day
-  #define da_mon month
-
-  #define ti_min minute
-  #define ti_hour hour
-  #define ti_hund hsecond
-  #define ti_sec second
-
-  #define getdate _dos_getdate
-  #define gettime _dos_gettime
-
-  #define NO_STRFTIME
-
-/*  #ifndef __WATCOMC__*/
-  #define NO_MKTIME
-/*  #endif*/
-
-#elif defined(__TURBOC__)
-
-  #define dosdate_t date
-  #define dostime_t time
-
-  #if (__TURBOC__ >= 0x0295) || defined(__TOPAZ__)
-    /* TC++ and above include a strftime() function */
-    #define NO_STRFTIME
-    #define NO_MKTIME
-  #endif
-
-#endif
- 
-#if defined(__FLAT__)
-    #undef farcalloc
-    #undef farmalloc
-    #undef farrealloc
-    #undef farfree
-    #undef _fmalloc
-
-    #define farcalloc  calloc
-    #define farmalloc  malloc
-    #define farrealloc realloc
-    #define farfree    free
-    #define _fmalloc   malloc
-#endif
-
-#ifndef __TURBOC__
-
-  /* For ERRNO definitions */
-  #define ENOTSAM EXDEV
-
-  int _stdc fnsplit(const char *path,char *drive,char *dir,char *name,char *ext);
-  int _stdc getcurdir(int drive, char *directory);
-
-  int fossil_wherex(void);
-  int fossil_wherey(void);
-  void fossil_getxy(char *row, char *col);
-
-  #define textattr(attr)
-  #define getdisk()                  get_disk()
-  #define setdisk(drive)             set_disk(drive)
-
-  #define getvect(int)            _dos_getvect(int)
-  #define setvect(int, func)      _dos_setvect(int, func)
-
-  #ifndef inportb
-    #define inportb(port)           inp(port)
-  #endif
-
-  #define inport(port)            inpw(port)
-
-  #ifndef outportb
-    #define outportb(port, byte)    outp(port, byte)
-  #endif
-
-  #define outport(port, byte)     outpw(port, byte)
-
-  #if !defined(MK_FP) && !defined(_lint)
-    #define MK_FP(seg, off)  (void far *)((unsigned long)(seg)<<16L | (off))
-  #endif
-#endif
-
-#if defined(__MSC__) || defined(UNIX)
-  int _fast lock(int fh, long offset, long len);
-  int _fast unlock(int fh, long offset, long len);
-#endif
-
-#ifdef OS_2
-  void _fast vbuf_flush(void);
-  void SnSetPipeName(char *pipename);
-  void SnWrite(char *str);
-
-  #define  Start_Shadow()
-  #define  End_Shadow()
-#else
-  void pascal Start_Shadow(void);
-  void pascal End_Shadow(void);
-#endif
-
-#ifdef __WATCOMC__  /* WC 9.0 mistakenly omits prototype for fdopen */
-  #if __WATCOMC__==900
-  FILE *fdopen(int __handle,const char *__mode);
-  #endif
-#endif
-
-
+int _fast lock(int fh, long offset, long len);
+int _fast unlock(int fh, long offset, long len);
 
 #ifndef cpp_begin
   #ifdef __cplusplus
@@ -198,25 +80,6 @@ extern "C" {
     #define cpp_end()
   #endif
 #endif
-
-
-#if !defined(UNIX) || !defined(HAVE_TIMER_T)
-# if !defined(__timer_t_defined) && !defined(__FreeBSD__)
-/**
- * FreeBSD defines timer_t in types.h since at least 1993, according to types(5).
- * Linux sometimes doesn't have it (RedHat 5.2), and sometimes does (RedHat 8.0).
- * RedHat 8.0 has __timer_t_defined time.h to indicate this; let's hope other
- * distributions do, too.
- *
- * This typedef will probably give us grief in the long run, since it's up for
- * debate in the Single UNIX Specification. Maybe we should examine the max
- * code and deprecate its use entirely.. -- Wes
- */
-typedef long timer_t;
-# endif
-#endif
-
-#define REGISTER
 
 #ifndef TRUE
 #define FALSE 0
@@ -359,29 +222,7 @@ extern char _vstdc weekday_ab[][4];
 
 extern struct __priv _vstdc _privs[];
 
-
-
 #include "progprot.h"
-
-
-#ifndef NO_STRFTIME
-  /* If compiler doesn't include a strftime(), use our own */
-
-  #include <time.h>
-  #include <sys/types.h>
-
-  size_t _stdc strftime(char *,size_t,const char *,const struct tm *);
-#endif
-
-
-#ifndef NO_MKTIME
-  /* If compiler doesn't include a mktime(), use our own */
-
-  #include <time.h>
-  #include <sys/types.h>
-
-  time_t _stdc mktime(struct tm * tm_ptr);
-#endif
 
 /* MS docs use both SH_DENYNONE and SH_DENYNO */
 

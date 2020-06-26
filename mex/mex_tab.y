@@ -218,7 +218,7 @@
 %type <opt>      opt_ref
 
 %token T_BYTE T_WORD T_DWORD T_STRING T_VOID
-%token T_BEGIN T_END T_IF T_THEN T_ELSE
+%token T_BEGIN T_END T_IF T_ELSE
 %token T_GOTO T_WHILE T_DO T_FOR
 %token T_STRUCT T_DOT T_ELLIPSIS
 

@@ -40,7 +40,6 @@ mex_extern struct _id
                 {"void",        T_VOID},
                 {"string",      T_STRING},
                 {"if",          T_IF},
-                {"then",        T_THEN},
                 {"else",        T_ELSE},
                 {"goto",        T_GOTO},
                 {"array",       T_ARRAY},

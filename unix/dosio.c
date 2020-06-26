@@ -32,7 +32,7 @@ char *fixPath(char *filename)
     return NULL;
 
   if (filename[0] && (filename[1] == ':'))
-    filename = filename + 2;
+    memmove(filename, filename + 2, strlen(filename) - 1);
 
   if (!strchr(filename, '\\'))
     return filename;

@@ -437,7 +437,7 @@ void ZmStatHdr(int fSend, int iHdr, char *szHdr, unsigned long ulHdr)
               szAt);
 
 /*  if (XferWinDoSync())*/
-    WinSync(gwXfer, FALSE);
+  WinSync(gwXfer, FALSE);
 }
 
 void ZmStatFile(char *szPath, unsigned long ulSize, unsigned fCrc32)

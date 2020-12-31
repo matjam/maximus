@@ -85,8 +85,6 @@ struct CommApi_
     DWORD COMMAPI (*fComOutSpace)(HCOMM hc);
     DWORD COMMAPI (*fComOutCount)(HCOMM hc);
 };
-
-struct CommApi_ CommApi;
 #endif
 
 #define COMM_PURGE_RX 1

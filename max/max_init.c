@@ -110,10 +110,6 @@ void Init_Variables(void)
 
   fFlow=FALSE;
 
-  #ifdef UNIX
-  memset(&CommApi, 0, sizeof(struct CommApi_));
-  #endif
-
   menu_lines=1;
 
   if ((s=getenv("PROMPT")) != NULL)

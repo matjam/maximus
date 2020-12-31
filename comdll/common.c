@@ -10,7 +10,7 @@
 
 extern int tcpip;
 
-extern struct CommApi_ CommApi;
+struct CommApi_ CommApi = {0};
 
 void SetCommApi()
 {

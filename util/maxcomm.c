@@ -200,7 +200,7 @@ int writeWIAC(int fd, unsigned char* buf, int count)
 
 void negotiateTelnetOptions(int preferBinarySession)
 {
-  unsigned char command[3];
+  unsigned char command[4];
   int 		ch;
 
   ch = read(0, &ch, 1);	/* Get the ball rolling */

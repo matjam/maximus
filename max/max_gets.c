@@ -361,7 +361,8 @@ int mdm_gets(char *string, int type, int c, int max, char *prompt)
     }
 
     ch=(unsigned char)Mdm_getcw();
-#warning Potential security problem? Can remote send local scan code?
+
+// TODO: Potential security problem? Can remote send local scan code?
 
 #ifdef EMSI
     /* Check for IEMSI caller.  If we're supposed to eat the character,     *

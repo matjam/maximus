@@ -137,10 +137,7 @@ VMADDR EXPENTRY MexPtrToVM(void *ptr)
 
 VMADDR EXPENTRY MexIaddrToVM(IADDR *pia)
 {
-  IADDR ia;
-
-  ia=*pia;
-  ia.indirect=FALSE;
+  pia->indirect=FALSE;
 
   return MexPtrToVM(MexFetch(FormByte, pia));
 }

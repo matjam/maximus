@@ -126,13 +126,19 @@ int _stdc main(int argc,char *argv[])
 
   Hello(A_NAME, A_DESC, VERSION, "1990, " THIS_YEAR);
 
+#ifndef UNIX
+    char *file_ext = ".ANS";
+#else
+    char *file_ext = ".ans";
+#endif
+
   if (argc < 2)
   {
     printf("Usage:\n\n");
 
     printf("  %s <infile> <outfile>\n\n",A_NAME);
 
-    printf("If no extension is specified for <infile>, then %s will use .ANS by\n",A_NAME);
+    printf("If no extension is specified for <infile>, then %s will use %s by\n",A_NAME, file_ext);
     printf("default.  If no <outfile> is specified, then <infile> will be used, but with\n");
     printf("an extension of %s.\n",EXT);
 
@@ -142,11 +148,7 @@ int _stdc main(int argc,char *argv[])
   strcpy(inname,argv[1]);
 
   if (strchr(inname,'.')==NULL)
-#ifndef UNIX
-    strcat(inname,".ANS");
-#else
-    strcat(inname,".ans");
-#endif
+    strcat(inname, file_ext);
 
   if (argc < 3)
   {

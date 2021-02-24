@@ -27,6 +27,7 @@
 #include "stamp.h"
 #include "typedefs.h"
 #include "compiler.h"
+#include "apidebug.h"
 
 #define MSGAPI
 #define MSGAPI_VERSION  1
@@ -485,11 +486,11 @@ cpp_begin()
   byte * _fast Address(NETADDR *a);
 
 
-  #ifndef MSGAPI_INIT
-    extern void OS2FAR * (MAPIENTRY *palloc)(size_t size);
-    extern void (MAPIENTRY *pfree)(void OS2FAR *ptr);
-    extern void OS2FAR * (MAPIENTRY *repalloc)(void OS2FAR *ptr, size_t size);
+  #define palloc(x) malloc(x)
+  #define repalloc(x, y) realloc(x, y)
+  #define pfree(x) free(x)
 
+  #ifndef MSGAPI_INIT
     extern void far * (MAPIENTRY *farpalloc)(size_t size);
     extern void (MAPIENTRY *farpfree)(void far *ptr);
     extern void far * (MAPIENTRY *farrepalloc)(void far *ptr, size_t size);

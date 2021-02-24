@@ -1,0 +1,52 @@
+#!/bin/bash
+set -e
+
+if [ -n "$1" ]; then
+	PREFIX="$1"
+else
+	PREFIX=/var/max
+fi
+
+MAXIMUS="${PREFIX}/etc/max.prm"
+PATH="/usr/local/bin:/usr/local/libexec/maxbbs:${PATH}"
+LD_LIBRARY_PATH="/usr/local/libexec/maxbbs:${LD_LIBRARY_PATH}"
+
+minDynNode=3
+
+export PREFIX PATH LD_LIBRARY_PATH minDynNode
+
+mkdir -p "${PREFIX}"
+rm -f "${PREFIX}/die.now"
+cd "${PREFIX}"
+
+# No instance data, so copy the template.
+if [ ! -f "${PREFIX}"/etc/max.ctl ]; then
+	cp -a "/usr/local/share"/maxbbs/template/* "${PREFIX}"
+	sed -i -e "s;/var/max;${PREFIX};g" etc/max.ctl etc/areas.bbs etc/compress.cfg etc/squish.cfg
+	mkdir -p log ipc tmp etc/nodelist etc/menus spool/staged_xfer spool/attach spool/olr spool/msgbase spool/file/uncheck spool/file/newup spool/file/util
+	touch "${PREFIX}"/log/echotoss.log
+	touch "${PREFIX}"/log/max.log
+	touch "${PREFIX}"/log/squish.log
+fi
+
+while [ ! -f "${PREFIX}"/die.now ]; do
+	# Recompile the bbs for every login.
+	# Computers are now fast enough and it helps with development.
+	(cd etc/lang && maid english -p)
+	mecca etc/help/\*.mec
+	mecca etc/misc/\*.mec
+	silt etc/max -x
+	(cd m && for file in *.mex; do
+		mex ${file/.mex}
+	done)
+	maid english -d -s -p${PREFIX}/etc/max
+	silt etc/max -p
+
+	# create user db
+	if [ ! -f etc/user.bbs ]; then
+		max etc/max -c
+	fi
+
+	max -w -b38400 -n0 -p2323 || true
+	sleep 1
+done
